@@ -424,7 +424,7 @@ You can then access the user session data like this:
 
 === Other useful resources ===
 
-  * [http://www.cgdou.net/flash/as3reference/flash/utils/IExternalizable.html Interface IExternalizable]
+  * [http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/flash/utils/IExternalizable.html Interface IExternalizable]
 
 === MISC AMFPHP/Flex/AS3/AIR Tutorials ===
 
