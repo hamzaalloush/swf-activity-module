@@ -1,0 +1,11 @@
+#summary Updates to the SWF Activity Module
+#labels Featured
+
+== Introduction ==
+
+This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
+
+
+=== 2009/12/07 ===
+
+New Google Code project site created. Old site has become corrupted, the Wiki is uneditable and some links have been changed by SpamBots.
