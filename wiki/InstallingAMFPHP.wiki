@@ -1,8 +1,11 @@
 #summary How to install AMFPHP (Flash Remoting) in Moodle
+#labels Featured
 
 == Introduction ==
 
-This tutorial describes how to install the AMFPHP Flash Remoting web service in Moodle on a server. It was originally written some time ago by Jamie Pratt. This version is updated so that it works with the most recent version of AMFPHP (1.9.beta), ActionScript? 3.0 and AMF3 (Action Message Format).
+This tutorial describes how to install the AMFPHP Flash Remoting web service in Moodle on a server. If you do not want to record users' results or grades then this installation is unnecessary.
+
+It was originally written some time ago by Jamie Pratt. This version is updated so that it works with the most recent version of AMFPHP (1.9.beta), ActionScript? 3.0 and AMF3 (Action Message Format).
 
 *Please note:* Moodle 2.0 will have Zend_Amf installed in the standard download package. It is a better version than AMFPHP (by the same developer) and it is strongly recommended that you use it when Moodle 2.0 is released. If you are new to Flash Remoting, I recommend using AMFPHP to get started as it includes a Flex service browser application that makes testing and debugging particularly easy.
 
