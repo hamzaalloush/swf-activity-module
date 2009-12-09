@@ -7,12 +7,10 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 === 2009/12/08 ===
 
-Uploaded the preliminary stages of the skinning API library. Optionally, Flash e-learning interactions can load in a skin file that provides a standardised set of user interface graphics to change their visual appearance. A similar concept to CSS and themes.
+  * Backup, restore and upgrade scripts have been completed. Not thoroughly tested however. Please try it out on your development server and report any bugs in the issues tracker.
 
-=== 2009/12/08 ===
-
-Backup, restore and upgrade scripts have been completed. Not thoroughly tested however. Please try it out on your development server and report any bugs in the issues tracker.
+  * Uploaded the preliminary stages of the skinning API library. Optionally, Flash e-learning interactions can load in a skin file that provides a standardised set of user interface graphics to change their visual appearance. A similar concept to CSS and themes.
 
 === 2009/12/07 ===
 
-New Google Code project site created. Old site has become corrupted, the Wiki is uneditable and some links have been changed by SpamBots.
+  * New Google Code project site created. Old site has become corrupted, the Wiki is uneditable and some links have been changed by SpamBots.
