@@ -5,6 +5,9 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
+=== 2009/12/08 ===
+
+Backup, restore and upgrade scripts have been completed. Not thoroughly tested however. Please try it out on your development server and report any bugs in the issues tracker.
 
 === 2009/12/07 ===
 
