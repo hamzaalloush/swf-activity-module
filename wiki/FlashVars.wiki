@@ -9,19 +9,19 @@ List of parameters
 
 (In alphabetical order)
 
-apikey
-configxml
-course
-coursepage
-flashvar1
-flashvar2
-flashvar3
-gateway
-grading
-instance
-interaction
-moodledata
-skin
-starttime
-swfid
-xmlurl
+  * apikey
+  * configxml
+  * course
+  * coursepage
+  * flashvar1
+  * flashvar2
+  * flashvar3
+  * gateway
+  * grading
+  * instance
+  * interaction
+  * moodledata
+  * skin
+  * starttime
+  * swfid
+  * xmlurl
