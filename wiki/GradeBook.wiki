@@ -1,13 +1,26 @@
-#summary One-sentence summary of this page.
+#summary A simplified custom grade book for the SWF Activity Module in Moodle
+#labels Featured
 
-= Introduction =
+== Introduction ==
 
-Add your content here.
+This page describes the SWF Activity Module grade book. This is currently in development and not yet available.
 
+== Why create a separate grade book? ==
 
-= Details =
+Over the last two versions of Moodle (1.8 and 1.9), the grade book has undergone substantial changes and Moodle 2.0 is likely to make yet more. Pushing grades into Moodle's grade book across different versions is problematic, poorly documented, and overly complicated due to the lack of an effective grade book API. The SWF Activity Module grade book will be a "no frills" basic implementation of recording user data (grades, scores, times, etc.) as a temporary measure until the Moodle grade book API issue is resolved (which may not be any time soon!).
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+----
+
+== Overview ==
+
+So far, the grade book consists of a single database table with the following columns:
+
+  * id:INT - auto-increment key
+  * courseid:INT - Moodle course ID
+  * instanceid:INT - Moodle module instance ID
+  * swfid:INT - SWF Activity Module ID
+  * starttime:INT - Server time at start of activity
+  * endtime:INT - Server time at end of activity
+  * grade:INT - Users' grades
+  * maxgrade:INT - Maximum grade allowed (for weighting grades)
+  * answered:TEXT - CSV list of users' answers to questions for interaction analysis
