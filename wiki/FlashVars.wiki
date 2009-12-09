@@ -1,27 +1,27 @@
 #summary Parameters passed into Flash e-learning applications via FlashVars
 #labels Featured
 
-Introduction
+==Introduction==
 
 The Flash embed code of the SWF Activity Module passes in parameters via FlashVars dynamically that can be accessed by the e-learning application.
 
-List of parameters
+==List of parameters==
 
 (In alphabetical order)
 
-  * apikey
-  * configxml
-  * course
-  * coursepage
-  * flashvar1
+  * apikey - Some web services require an API key for authentication
+  * configxml - An option to set all FlashVars parameters via an externally loaded XML file
+  * course - Current Moodle course ID
+  * coursepage - Quick link to current Moodle course page
+  * flashvar1 - Text data that doesn't fit in any of the other parameters
   * flashvar2
   * flashvar3
-  * gateway
-  * grading
-  * instance
-  * interaction
-  * moodledata
-  * skin
-  * starttime
-  * swfid
-  * xmlurl
+  * gateway - URL to Flash Remoting gateway
+  * grading - 0% - 100% value for weighting grades in SWF Activity Module instances (learning interactions)
+  * instance - Moodle module instance ID
+  * interaction - Learning interaction data ID for use with Flash Remoting
+  * moodledata - URL to current Moodle course files directory
+  * skin - URL to skin SWF file
+  * starttime - Server time for start of learning interaction
+  * swfid - SWF Activity Module instance ID
+  * xmlurl - URL to learning interaction data XML file
