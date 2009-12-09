@@ -1,4 +1,5 @@
 #summary How to install the SWF Activity Module in Moodle
+#labels Featured,Phase-Implementation
 
 == Introduction ==
 
@@ -12,3 +13,11 @@ This page describes how to install the SWF Activity Module in Moodle.
   * Log in to Moodle and go to Administration > Notifications
   * The module should install correctly
   * That's it!
+
+----
+
+== Common installation problems ==
+
+Make sure that the SWF Activity Module directory structure in Moodle is as follows:
+
+  * MOODLE/mod/swf/... - NOT - MOODLE/mod/swf/swf/... 
