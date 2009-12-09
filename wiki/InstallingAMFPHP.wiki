@@ -430,33 +430,33 @@ In this tutorial he shows you how to directly return database records to Flash u
 
 === Other useful resources ===
 
-  * Interface IExternalizable
+  * [http://www.cgdou.net/flash/as3reference/flash/utils/IExternalizable.html Interface IExternalizable]
 
 === MISC AMFPHP/Flex/AS3/AIR Tutorials ===
 
-  * How to set up a simple connection from Actionscript 3 to call your services in AMFPHP
-  * Flash Remoting with AS3
-  * Writing private attributes to a database using AMF in AS3 (IExternalizable)
-  * Communication between Flash and AMFPHP made easy
-  * AMFPHP in Flash CS3 with AS3 - jQuery.post style
-  * Writing private attributes to a database using AMF in AS3
-  * Turning Flash CS3 assets into Flex components using Flex Component Kit
+  * [http://soenkerohde.com/2008/06/amfphp-on-air-tutorial-with-mamp/ How to set up a simple connection from Actionscript 3 to call your services in AMFPHP]
+  * [http://www.flash-db.com/Tutorials/helloAS3/ Flash Remoting with AS3]
+  * [http://www.actionscriptfreelancer.com/category/php/ Writing private attributes to a database using AMF in AS3 (IExternalizable)]
+  * [http://www.kylebrekke.com/wordpress/2008/amfphp-as3-class-communication-between-flash-and-amfphp-made-easy/ Communication between Flash and AMFPHP made easy]
+  * [http://www.prodevtips.com/2008/07/28/amfphp-in-flash-cs3-with-as3-jquerypost-style/ AMFPHP in Flash CS3 with AS3 - jQuery.post style]
+  * [http://www.actionscriptfreelancer.com/writing-private-attributes-to-a-database-using-amf-in-as3-iexternalizable/ Writing private attributes to a database using AMF in AS3]
+  * [http://blog.flexcommunity.net/?p=40 Turning Flash CS3 assets into Flex components using Flex Component Kit]
 
 Sample Flex,AS3(&AIR) Sourcecode & Applications
 
-  * AMF-PHP based poll in Flex
-  * AMFPHP on AIR Tutorial with MAMP
+  * [http://polygeek.com/510_flex-tutorial_amf-php-based-poll-in-flex AMF-PHP based poll in Flex]
+  * [http://soenkerohde.com/2008/06/amfphp-on-air-tutorial-with-mamp/ AMFPHP on AIR Tutorial with MAMP]
 
 === Misc Example AMFPHP Framework Examples ===
 
-  * Combining Drupal, AMFPHP, SWFAddress and Flash
-  * Displaying Paypal IPN payment data in Adobe Flex via AMFPHP
+  * [http://modern-carpentry.com/talk/?p=32 Combining Drupal, AMFPHP, SWFAddress and Flash]
+  * [http://blog.flexcommunity.net/?p=43 Displaying Paypal IPN payment data in Adobe Flex via AMFPHP]
 
 === AS3 APIS ===
 
-  * Youtube Data API AS3
+  * [http://code.google.com/apis/youtube/flash_api_reference.html Youtube Data API AS3]
   * [http://code.google.com/apis/maps/documentation/flash/ Google Maps API AS3]
 
 === AMFPHP Is Fast ===
 
-There's always someone who'll play with a new toy and push it until it breaks. AMFPHP can go pretty fast! Check out this blog article.
+There's always someone who'll play with a new toy and push it until it breaks. AMFPHP can go pretty fast! [http://www.5etdemi.com/blog/archives/2007/01/amfphp-19-beta-2-ridiculously-faster/ Check out this blog article].
