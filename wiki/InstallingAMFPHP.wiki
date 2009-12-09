@@ -9,6 +9,8 @@ It was originally written some time ago by Jamie Pratt. This version is updated 
 
 *Please note:* Moodle 2.0 will have Zend_Amf installed in the standard download package. It is a better version than AMFPHP (by the same developer) and it is strongly recommended that you use it when Moodle 2.0 is released. If you are new to Flash Remoting, I recommend using AMFPHP to get started as it includes a Flex service browser application that makes testing and debugging particularly easy.
 
+----
+
 == What is AMFPHP? ==
 
 AMFPHP (Action Message Format PHP) is a widely used open source remoting server that allows Flash and Flex client-side applications to call PHP methods directly, as if they were native Flash/Flex ActionScript methods. It is fast and lightweight and presents an efficient, simple and easy to implement method of communicating with PHP and databases.
@@ -34,6 +36,8 @@ AMFPHP automatically converts data types between ActionScript and PHP to their n
 == AMF0 and AMF3 ==
 
 Previous versions of Flash, using ActionScript 2.0 (versions 6, 7 and 8), use AMF0. ActionScript 3.0, Flash CS3+ and Flex, use AMF3 by default but can also use AMF0. What's the difference? AMF3 is compressed and therefore lighter and faster. For more details look here. AMFPHP version (1.9) supports AMF3
+
+----
 
 == Installing AMFPHP in Moodle ==
 
@@ -82,6 +86,8 @@ php_value error_reporting 2047
 SetEnv DEFAULT_PHP_VERSION 5
 }}}
 
+----
+
 == Testing AMFPHP in Moodle ==
 
 Here is an example of a simple AMF Moodle service that checks the login status of your browser.
@@ -120,6 +126,8 @@ class UserName
 }
 ?>
 }}}
+
+----
 
 == Testing AMFPHP in Flash ==
 
@@ -250,6 +258,8 @@ package {
         }
 }
 }}}
+
+----
 
 == AMFPHP Moodle Service Library ==
 
@@ -401,6 +411,8 @@ You can then access the user session data like this:
                 $this->mdl->user_id;
                 $this->mdl->data_path;
 }}}
+
+----
 
 == Useful Links ==
 
