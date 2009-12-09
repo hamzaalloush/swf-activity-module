@@ -1,62 +1,62 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+== Introduction ==
 
-Add your content here.
+This tutorial describes how to install the AMFPHP Flash Remoting web service in Moodle on a server. It was originally written some time ago by Jamie Pratt. This version is updated so that it works with the most recent version of AMFPHP (1.9.beta), ActionScript? 3.0 and AMF3 (Action Message Format).
 
+*Please note:* Moodle 2.0 will have Zend_Amf installed in the standard download package. It is a better version than AMFPHP (by the same developer) and it is strongly recommended that you use it when Moodle 2.0 is released. If you are new to Flash Remoting, I recommend using AMFPHP to get started as it includes a Flex service browser application that makes testing and debugging particularly easy.
 
-This tutorial was originally written some time ago by Jamie Pratt here. This version is updated so that it works with the most recent version of AMFPHP (1.9.beta), ActionScript? 3.0 and AMF3 (Action Message Format).
+== What is AMFPHP? ==
 
-What is AMFPHP?
+AMFPHP (Action Message Format PHP) is a widely used open source remoting server that allows Flash and Flex client-side applications to call PHP methods directly, as if they were native Flash/Flex ActionScript methods. It is fast and lightweight and presents an efficient, simple and easy to implement method of communicating with PHP and databases.
 
+== Preserved Data Types ==
 
+AMFPHP preserves the following data types between ActionScript and PHP:
 
-Action Message Format PHP
+  * Array
+  * Bitmap
+  * ByteArray?
+  * int
+  * Number
+  * Object
+  * Recordset (mysql_result)
+  * String
+  * XML (ActionScript? 3.0 also supports E4X notation)
 
-AMFPHP is a widely used open source remoting server that allows Flash and Flex client-side applications to call PHP methods directly, as if they were native Flash/Flex ActionScript? methods. It is fast and lightweight and presents an efficient, simple and easy to implement method of communicating with PHP and databases.
+Note: Please add to this list if you have successfully tested data types using AMFPHP 1.9.beta+ and ActionScript 3.0.
 
-Preserved Data Types
+AMFPHP automatically converts data types between ActionScript and PHP to their native equivalents. For example, it can convert a PHP array into and ActionScript array or a PHP resource, such as a mysql_result() into an Actionscript Recordset (Flex class).
 
-AMFPHP preserves the following data types between ActionScript? and PHP:
+== AMF0 and AMF3 ==
 
-Array
-Bitmap
-ByteArray?
-int
-Number
-Object
-Recordset (mysql_result)
-String
-XML (ActionScript? 3.0 also supports E4X notation)
-Note: Please add to this list if you have successfully tested data types using AMFPHP 1.9.beta+ and ActionScript? 3.0.
+Previous versions of Flash, using ActionScript 2.0 (versions 6, 7 and 8), use AMF0. ActionScript 3.0, Flash CS3+ and Flex, use AMF3 by default but can also use AMF0. What's the difference? AMF3 is compressed and therefore lighter and faster. For more details look here. AMFPHP version (1.9) supports AMF3
 
-AMFPHP automatically converts data types between ActionScript? and PHP to their native equivalents. For example, it can convert a PHP array into and ActionScript? array or a PHP resource, such as a mysql_result() into an Actionscript Recordset.
+== Installing AMFPHP in Moodle ==
 
-AMF0 and AMF3
+=== Download from this project site ===
 
-Previous versions of Flash, using ActionScript? 2.0 (versions 6, 7 and 8), use AMF0. ActionScript? 3.0, Flash CS3+ and Flex, use AMF3 by default but can also use AMF0. What's the difference? AMF3 is compressed and therefore lighter and faster. For more details look here. AMFPHP version (1.9) supports AMF3
+  * Goto the downloads section on this site and download the amfphp-1.9-beat.zip file.
+  * Unzip the file and upload to MOODLE/lib/
+  * That's it!
 
-What Are the Differences between Using AMFPHP and SCORM?
+=== Download from AMFPHP.org ===
 
-Several Moodle developers and contributors have asked the question, "If you want to deploy Flash in Moodle, why not use SCORM?" There is a discussion in the General Developers Forum on the advantages and disadvantages of SCORM.
+  * Download the latest version of AMFPHP, currently version 1.9.beta (SourceForge? repository).
+  * Unzip the file and find the directory amfphp.
+  * Upload the amfphp directory to MOODLEROOT/lib/
+  * Find the file MOODLEROOT/lib/amfphp/gateway.php and open it in your favourite text/PHP editor
+  * At the beginning of the code, add the line: include_once "../../config.php";
+  * Find and edit the line: $gateway->setClassPath($servicesPath); and change it to: $gateway->setClassPath($CFG->dirroot."/lib/amfphp/services/");
+  * Upload the edited MOODLEROOT/lib/amfphp/gateway.php file.
+  * That's it!
 
-Installing AMFPHP in Moodle
-
-Download
-Download the latest version of AMFPHP, currently version 1.9.beta (SourceForge? repository).
-Unzip the file and find the directory amfphp.
-Upload the amfphp directory to MOODLEROOT/lib/
-Edit gateway.php
-Find the file MOODLEROOT/lib/amfphp/gateway.php and open it in your favourite text/PHP editor
-At the beginning of the code, add the line: include_once "../../config.php";
-Find and edit the line: $gateway->setClassPath($servicesPath); and change it to: $gateway->setClassPath($CFG->dirroot."/lib/amfphp/services/");
-Upload the edited MOODLEROOT/lib/amfphp/gateway.php file.
-That's it!
-Setting PHP 5 as Default
-Please note: AMFPHP requires PHP 5 to work seamlessly, although some report success with version 4. Many servers run both PHP 4 and 5, but have them set to run PHP 4 by default. If you experience problems, you may have to change the default PHP version in the MOODLEROOT/lib/amfphp/ directory with an .htaccess file. The following is an example only. Please check that it is correct for your server configuration. If you have a hosted server, they'll probably have an example in their help files. For example:
+== Setting PHP 5 as Default ==
+*Please note:* AMFPHP requires PHP 5 to work seamlessly, although some report success with version 4. Many servers run both PHP 4 and 5, but have them set to run PHP 4 by default. If you experience problems, you may have to change the default PHP version in the MOODLEROOT/lib/amfphp/ directory with an .htaccess file. The following is an example only. Please check that it is correct for your server configuration. If you have a hosted server, they'll probably have an example in their help files. For example:
 
 Find the AMFPHP .htaccess file at MOODLEROOT/lib/amfphp/.htaccess
 Open it with a text editor. You'll see:
+{{{
 #If you're working with a server which doesn't seem to display errors and you don't 
 #have access to httpd.conf and you have a good reason to develop remotely instead of
 #locally, you may have luck with uploading this configuration file to the server
@@ -64,7 +64,10 @@ Open it with a text editor. You'll see:
 php_flag display_errors on
 php_flag display_startup_errors on
 php_value error_reporting 2047
+}}}
+
 Add another line of code to change the default PHP version setting for the amfphp directory:
+{{{
 #If you're working with a server which doesn't seem to display errors and you don't 
 #have access to httpd.conf and you have a good reason to develop remotely instead of
 #locally, you may have luck with uploading this configuration file to the server
@@ -74,17 +77,22 @@ php_flag display_startup_errors on
 php_value error_reporting 2047
 
 SetEnv DEFAULT_PHP_VERSION 5
-Testing AMFPHP in Moodle
+}}}
+
+== Testing AMFPHP in Moodle ==
 
 Here is an example of a simple AMF Moodle service that checks the login status of your browser.
 
-Create a new document in your preferred text/PHP editor
-Copy and paste the code and save it as UserName?.php
-Upload it to MOODLEROOT/lib/amfphp/services/
+  * Create a new document in your preferred text/PHP editor
+  * Copy and paste the code and save it as UserName?.php
+  * Upload it to MOODLEROOT/lib/amfphp/services/
+
 Now is a good time to find out if your server is running the correct PHP version. If your server is running PHP 4 by default, you'll get error messages caused by the "public" namespace.
 
-Navigate to the PHP page you just uploaded in your browser: MOODLEROOT/lib/amfphp/services/UserName?.php
-If there are no error messages then you can continue to the "Testing AMFPHP in Flash" section
+  * Navigate to the PHP page you just uploaded in your browser: MOODLEROOT/lib/amfphp/services/UserName?.php
+  * If there are no error messages then you can continue to the "Testing AMFPHP in Flash" section
+
+{{{
 <?php
 class UserName
 {
@@ -108,9 +116,11 @@ class UserName
     }
 }
 ?>
-Testing AMFPHP in Flash
+}}}
 
-Please note: Flash CS3 and Flex come with the necessary classes for using AMFPHP already installed. It is not necessary to install any new classes!
+== Testing AMFPHP in Flash ==
+
+*Please note:* Flash CS3 and Flex come with the necessary classes for using AMFPHP already installed. It is not necessary to install any new classes!
 
 Open the Flash CS3 IDE
 Create a new ActionScript? 3.0 class document
