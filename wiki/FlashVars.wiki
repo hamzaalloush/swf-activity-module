@@ -1,1 +1,27 @@
-A description of FlashVars goes here.
+#summary Parameters passed into Flash e-learning applications via FlashVars
+#labels Featured
+
+Introduction
+
+The Flash embed code of the SWF Activity Module passes in parameters via FlashVars dynamically that can be accessed by the e-learning application.
+
+List of parameters
+
+(In alphabetical order)
+
+apikey
+configxml
+course
+coursepage
+flashvar1
+flashvar2
+flashvar3
+gateway
+grading
+instance
+interaction
+moodledata
+skin
+starttime
+swfid
+xmlurl
