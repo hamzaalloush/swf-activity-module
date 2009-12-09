@@ -450,6 +450,7 @@ Sample Flex,AS3(&AIR) Sourcecode & Applications
 
   * [http://code.google.com/apis/youtube/flash_api_reference.html Youtube Data API AS3]
   * [http://code.google.com/apis/maps/documentation/flash/ Google Maps API AS3]
+  * [http://developer.yahoo.com/flash/ Yahoo! Flash Developer Center]
 
 === AMFPHP Is Fast ===
 
