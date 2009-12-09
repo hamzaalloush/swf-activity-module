@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary How to install AMFPHP (Flash Remoting) in Moodle
 
 == Introduction ==
 
@@ -122,17 +122,20 @@ class UserName
 
 *Please note:* Flash CS3 and Flex come with the necessary classes for using AMFPHP already installed. It is not necessary to install any new classes!
 
-Open the Flash CS3 IDE
-Create a new ActionScript? 3.0 class document
-Copy and past the code below and save it as UserName?.as
-Create a new ActionScript? 3.0 FLA document
-In Properties > Document class: type UserName?.as
-Save the FLA file as UserName?.fla in the same directory as UserName?.as
-Publish the UserName?.swf, AC_RunActiveContent?.js and UserName?.html files
-Upload the published files to your server
-In your browser, navigate to the location of the UserName?.html page
-Try logging in and out of Moodle to see the change in your login status
-ActionScript? 3.0 Document Class
+  * Open the Flash CS3 IDE
+  * Create a new ActionScript? 3.0 class document
+  * Copy and past the code below and save it as UserName.as
+  * Create a new ActionScript? 3.0 FLA document
+  * In Properties > Document class: type UserName.as
+  * Save the FLA file as UserName.fla in the same directory as UserName.as
+  * Publish the UserName.swf, AC_RunActiveContent.js and UserName.html files
+  * Upload the published files to your server
+  * In your browser, navigate to the location of the UserName.html page
+  * Try logging in and out of Moodle to see the change in your login status
+
+== ActionScript 3.0 Document Class ==
+
+{{{
 package {
         
         import flash.display.Sprite;
@@ -243,22 +246,29 @@ package {
                 }
         }
 }
-AMF Moodle Service Library
+}}}
 
-AMFPHP Service Browser
+== AMFPHP Moodle Service Library ==
+
+=== AMFPHP Service Browser ===
+
 AMFPHP 1.9.beta comes with a Flex service browser ready installed. It allows you to see your library of services in the MOODLEROOT/lib/amfphp/services/ directory and call them. It also displays error messages very well. It's an ideal tool for checking out your services before your write Flash and Flex applications that call them.
 
-VERY IMPORTANT!
+=== VERY IMPORTANT! ===
+
 DO NOT leave the service browser installed on a production server (i.e. public). It will leave your service library and therefore your Moodle API and databases exposed to the public!
 
-List Of AMF Moodle Services
-User.php - returns user login status, returns an array of config settings you can set, returns a value of a config setting, sets a value of a config setting
-UserName?.php - returns user login status
-User.php Updated
+== List Of AMF Moodle Services ==
 
-If you've already seen the tutorials in Moodle docs, here's an updated version of User.php that works with AMFPHP 1.9.beta. As with UserName?.php, upload it to the services directory at MOODLEROOT/lib/amfphp/services/. You can test it by navigating to MOODLEROOT/lib/amfphp/browser/index.html and selecting User from the menu of services.
+  * User.php - returns user login status, returns an array of config settings you can set, returns a value of a config setting, sets a value of a config setting
+  * UserName.php - returns user login status
+  * User.php Updated
 
-User.php Script
+If you've already seen the tutorials in Moodle docs, here's an updated version of User.php that works with AMFPHP 1.9.beta. As with UserName.php, upload it to the services directory at MOODLEROOT/lib/amfphp/services/. You can test it by navigating to MOODLEROOT/lib/amfphp/browser/index.html and selecting User from the menu of services.
+
+=== User.php Script ===
+
+{{{
 <?php
 class User
 {
@@ -310,13 +320,17 @@ class User
     }
 }
 ?>
-MDL.php
+}}}
+
+=== MDL.php ===
 
 The following is a simple AMFPHP service that retrieves current user session data from Moodle. Save this file in the services directory of AMFPHP, i.e. MOODLEROOT/lib/amfphp/services/MDL.php.
 
 This class is PHP5 Object Oriented code and acts as a handy repository for accessing user session data. I haven't forgotten the closing ?> PHP tag. It just isn't recommended for OOP PHP5 classes. (It probably should use getter and setter methods of Moodle's API... but I can't find the relevant documentation!)
 
-MDL.php script
+MDL.php script:
+
+{{{
 <?php
 class MDL
 {
@@ -358,8 +372,11 @@ class MDL
                 unset($this->data_path);
         }
 }
+}}}
+
 You can create an instance of this class like this:
 
+{{{
 <?php
 class YourClassName
 {
@@ -371,19 +388,24 @@ class YourClassName
                 require('MDL.php');
                 $this->mdl = new MDL();
         }
+}}}
+
 You can then access the user session data like this:
 
+{{{
                 $this->mdl->course_id;
                 $this->mdl->course_name;
                 $this->mdl->user_id;
                 $this->mdl->data_path;
-Useful Links
+}}}
 
-AMFPHP
+== Useful Links ==
 
-AMFPHP home page amfphp.org
-AMFPHP code repository SourceForge.net
-Sir Lee Brimelow's video tutorials
+=== AMFPHP ===
+
+  * AMFPHP home page amfphp.org
+  * AMFPHP code repository SourceForge.net
+  * Sir Lee Brimelow's video tutorials
 
 Introduction to AMFPHP 1
 Learn how to install AMFPHP and create a simple service that sends email.
@@ -391,39 +413,47 @@ Learn how to install AMFPHP and create a simple service that sends email.
 Introduction to AMFPHP 2
 In this tutorial he shows you how to directly return database records to Flash using AMFPHP.
 
-Alessandro Crugnola's tutorials
+=== Alessandro Crugnola's tutorials ===
 
-Flex RemoteObject and AMFPHP 1.9
-Send and Receive ByteArray to AMFPHP
-Flex2/Actionscript3.0 and AMFPHP
-Adobe ActionScript? 3.0 Language Reference
+  * Flex RemoteObject and AMFPHP 1.9
+  * Send and Receive ByteArray to AMFPHP
+  * Flex2/Actionscript3.0 and AMFPHP
+  * Adobe ActionScript? 3.0 Language Reference
 
-The two most important classes related to AMFPHP are:
+=== The two most important classes related to AMFPHP are: ===
 
-NetConnection class
-Responder class
-Other useful resources
-Interface IExternalizable
-MISC AMFPHP/Flex/AS3/AIR Tutorials
+  * NetConnection class
+  * Responder class
 
-AS3/AMF
+=== Other useful resources ===
 
-How to set up a simple connection from Actionscript 3 to call your services in AMFPHP
-Flash Remoting with AS3
-Writing private attributes to a database using AMF in AS3 (IExternalizable)
-Communication between Flash and AMFPHP made easy
-AMFPHP in Flash CS3 with AS3 - jQuery.post style
-Writing private attributes to a database using AMF in AS3
-Turning Flash CS3 assets into Flex components using Flex Component Kit
+  * Interface IExternalizable
+
+=== MISC AMFPHP/Flex/AS3/AIR Tutorials ===
+
+  * How to set up a simple connection from Actionscript 3 to call your services in AMFPHP
+  * Flash Remoting with AS3
+  * Writing private attributes to a database using AMF in AS3 (IExternalizable)
+  * Communication between Flash and AMFPHP made easy
+  * AMFPHP in Flash CS3 with AS3 - jQuery.post style
+  * Writing private attributes to a database using AMF in AS3
+  * Turning Flash CS3 assets into Flex components using Flex Component Kit
+
 Sample Flex,AS3(&AIR) Sourcecode & Applications
-AMF-PHP based poll in Flex
-AMFPHP on AIR Tutorial with MAMP
-Misc Example AMFPHP Framework Examples
 
-Combining Drupal, AMFPHP, SWFAddress and Flash
-Displaying Paypal IPN payment data in Adobe Flex via AMFPHP
-AS3 APIS
-Youtube Data API AS3
-Google Maps API AS3
-AMFPHP Is Fast
+  * AMF-PHP based poll in Flex
+  * AMFPHP on AIR Tutorial with MAMP
+
+=== Misc Example AMFPHP Framework Examples ===
+
+  * Combining Drupal, AMFPHP, SWFAddress and Flash
+  * Displaying Paypal IPN payment data in Adobe Flex via AMFPHP
+
+=== AS3 APIS ===
+
+  * Youtube Data API AS3
+  * Google Maps API AS3
+
+=== AMFPHP Is Fast ===
+
 There's always someone who'll play with a new toy and push it until it breaks. AMFPHP can go pretty fast! Check out this blog article.
