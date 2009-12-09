@@ -39,6 +39,6 @@ The answered DB column (optional) provides a record of answers per questions tha
 
 === Preliminary answer key idea: ===
 
-n = not answered
-w = wrong answer given
-0 - 100:int = grade for answer (should sum up to 100 in total for all questions)
+  * n = not answered
+  * w = wrong answer given
+  * 0 - 100:int = grade for answer (should sum up to 100 in total for all questions)
