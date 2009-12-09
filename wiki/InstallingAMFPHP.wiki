@@ -1,5 +1,5 @@
 #summary How to install AMFPHP (Flash Remoting) in Moodle
-#labels Featured
+#labels Featured,Phase-Implementation
 
 == Introduction ==
 
@@ -406,27 +406,21 @@ You can then access the user session data like this:
 
 === AMFPHP ===
 
-  * AMFPHP home page amfphp.org
-  * AMFPHP code repository SourceForge.net
-  * Sir Lee Brimelow's video tutorials
-
-Introduction to AMFPHP 1
-Learn how to install AMFPHP and create a simple service that sends email.
-
-Introduction to AMFPHP 2
-In this tutorial he shows you how to directly return database records to Flash using AMFPHP.
+  * [http://amfphp.org/ AMFPHP home page amfphp.org]
+  * [http://sourceforge.net/projects/amfphp/ AMFPHP code repository SourceForge.net]
+  * [http://gotoandlearn.com/play?id=78 Sir Lee Brimelow's video tutorial Introduction to AMFPHP part 1]
+  * [http://gotoandlearn.com/play?id=79 Sir Lee Brimelow's video tutorial Introduction to AMFPHP part 1]
 
 === Alessandro Crugnola's tutorials ===
 
-  * Flex RemoteObject and AMFPHP 1.9
-  * Send and Receive ByteArray to AMFPHP
-  * Flex2/Actionscript3.0 and AMFPHP
-  * Adobe ActionScript? 3.0 Language Reference
+  * [http://www.sephiroth.it/tutorials/flashPHP/flex_remoteobject/ Flex RemoteObject and AMFPHP 1.9]
+  * [http://www.sephiroth.it/tutorials/flashPHP/amfphp_bytearray/ Send and Receive ByteArray to AMFPHP]
+  * [http://www.sephiroth.it/tutorials/flashPHP/flex2_amfphp/ Flex2/Actionscript3.0 and AMFPHP]
 
 === The two most important classes related to AMFPHP are: ===
 
-  * NetConnection class
-  * Responder class
+  * [http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/flash/net/NetConnection.html NetConnection class]
+  * [http://livedocs.adobe.com/flash/9.0/ActionScriptLangRefV3/flash/net/Responder.html Responder class]
 
 === Other useful resources ===
 
