@@ -16,7 +16,7 @@ function xmldb_swf_upgrade($oldversion=0) {
 
     //global $CFG, $THEME, $db;
 
-    //$result = true;
+    $result = true;
 /*
 /// And upgrade begins here. For each one, you'll need one block of code similar to the next one. 
 /// Please, delete these comment lines once this file start handling proper upgrade code.
@@ -24,15 +24,6 @@ function xmldb_swf_upgrade($oldversion=0) {
 /// if ($result && $oldversion < YYYYMMDD00) { //New version in version.php
 ///     $result = result of "/lib/ddllib.php" function calls
 /// }
-
-/// Lines below (this included)  MUST BE DELETED once you get the first version
-/// of your module ready to be installed. They are here only
-/// for demonstrative purposes and to show how the swf
-/// iself has been upgraded.
-
-/// For each upgrade block, the file swf/version.php
-/// needs to be updated . Such change allows Moodle to know
-/// that this file has to be processed.
 
 /// To know more about how to write correct DB upgrade scripts it's
 /// highly recommended to read information available at:
@@ -108,7 +99,7 @@ function xmldb_swf_upgrade($oldversion=0) {
     /// Now the view action
         $rec->action = 'view';
         $result = insert_record('log_display', $rec);
-    }
+    }*/
 
 /// And that's all. Please, examine and understand the 3 example blocks above. Also
 /// it's interesting to look how other modules are using this script. Remember that
@@ -122,7 +113,5 @@ function xmldb_swf_upgrade($oldversion=0) {
 /// Final return of upgrade result (true/false) to Moodle. Must be
 /// always the last line in the script
     return $result;
-	*/
 }
-
 ?>
