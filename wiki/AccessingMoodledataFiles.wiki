@@ -1,6 +1,8 @@
 This page answers some frequently asked questions about the course media file directories in Moodle and how this affects deploying learning interactions with the SWF Activity Module.
 
-Where are my Flash learning applications stored?
+----
+
+== Where are my Flash learning applications stored? ==
 
 If you upload a Flash learning application using the SWF Activity Module upload tool as described on this page, it is stored in the current course's media directory in the /moodledata/ directory.
 
@@ -18,7 +20,9 @@ Please note that a course directory is only created by Moodle when the first fil
 
 Also, please note that only the contents of the /public_html/ (sometimes called /htdocs/ or /www/) directory are directly accessible on a public server through a web browser. Any files stored outside the public directory must be accessed via a proxy script in the public directory. Luckily, Moodle already has a proxy script at MOODLE/file.php
 
-How can a Flash learning application access /moodledata/ course files?
+----
+
+== How can a Flash learning application access /moodledata/ course files? ==
 
 The easiest way for a Flash learning application to access files stored in a /moodledata/ course directory is to link to them using absolute paths, like this:
 
@@ -34,7 +38,9 @@ etc.
 
 The MOODLE/file.php script automatically manages access and permissions so that only users logged in on course can access files stored in the corresponding /moodledata/ course directory. Also, search engines cannot index files stored in /moodledata/.
 
-Example SMIL XML Playlist
+----
+
+== Example SMIL XML Playlist ==
 
 Here is an example SMIL XML playlist that accesses files stored in /moodledata/. Note that the course number is 99. If the name if the SMIL XML file is /example_smil_playlist.xml/, then the path to it should be something like:
 
