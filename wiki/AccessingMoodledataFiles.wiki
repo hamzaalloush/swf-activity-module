@@ -39,7 +39,7 @@ Example SMIL XML Playlist
 Here is an example SMIL XML playlist that accesses files stored in /moodledata/. Note that the course number is 99. If the name if the SMIL XML file is /example_smil_playlist.xml/, then the path to it should be something like:
 
 MOODLE/file.php/99/playlists/example_smil_playlist.xml
-
+{{{
 <?xml version="1.0" encoding="utf-8"?>
 <smil>
         <head>
@@ -62,3 +62,4 @@ MOODLE/file.php/99/playlists/example_smil_playlist.xml
                 </seq>
         </body>
 </smil>
+}}}
