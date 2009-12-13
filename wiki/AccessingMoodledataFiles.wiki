@@ -12,6 +12,8 @@ If you upload a Flash learning application using the SWF Activity Module upload 
 
 The numbered directories nested inside /moodledata/ are directories that contain files uploaded for a particular course. You can find out which numbered directory the files for a course are stored in by going to the course page and looking in the browser address bar. You should see something like this:
 
+<img src="http://matbury.com/tutorials/swf_moodledata_files.gif" width="200" height="156" alt="moodledata course files directories" />
+
 http://MOODLE/course/view.php?id=1
 
 The number after id= is the number of the course directory. So the course files for the course page above are in /moodledata/1/...
