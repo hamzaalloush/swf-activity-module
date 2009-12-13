@@ -1,3 +1,5 @@
+#summary How to access files stored in the moodledata course directories
+
 This page answers some frequently asked questions about the course media file directories in Moodle and how this affects deploying learning interactions with the SWF Activity Module.
 
 ----
