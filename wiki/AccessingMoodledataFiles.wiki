@@ -14,7 +14,7 @@ The numbered directories nested inside /moodledata/ are directories that contain
 
 <img src="http://matbury.com/tutorials/swf_moodledata_files.gif" width="200" height="156" alt="moodledata course files directories" />
 
-http://MOODLE/course/view.php?id=1
+  * `http://MOODLE/course/view.php?id=1`
 
 The number after id= is the number of the course directory. So the course files for the course page above are in /moodledata/1/...
 
@@ -30,13 +30,13 @@ Also, please note that only the contents of the /public_html/ (sometimes called 
 
 The easiest way for a Flash learning application to access files stored in a /moodledata/ course directory is to link to them using absolute paths, like this:
 
-http://MOODLE/file.php/1/photos/example_photo_1.jpg
+  * `http://MOODLE/file.php/1/photos/example_photo_1.jpg`
 
-http://MOODLE/file.php/1/photos/example_photo_2.jpg
+  * `http://MOODLE/file.php/1/photos/example_photo_2.jpg`
 
-http://MOODLE/file.php/1/audio/example_audio_1.mp3
+  * `http://MOODLE/file.php/1/audio/example_audio_1.mp3`
 
-http://MOODLE/file.php/1/audio/example_audio_2.mp3
+  * `http://MOODLE/file.php/1/audio/example_audio_2.mp3`
 
 etc.
 
