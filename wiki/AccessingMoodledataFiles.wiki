@@ -1,4 +1,5 @@
 #summary How to access files stored in the moodledata course directories
+#labels Featured
 
 This page answers some frequently asked questions about the course media file directories in Moodle and how this affects deploying learning interactions with the SWF Activity Module.
 
@@ -8,11 +9,11 @@ This page answers some frequently asked questions about the course media file di
 
 If you upload a Flash learning application using the SWF Activity Module upload tool as described on this page, it is stored in the current course's media directory in the /moodledata/ directory.
 
-
+<img src="http://matbury.com/tutorials/swf_moodledata_files.gif" width="200" height="156" alt="moodledata course files directories" />
 
 The numbered directories nested inside /moodledata/ are directories that contain files uploaded for a particular course. You can find out which numbered directory the files for a course are stored in by going to the course page and looking in the browser address bar. You should see something like this:
 
-<img src="http://matbury.com/tutorials/swf_moodledata_files.gif" width="200" height="156" alt="moodledata course files directories" />
+<img src="http://matbury.com/tutorials/swf_moodledata.gif" width="136" height="291" alt="moodledata course files directories" />
 
   * `http://MOODLE/course/view.php?id=1`
 
