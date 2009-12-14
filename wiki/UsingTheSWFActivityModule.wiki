@@ -1,0 +1,41 @@
+#summary How to deploy a Flash learning interaction using the SWF Activity Module
+#labels Featured
+
+This page gives step by step instructions of how to deploy a Flash learning interaction using the SWF Activity Module.
+
+*Please note:* The module does not come with any Flash learning applications. A word search activity is available in the downloads section of this project site for testing purposes.
+
+----
+
+== Turn editing on ==
+
+Login to the desired Moodle course page and turn on editing.
+
+<img src="http://matbury.com/tutorials/moodle_turn_editing_on.png" width="312" height="47" alt="Turn editing on" />
+
+In the desired section of the course page select:
+
+  * Add and activity... > SWF
+
+The module form will appear.
+
+----
+
+== Name and description ==
+
+<img src="http://matbury.com/tutorials/swf_mod_form_general.gif" width="819" height="448" alt="SWF Activity Module form" />
+
+Enter a name and brief description of the learning interaction. The name will appear on the Moodle course page as a link to the learning interaction.
+
+----
+
+== Flash learning application ==
+
+<img src="http://matbury.com/tutorials/swf_mod_form_swf_parameters.gif" width="806" height="180" alt="SWF Activity Module paramters" />
+
+Enter the following parameters:
+
+   * SWF File - The location in the course files directory of the Flash learning application
+   * Width - The width of the Flash Player window
+   * Height - The height of the Flash Player window
+   * Version - Minimum Flash Player version required to play the Flash learning application
