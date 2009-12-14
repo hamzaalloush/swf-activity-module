@@ -56,12 +56,12 @@ The SWF Activity Module is specifically designed to deploy dynamic learning appl
 
 == Advanced parameters ==
 
-Advanced parameters are exposed by clicking on the "Show Advanced" button.
+Advanced parameters are exposed by clicking on the "Show Advanced" button. In most cases, it is not necessary to change these. The defaults are at the most secure settings.
 
 <img src="http://matbury.com/tutorials/swf_mod_form_advanced.gif" width="809" height="459" alt="SWF Activity Module paramters" />
 
-  * Skin
-  * API Key
+  * Skin - Some Flash learning applications support a dynamic skinning feature whereby you can change their visual appearance with an externally loaded SWF skin file.
+  * API Key - Some web services such as Google and Yahoo! require a key for accessing their APIs.
   * Align
   * Auto Play
   * Loop Playback
@@ -76,4 +76,6 @@ Advanced parameters are exposed by clicking on the "Show Advanced" button.
   * Allow Full Screen
   * Allow Script Access
   * Allow Networking
-  * SWF Configuration file (XML)
+  * SWF Configuration file (XML) - Some Flash learning applications can set all the parameters here with a single configuration XML file. This is particularly useful if you want to manage SWF Activity Module instances on a site-wide basis.
+
+----
