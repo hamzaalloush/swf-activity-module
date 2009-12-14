@@ -60,8 +60,8 @@ Advanced parameters are exposed by clicking on the "Show Advanced" button. In mo
 
 <img src="http://matbury.com/tutorials/swf_mod_form_advanced.gif" width="809" height="459" alt="SWF Activity Module paramters" />
 
-  * *Skin - Some Flash learning applications support a dynamic skinning feature whereby you can change their visual appearance with an externally loaded SWF skin file.
-  * *API Key - Some web services such as Google and Yahoo! require a key for accessing their APIs.
+  * *Skin* - Some Flash learning applications support a dynamic skinning feature whereby you can change their visual appearance with an externally loaded SWF skin file.
+  * *API Key* - Some web services such as Google and Yahoo! require a key for accessing their APIs.
   * *Align*
   * *Auto Play*
   * *Loop Playback*
