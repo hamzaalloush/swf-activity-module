@@ -54,4 +54,26 @@ The SWF Activity Module is specifically designed to deploy dynamic learning appl
 
 ----
 
-== t ==
+== Advanced parameters ==
+
+Advanced parameters are exposed by clicking on the "Show Advanced" button.
+
+<img src="http://matbury.com/tutorials/swf_mod_form_advanced.gif" width="809" height="459" alt="SWF Activity Module paramters" />
+
+  * Skin
+  * API Key
+  * Align
+  * Auto Play
+  * Loop Playback
+  * Menu
+  * Quality
+  * Scale Mode
+  * Stage Align
+  * Window Mode
+  * Background Color
+  * Use Device Font
+  * Seamless Tabbing
+  * Allow Full Screen
+  * Allow Script Access
+  * Allow Networking
+  * SWF Configuration file (XML)
