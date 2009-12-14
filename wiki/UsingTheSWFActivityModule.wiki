@@ -35,10 +35,10 @@ Enter a name and brief description of the learning interaction. The name will ap
 
 Enter the following parameters:
 
-   * SWF File - The location in the Moodle course files directory of the Flash learning application. For security reasons, you cannot link to a Flash application outside the Moodle course files directory.
-   * Width - The width of the Flash Player window
-   * Height - The height of the Flash Player window
-   * Version - Minimum Flash Player version required to play the Flash learning application. If a user's Flash Player version is too low, express install will be initiated. Users must have administrator privileges on their computer to successfully complete a Flash Player upgrade.
+   * *SWF File* - The location in the Moodle course files directory of the Flash learning application. For security reasons, you cannot link to a Flash application outside the Moodle course files directory.
+   * *Width* - The width of the Flash Player window
+   * *Height* - The height of the Flash Player window
+   * *Version* - Minimum Flash Player version required to play the Flash learning application. If a user's Flash Player version is too low, express install will be initiated. Users must have administrator privileges on their computer to successfully complete a Flash Player upgrade.
 
 ----
 
@@ -48,9 +48,9 @@ Enter the following parameters:
 
 The SWF Activity Module is specifically designed to deploy dynamic learning applications. These applications are blank programs that load in learning interaction data as external files in much the same way as your DVD player needs to load external DVDs to show films. The SWF Activity Module provides three ways of loading in external data:
 
-  # AMF Interaction Data - AMF is for advanced Flash applications that communicate with Moodle's functions and databases via AMFPHP
-  # XML Interaction Data - XML is the most commonly used method of loading external data and files into Flash applications
-  # FlashVars Interaction Data - Three text windows where you can enter lists or any text. The provided word search application uses FlashVars
+  # *AMF Interaction Data* - AMF is for advanced Flash applications that communicate with Moodle's functions and databases via AMFPHP
+  # *XML Interaction Data* - XML is the most commonly used method of loading external data and files into Flash applications
+  # *FlashVars Interaction Data* - Three text windows where you can enter lists or any text. The provided word search application uses FlashVars
 
 ----
 
@@ -60,22 +60,22 @@ Advanced parameters are exposed by clicking on the "Show Advanced" button. In mo
 
 <img src="http://matbury.com/tutorials/swf_mod_form_advanced.gif" width="809" height="459" alt="SWF Activity Module paramters" />
 
-  * Skin - Some Flash learning applications support a dynamic skinning feature whereby you can change their visual appearance with an externally loaded SWF skin file.
-  * API Key - Some web services such as Google and Yahoo! require a key for accessing their APIs.
-  * Align
-  * Auto Play
-  * Loop Playback
-  * Menu
-  * Quality
-  * Scale Mode
-  * Stage Align
-  * Window Mode
-  * Background Color
-  * Use Device Font
-  * Seamless Tabbing
-  * Allow Full Screen
-  * Allow Script Access
-  * Allow Networking
-  * SWF Configuration file (XML) - Some Flash learning applications can set all the parameters here with a single configuration XML file. This is particularly useful if you want to manage SWF Activity Module instances on a site-wide basis.
+  * *Skin - Some Flash learning applications support a dynamic skinning feature whereby you can change their visual appearance with an externally loaded SWF skin file.
+  * *API Key - Some web services such as Google and Yahoo! require a key for accessing their APIs.
+  * *Align*
+  * *Auto Play*
+  * *Loop Playback*
+  * *Menu*
+  * *Quality*
+  * *Scale Mode*
+  * *Stage Align*
+  * *Window Mode*
+  * *Background Color*
+  * *Use Device Font*
+  * *Seamless Tabbing*
+  * *Allow Full Screen*
+  * *Allow Script Access*
+  * *Allow Networking*
+  * *SWF Configuration* file (XML) - Some Flash learning applications can set all the parameters here with a single configuration XML file. This is particularly useful if you want to manage SWF Activity Module instances on a site-wide basis.
 
 ----
