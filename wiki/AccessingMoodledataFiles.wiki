@@ -48,6 +48,9 @@ The MOODLE/file.php script automatically manages access and permissions so that 
 Here is an example SMIL XML playlist that accesses files stored in /moodledata/. Note that the course number is 99. If the name if the SMIL XML file is /example_smil_playlist.xml/, then the path to it should be something like:
 
   * `http://MOODLE/file.php/99/playlists/example_smil_playlist.xml`
+
+Here's the SMIL XML playlist with the absolute paths to the course files directory:
+
 {{{
 <?xml version="1.0" encoding="utf-8"?>
 <smil>
