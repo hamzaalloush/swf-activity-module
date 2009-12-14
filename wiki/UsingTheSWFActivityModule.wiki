@@ -35,7 +35,7 @@ Enter a name and brief description of the learning interaction. The name will ap
 
 Enter the following parameters:
 
-   * SWF File - The location in the course files directory of the Flash learning application
+   * SWF File - The location in the Moodle course files directory of the Flash learning application. For security reasons, you cannot link to a Flash application outside the Moodle course files directory.
    * Width - The width of the Flash Player window
    * Height - The height of the Flash Player window
-   * Version - Minimum Flash Player version required to play the Flash learning application
+   * Version - Minimum Flash Player version required to play the Flash learning application. If a user's Flash Player version is too low, express install will be initiated. Users must have administrator privileges on their computer to successfully complete a Flash Player upgrade.
