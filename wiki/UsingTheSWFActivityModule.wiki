@@ -39,3 +39,19 @@ Enter the following parameters:
    * Width - The width of the Flash Player window
    * Height - The height of the Flash Player window
    * Version - Minimum Flash Player version required to play the Flash learning application. If a user's Flash Player version is too low, express install will be initiated. Users must have administrator privileges on their computer to successfully complete a Flash Player upgrade.
+
+----
+
+== Learning interaction data ==
+
+<img src="http://matbury.com/tutorials/swf_mod_form_interaction_data.gif" width="807" height="462" alt="Learning interaction data parameters" />
+
+The SWF Activity Module is specifically designed to deploy dynamic learning applications. These applications are blank programs that load in learning interaction data as external files in much the same way as your DVD player needs to load external DVDs to show films. The SWF Activity Module provides three ways of loading in external data:
+
+  # AMF Interaction Data - AMF is for advanced Flash applications that communicate with Moodle's functions and databases via AMFPHP
+  # XML Interaction Data - XML is the most commonly used method of loading external data and files into Flash applications
+  # FlashVars Interaction Data - Three text windows where you can enter lists or any text. The provided word search application uses FlashVars
+
+----
+
+== t ==
