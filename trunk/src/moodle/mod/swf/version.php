@@ -27,7 +27,7 @@
  * @package swf
  **/
 
-$module->version  = 2009121000;  // The current module version (Date: YYYYMMDDXX)
+$module->version  = 2009121501;  // The current module version (Date: YYYYMMDDXX)
 $module->cron     = 0;           // Period for cron to check this module (secs)
 
 ?>
