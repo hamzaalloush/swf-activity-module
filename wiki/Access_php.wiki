@@ -1,13 +1,18 @@
-#summary One-sentence summary of this page.
+#summary AMFPHP service class documentation.
 
-= Introduction =
+== Description ==
 
-Add your content here.
+This class accesses user capabilities in the Moodle course context.
+
+Necessary for managing what a particular user is allowed to do in the SWF Activity Module service classes.
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Methods ==
+{{{
+Access->get_capabilties($instance, $swfid);
+}}}
+Parameters:
+{{{
+$instance int - The course module ID
+$swfid int - The SWF Activity Module instance ID
+}}}
