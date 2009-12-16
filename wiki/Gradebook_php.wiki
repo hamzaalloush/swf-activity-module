@@ -1,0 +1,28 @@
+#summary AMFPHP service class documentation.
+
+== Description ==
+
+This class manages user interaction data in the SWF Activity Module grade book.
+
+----
+
+== Methods ==
+
+=== test_gateway() ===
+{{{
+Gradebook->test_gateway($obj = null);
+}}}
+Parameters:
+{{{
+$obj obj - ingored
+}}}
+Returns:
+boolean
+
+=== get_grades_by_course() ===
+
+TODO, rationalise Gradebook functions to only access user grades on a course by course basis, not site-wide.
+
+----
+
+== Examples ==
