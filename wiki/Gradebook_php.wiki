@@ -8,39 +8,62 @@ This class manages user interaction data in the SWF Activity Module grade book.
 
 == Methods ==
 
+----
+
 === test_gateway() ===
 Parameters: null
+
 Returns: boolean
+
+----
 
 === get_course_swfs($object) ===
 Parameters:
+
 $object->
+
 $object->
+
+----
 
 === get_swf_grades($object) ===
 Parameters:
+
 $object->
+
 $object->
 
 === get_course_grades($object) ===
 Parameters:
+
 $object->
+
 $object->
 
 === get_user_grades($object) ===
 Parameters:
+
 $object->
+
 $object->
+
+----
 
 === insert_user_grade($object) ===
 Parameters:
+
 $object->
+
 $object->
 
 === update_user_grade($object) ===
 Parameters:
+
 $object->
+
 $object->
+
+----
 
 === delete_user_grade($object) ===
 Parameters:
