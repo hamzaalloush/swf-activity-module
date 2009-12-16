@@ -6,6 +6,7 @@ This class accesses user capabilities in the Moodle course context.
 
 Necessary for managing what a particular user is allowed to do in the SWF Activity Module service classes.
 
+----
 
 == Methods ==
 
@@ -19,6 +20,8 @@ $instance int - The course module ID
 $swfid int - The SWF Activity Module instance ID
 }}}
 
+----
+
 == Examples ==
 
 Getting the capabilities object:
@@ -27,4 +30,14 @@ public function get_grades_by_course($obj)
 {
 	$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
 }
+}}}
+Returns:
+{{{
+$capabilities->is_logged_in boolean
+$capabilities->error string
+$capabilities->course int
+$capabilities->view_mod boolean
+$capabilities->view_own_grades boolean
+$capabilities->view_all_grades boolean
+$capabilities->edit_grades boolean
 }}}
