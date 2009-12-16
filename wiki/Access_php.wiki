@@ -11,7 +11,7 @@ Necessary for managing what a particular user is allowed to do in the SWF Activi
 
 ===get_capabilities()===
 {{{
-Access->get_capabilties($instance, $swfid);
+Access->get_capabilities($instance, $swfid);
 }}}
 Parameters:
 {{{
