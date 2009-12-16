@@ -18,3 +18,13 @@ Parameters:
 $instance int - The course module ID
 $swfid int - The SWF Activity Module instance ID
 }}}
+
+== Examples ==
+
+Getting the capabilities object:
+{{{
+public function get_grades_by_course($obj)
+{
+	$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+}
+}}}
