@@ -19,9 +19,19 @@ $obj obj - ingored
 Returns:
 boolean
 
-=== get_grades_by_course() ===
+=== get_course_swfs() ===
 
-TODO, rationalise Gradebook functions to only access user grades on a course by course basis, not site-wide.
+=== get_swf_grades() ===
+
+=== get_course_grades() ===
+
+=== get_user_grades() ===
+
+=== insert_user_grade() ===
+
+=== update_user_grade() ===
+
+=== delete_user_grade() ===
 
 ----
 
