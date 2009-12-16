@@ -8,6 +8,8 @@ Necessary for managing what a particular user is allowed to do in the SWF Activi
 
 
 == Methods ==
+
+===get_capabilities()===
 {{{
 Access->get_capabilties($instance, $swfid);
 }}}
