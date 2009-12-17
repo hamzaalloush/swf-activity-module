@@ -19,11 +19,10 @@ This class manages user interaction data in the SWF Activity Module grade book.
 
 === get_course_swfs($object) ===
 *Parameters:*
-
+{{{
 $object->instance
-
 $object->swfId
-
+}}}
 *Returns:* object
 
 ----
