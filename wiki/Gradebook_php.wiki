@@ -48,7 +48,7 @@ $object->swfId
 
 ----
 
-=== get_swf_grades($object) ===
+=== get_course_swf_grades($object) ===
 *Parameters:*
 {{{
 $object->instance
@@ -68,7 +68,7 @@ $object->swfId
 
 ----
 
-=== get_user_grades($object) ===
+=== get_course_user_grades($object) ===
 *Parameters:*
 {{{
 $object->instance
@@ -78,7 +78,7 @@ $object->swfId
 
 ----
 
-=== insert_user_grade($object) ===
+=== get_course_user_grades($object) ===
 *Parameters:*
 {{{
 $object->instance
