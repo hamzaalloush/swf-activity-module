@@ -2,6 +2,8 @@
 
 == Description ==
 
+=== lib/amfphp/services/Access.php ===
+
 This class accesses user capabilities in the Moodle course context.
 
 Necessary for managing what a particular user is allowed to do in the SWF Activity Module service classes.
@@ -10,7 +12,7 @@ Necessary for managing what a particular user is allowed to do in the SWF Activi
 
 == Methods ==
 
-===get_capabilities()===
+=== get_capabilities() ===
 {{{
 Access->get_capabilities($instance, $swfid);
 }}}
