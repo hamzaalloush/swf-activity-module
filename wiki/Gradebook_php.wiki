@@ -27,6 +27,8 @@ $capabilities->view_mod boolean - User can/cannot view SWF Activity Module learn
 $capabilities->view_own_grades boolean - User can/cannot view his/her grades
 }}}
 
+TODO: Rationalise these capabilities to make them more flexible, i.e. so we can give users more specific combinations of capabilities.
+
 ----
 
 === test_gateway($object=null) ===
