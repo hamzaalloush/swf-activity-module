@@ -9,14 +9,43 @@ This classes handles SWF Activity Module grade book data in Flash clients.
 
 ----
 
-=== method ===
-*Parameters:*
-{{{
-param
-}}}
-*Returns:*
-{{{
-type
-}}}
+=== testGateway():void ===
 
 ----
+
+=== getCourseSwfs():void ===
+
+
+----
+
+=== getSwfGrades():void ===
+
+
+----
+
+=== getCourseGrades():void ===
+
+
+----
+
+=== getUserGrades():void ===
+
+
+----
+
+=== insertUserGrade():void ===
+
+
+----
+
+=== updateUserGrade():void ===
+
+
+----
+
+=== deleteUserGrade():void ===
+
+
+----
+
+== Examples ==
