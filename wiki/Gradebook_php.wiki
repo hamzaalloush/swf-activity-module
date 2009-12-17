@@ -2,6 +2,8 @@
 
 == Description ==
 
+=== lib/amfphp/services/Gradebook.php ===
+
 This class manages user interaction data in the SWF Activity Module grade book. It provides a safe interface between Flash applications and the swf_grades DB table. The methods are very specific and each method is strictly controlled by users' capabilities. For example, a student user can only call methods to view his/her own grades, whereas teachers can view and edit all users' grades.
 
 *Please note:* This is a work in progress and may change at any time without notice.
