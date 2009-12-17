@@ -2,11 +2,28 @@
 
 == Description ==
 
-This class manages user interaction data in the SWF Activity Module grade book.
+This class manages user interaction data in the SWF Activity Module grade book. It provides a safe interface between Flash applications and the swf_grades DB table. The methods are very specific and each method is strictly controlled by users' capabilities. For example, a student user can only call methods to view his/her own grades, whereas teachers can view and edit all users' grades.
+
+*Please note:* This is a work in progress and may change at any time without notice.
 
 ----
 
-== Methods ==
+== Methods overview ==
+
+Each method is passed one parameter, an object, which must contain one of the following 2 parameters:
+{{{
+$object->instance - Moodle course module instance ID
+$object->swfId - SWF Activity Module instance ID
+}}}
+These are used to call lib/amfphp/services/Access->get_capabilities($instance,$swfid) to get the current user's capabilities. It returns an object:
+{{{
+$capabilities->course int - Moodle course ID
+$capabilities->edit_grades boolean - User can/can't edit grades
+$capabilities->is_logged_in boolean - User can/can't access Moodle courses
+$capabilities->view_all_grades boolean - User can/can't view all users' grades on course
+$capabilities->view_mod boolean - User can/can't view SWF Activity Module learning interactions
+$capabilities->view_own_grades boolean - User can/can't view his/her grades
+}}}
 
 ----
 
