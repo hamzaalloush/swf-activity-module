@@ -18,7 +18,7 @@ $object->swfId - SWF Activity Module instance ID
 These are used to call lib/amfphp/services/Access->get_capabilities($instance,$swfid) to get the current user's capabilities. It returns an object:
 {{{
 $capabilities->course int - Moodle course ID
-$capabilities->edit_grades boolean - User can/can*'t edit grades
+$capabilities->edit_grades boolean - User can/can\'t edit grades
 $capabilities->is_logged_in boolean - User can/can't access Moodle courses
 $capabilities->view_all_grades boolean - User can/can't view all users' grades on course
 $capabilities->view_mod boolean - User can/can't view SWF Activity Module learning interactions
