@@ -39,7 +39,7 @@ etc.
 ----
 
 === get_course_swfs($object) ===
-*Description:* Gets all instances of SWF Activity Module on current course.
+*Description:* Returns all instances of SWF Activity Module on current course.
 
 *Parameters:*
 {{{
@@ -47,16 +47,11 @@ $object->instance
 $object->swfId
 }}}
 *Returns:* object
-{{{
-$object['1']->id
-$object['1']->
-$object['1']->
-}}}
-*Please note:* The returned object acts as an associative array, containing objects. The object access names are sequential numbers starting at '1'. (Amf.as automatically converts these into an indexed array of objects).
+
 ----
 
 === get_course_swf_grades($object) ===
-*Description:* 
+*Description:* Returns all grades in swf_grades for specified SWF Activity Module instance on current course.
 
 *Parameters:*
 {{{
@@ -68,17 +63,7 @@ $object->swfId
 ----
 
 === get_course_grades($object) ===
-*Parameters:*
-{{{
-$object->instance
-$object->swfId
-}}}
-*Returns:* object
-
-----
-
-=== get_course_user_grades($object) ===
-*Description:* 
+*Description:* Returns all grades in swf_grades on current course.
 
 *Parameters:*
 {{{
@@ -90,7 +75,19 @@ $object->swfId
 ----
 
 === get_course_user_grades($object) ===
-*Description:* 
+*Description:* Returns all grades in swf_grades for current user on current course.
+
+*Parameters:*
+{{{
+$object->instance
+$object->swfId
+}}}
+*Returns:* object
+
+----
+
+=== insert_course_user_grade($object) ===
+*Description:* Inserts grade into swf_grades for current user on current course.
 
 *Parameters:*
 {{{
@@ -102,7 +99,7 @@ $object->swfId
 ----
 
 === update_user_grade($object) ===
-*Description:* 
+*Description:* Updates swf_grades record for specified grade.
 
 *Parameters:*
 {{{
@@ -113,8 +110,8 @@ $object->swfId
 
 ----
 
-=== delete_user_grade($object) ===
-*Description:* 
+=== delete_course_user_grade($object) ===
+*Description:* Deletes swf_grades record for specified grade on current course.
 
 *Parameters:*
 {{{
