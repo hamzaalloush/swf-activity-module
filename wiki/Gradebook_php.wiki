@@ -93,8 +93,12 @@ $object->swfId
 {{{
 $object->instance
 $object->swfId
+$object->grade
+$object->maxGrade
+$object->startTime
+$object->answerData
 }}}
-*Returns:* object
+*Returns:* boolean
 
 ----
 
@@ -105,8 +109,12 @@ $object->swfId
 {{{
 $object->instance
 $object->swfId
+$object->gradeId
+$object->grade
+$object->feedback
+$object->feedbacklink
 }}}
-*Returns:* object
+*Returns:* boolean
 
 ----
 
@@ -117,8 +125,9 @@ $object->swfId
 {{{
 $object->instance
 $object->swfId
+$object->gradeId
 }}}
-*Returns:* object
+*Returns:* boolean
 
 ----
 
