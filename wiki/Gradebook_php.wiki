@@ -19,6 +19,14 @@ $object->swfId - SWF Activity Module instance ID
 }}}
 These are used to call lib/amfphp/services/Access->get_capabilities($instance,$swfid) to get the current user's capabilities. See [Access_php] for more details.
 
+*Please note:* The returned objects act as an associative array of objects. The object access names are sequential numbers starting at '1'. (Amf.as automatically converts these into an indexed array of objects). E.g.
+{{{
+$object['1']->object->id
+$object['1']->object->name
+$object['1']->object->intro
+etc.
+}}}
+
 ----
 
 === test_gateway($object=null) ===
@@ -39,7 +47,12 @@ $object->instance
 $object->swfId
 }}}
 *Returns:* object
-
+{{{
+$object['1']->id
+$object['1']->
+$object['1']->
+}}}
+*Please note:* The returned object acts as an associative array, containing objects. The object access names are sequential numbers starting at '1'. (Amf.as automatically converts these into an indexed array of objects).
 ----
 
 === get_course_swf_grades($object) ===
