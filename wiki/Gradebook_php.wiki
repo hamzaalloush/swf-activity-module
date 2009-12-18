@@ -17,21 +17,13 @@ Each method is passed one parameter, an object, which must contain one of the fo
 $object->instance - Moodle course module instance ID
 $object->swfId - SWF Activity Module instance ID
 }}}
-These are used to call lib/amfphp/services/Access->get_capabilities($instance,$swfid) to get the current user's capabilities. It returns an object:
-{{{
-$capabilities->course int - Moodle course ID
-$capabilities->edit_grades boolean - User can/cannot edit grades
-$capabilities->is_logged_in boolean - User can/cannot access Moodle courses
-$capabilities->view_all_grades boolean - User can/cannot view all user grades on course
-$capabilities->view_mod boolean - User can/cannot view SWF Activity Module learning interactions
-$capabilities->view_own_grades boolean - User can/cannot view his/her grades
-}}}
-
-TODO: Rationalise these capabilities to make them more flexible, i.e. so we can give users more specific combinations of capabilities.
+These are used to call lib/amfphp/services/Access->get_capabilities($instance,$swfid) to get the current user's capabilities. See [Access_php] for more details.
 
 ----
 
 === test_gateway($object=null) ===
+*Description:* 
+
 *Parameters:* null
 
 *Returns:* boolean
@@ -39,6 +31,8 @@ TODO: Rationalise these capabilities to make them more flexible, i.e. so we can 
 ----
 
 === get_course_swfs($object) ===
+*Description:* Gets all instances of SWF Activity Module on current course.
+
 *Parameters:*
 {{{
 $object->instance
@@ -49,6 +43,8 @@ $object->swfId
 ----
 
 === get_course_swf_grades($object) ===
+*Description:* 
+
 *Parameters:*
 {{{
 $object->instance
@@ -69,6 +65,8 @@ $object->swfId
 ----
 
 === get_course_user_grades($object) ===
+*Description:* 
+
 *Parameters:*
 {{{
 $object->instance
@@ -79,6 +77,8 @@ $object->swfId
 ----
 
 === get_course_user_grades($object) ===
+*Description:* 
+
 *Parameters:*
 {{{
 $object->instance
@@ -89,6 +89,8 @@ $object->swfId
 ----
 
 === update_user_grade($object) ===
+*Description:* 
+
 *Parameters:*
 {{{
 $object->instance
@@ -99,6 +101,8 @@ $object->swfId
 ----
 
 === delete_user_grade($object) ===
+*Description:* 
+
 *Parameters:*
 {{{
 $object->instance
