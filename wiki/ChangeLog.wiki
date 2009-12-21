@@ -5,6 +5,11 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
+=== 2009/12/21 ===
+
+  * Gradebook.php and Access.php scripts taking shape and functioning well. MDL.php can now be deprecated.
+  * Started work on Flash grade book client to display and edit grades.
+
 === 2009/12/08 ===
 
   * Backup, restore and upgrade scripts have been completed. Not thoroughly tested however. Please try it out on your development server and report any bugs in the issues tracker.
