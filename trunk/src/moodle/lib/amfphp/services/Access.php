@@ -20,6 +20,7 @@
 
 class Access
 {
+	// Single function so no class variables
 	
 	public function __contruct()
 	{
@@ -40,7 +41,8 @@ class Access
 		$obj = new object();
 		
 		// Check user is logged in
-		if(isloggedin()) {
+		if(isloggedin())
+		{
 			$obj->is_logged_in = true;
 		} else {
 			$obj->is_logged_in = false;
@@ -50,35 +52,41 @@ class Access
 		// Get module instance data
 		// Return errors and stop if misconfigured
 		if ($id) {
-			if (! $cm = get_record("course_modules", "id", $id)) {
+			if (! $cm = get_record("course_modules", "id", $id))
+			{
 				$obj->error = "Course Module ID was incorrect";
-				return $obj;
+				return $obj; // Error so stop here and tell client what happened
 			}
 			
-			if (! $course = get_record("course", "id", $cm->course)) {
+			if (! $course = get_record("course", "id", $cm->course))
+			{
 				$obj->error = "Course is misconfigured";
-				return $obj;
+				return $obj; // Error so stop here and tell client what happened
 			}
 			
-			if (! $swf = get_record("swf", "id", $cm->instance)) {
+			if (! $swf = get_record("swf", "id", $cm->instance))
+			{
 				$obj->error = "Course module is incorrect";
-				return $obj;
+				return $obj; // Error so stop here and tell client what happened
 			}
 		
 		} else {
-			if (! $swf = get_record("swf", "id", $a)) {
+			if (! $swf = get_record("swf", "id", $a))
+			{
 				$obj->error = "Course module is incorrect";
-				return $obj;
+				return $obj; // Error so stop here and tell client what happened
 			}
 			
-			if (! $course = get_record("course", "id", $swf->course)) {
+			if (! $course = get_record("course", "id", $swf->course))
+			{
 				$obj->error = "Course is misconfigured";
-				return $obj;
+				return $obj; // Error so stop here and tell client what happened
 			}
 			
-			if (! $cm = get_coursemodule_from_instance("swf", $swf->id, $course->id)) {
+			if (! $cm = get_coursemodule_from_instance("swf", $swf->id, $course->id))
+			{
 				$obj->error =  "Course Module ID was incorrect";
-				return $obj;
+				return $obj; // Error so stop here and tell client what happened
 			}
 		}
 		
@@ -89,30 +97,42 @@ class Access
 		$obj->course = $cm->course;
 		
 		// Check if current user can view module (is guest)
-		if (has_capability('mod/swf:view', $context)) {
+		if (has_capability('mod/swf:view', $context))
+		{
 			$obj->view_mod = true;
 		} else {
 			$obj->view_mod = false;
 		}
 		// Check if current user can view own grades (is user)
-		if (has_capability('mod/swf:viewowngrades', $context)) {
+		if (has_capability('mod/swf:viewowngrades', $context))
+		{
 			$obj->view_own_grades = true;
 		} else {
 			$obj->view_own_grades = false;
 		}
 		// Check if current user can view all grades (is teacher)
-		if (has_capability('mod/swf:viewallgrades', $context)) {
+		if (has_capability('mod/swf:viewallgrades', $context))
+		{
 			$obj->view_all_grades = true;
 		} else {
 			$obj->view_all_grades = false;
 		}
+		// Check if current user can edit grades (is teacher) !!! BUMP module version before uncommenting this section
+		/*if (has_capability('mod/swf:updategrades', $context))
+		{
+			$obj->edit_grades = true;
+		} else {
+			$obj->edit_grades = false;
+		}*/
 		// Check if current user can edit grades (is teacher)
-		if (has_capability('mod/swf:editgrades', $context)) {
+		if (has_capability('mod/swf:editgrades', $context))
+		{
 			$obj->edit_grades = true;
 		} else {
 			$obj->edit_grades = false;
 		}
-		
+		// Add on context object
+		$obj->context = $context;
 		return $obj;
 	}
 	
