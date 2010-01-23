@@ -29,17 +29,20 @@ etc.
 
 ----
 
-=== test_gateway($object=null) ===
+=== swf_delete_user_grade($object) ===
 *Description:* 
 
-*Parameters:* null
-
-*Returns:* boolean
+*Parameters:*
+{{{
+$object->instance
+$object->swfId
+}}}
+*Returns:* object
 
 ----
 
-=== get_course_swfs($object) ===
-*Description:* Returns all instances of SWF Activity Module on current course.
+=== swf_get_grade_items($object) ===
+*Description:* 
 
 *Parameters:*
 {{{
@@ -50,19 +53,7 @@ $object->swfId
 
 ----
 
-=== get_course_swf_grades($object) ===
-*Description:* Returns all grades in swf_grades for specified SWF Activity Module instance on current course.
-
-*Parameters:*
-{{{
-$object->instance
-$object->swfId
-}}}
-*Returns:* object
-
-----
-
-=== get_course_grades($object) ===
+=== swf_get_grades($object) ===
 *Description:* Returns all grades in swf_grades on current course.
 
 *Parameters:*
@@ -74,7 +65,7 @@ $object->swfId
 
 ----
 
-=== get_course_user_grades($object) ===
+=== swf_get_user_grades($object) ===
 *Description:* Returns all grades in swf_grades for current user on current course.
 
 *Parameters:*
@@ -86,8 +77,8 @@ $object->swfId
 
 ----
 
-=== insert_course_user_grade($object) ===
-*Description:* Inserts grade into swf_grades for current user on current course.
+=== swf_get_grades_grid($object) ===
+*Description:* 
 
 *Parameters:*
 {{{
@@ -102,7 +93,7 @@ $object->answerData
 
 ----
 
-=== update_user_grade($object) ===
+=== swf_get_user_grade_item_grades($object) ===
 *Description:* Updates swf_grades record for specified grade.
 
 *Parameters:*
@@ -118,7 +109,7 @@ $object->feedbacklink
 
 ----
 
-=== delete_course_user_grade($object) ===
+=== swf_get_user_grades($object) ===
 *Description:* Deletes swf_grades record for specified grade on current course.
 
 *Parameters:*
@@ -131,4 +122,35 @@ $object->gradeId
 
 ----
 
-== Examples ==
+=== swf_insert_user_grade($object) ===
+*Description:* Deletes swf_grades record for specified grade on current course.
+
+*Parameters:*
+{{{
+$object->instance
+$object->swfId
+$object->gradeId
+}}}
+*Returns:* boolean
+
+----
+
+=== swf_update_user_grade($object) ===
+*Description:* Deletes swf_grades record for specified grade on current course.
+
+*Parameters:*
+{{{
+$object->instance
+$object->swfId
+$object->gradeId
+}}}
+*Returns:* boolean
+
+----
+
+=== swf_test_gateway($object=null) ===
+*Description:* Test gateway is present and functioning and user is logged in.
+
+*Parameters:* null
+
+*Returns:* boolean
