@@ -26,51 +26,51 @@
  * @package swf
  **/
 
-	require_once("../../config.php");
-    require_once("lib.php");
+	require_once('../../config.php');
+    require_once('lib.php');
 	
     $id = optional_param('id', 0, PARAM_INT); // Course Module ID, or
     $a  = optional_param('a', 0, PARAM_INT);  // swf ID
 	
     if ($id) {
-        if (! $cm = get_record("course_modules", "id", $id)) {
-            error("Course Module ID was incorrect");
+        if (! $cm = get_record('course_modules', 'id', $id)) {
+            error('Course Module ID was incorrect');
         }
 
-        if (! $course = get_record("course", "id", $cm->course)) {
-            error("Course is misconfigured");
+        if (! $course = get_record('course', 'id', $cm->course)) {
+            error('Course is misconfigured');
         }
 
-        if (! $swf = get_record("swf", "id", $cm->instance)) {
-            error("Course module is incorrect");
+        if (! $swf = get_record('swf', 'id', $cm->instance)) {
+            error('Course module is incorrect');
         }
 
     } else {
-        if (! $swf = get_record("swf", "id", $a)) {
-            error("Course module is incorrect");
+        if (! $swf = get_record('swf', 'id', $a)) {
+            error('Course module is incorrect');
         }
-        if (! $course = get_record("course", "id", $swf->course)) {
-            error("Course is misconfigured");
+        if (! $course = get_record('course', 'id', $swf->course)) {
+            error('Course is misconfigured');
         }
-        if (! $cm = get_coursemodule_from_instance("swf", $swf->id, $course->id)) {
-            error("Course Module ID was incorrect");
+        if (! $cm = get_coursemodule_from_instance('swf', $swf->id, $course->id)) {
+            error('Course Module ID was incorrect');
         }
     }
 
     require_login($course->id);
 
-    add_to_log($course->id, "swf", "view", "view.php?id=$cm->id", "$swf->id");
+    add_to_log($course->id, 'swf', 'view', "view.php?id=$cm->id", "$swf->id");
 
 /// Print the page header
-    $strswfs = get_string("modulenameplural", "swf");
-    $strswf  = get_string("modulename", "swf");
+    $strswfs = get_string('modulenameplural', 'swf');
+    $strswf  = get_string('modulename', 'swf');
 	$swf->instance = $id; // Add course module ID
 	
 	// Print Javascript head code that embeds SWF file using SWFObject. If SWFObject fails
-	// for some reason, the standard <embed> and <object> HTML code should work. //get_string('swf', 'swf').': '.$swf->name
+	// for some reason, the standard <embed> and <object> HTML code should work.
 	// The "swf_print_header_js()" function is in mod/swf/lib.php
 	$navigation = build_navigation(get_string('swf', 'swf').': '.$swf->name, $id);
-    print_header_simple(format_string($swf->name), "", $navigation, "", swf_print_header_js($swf), true, update_module_button($cm->id, $course->id, $strswf), navmenu($course, $cm));
+    print_header_simple(format_string($swf->name), '', $navigation, '', swf_print_header_js($swf), true, update_module_button($cm->id, $course->id, $strswf), navmenu($course, $cm));
 	
 	// Everything between the myAlternativeContent <div> tags is 
 	// overwritten by SWFObject.
