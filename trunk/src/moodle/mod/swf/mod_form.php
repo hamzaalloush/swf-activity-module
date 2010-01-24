@@ -39,6 +39,8 @@
 * @param flashvar2
 * @param flashvar3
 * @param grading
+* @param feedback
+* @param feedbacklink
 *
 * OPTIONAL PARAMETERS:
 * @param apikey
@@ -90,28 +92,25 @@ class mod_swf_mod_form extends moodleform_mod {
 	// Example from: http://docs.moodle.org/en/Development:lib/formslib.php_Form_Definition
 	// REQUIRED header
 	$mform->addElement('header', 'swfrequired', get_string('swfrequired', 'swf'));
+	$mform->setHelpButton('swfrequired', array('swf_required', get_string('swfrequired', 'swf'), 'swf'));
 	
 	//swfurl - SWF file select/upload
 	$mform->addElement('choosecoursefile', 'swfurl', get_string('swfurl', 'swf'), array('courseid'=>$COURSE->id));
 	$mform->addRule('swfurl', get_string('required'), 'required', null, 'client');
-	$mform->setHelpButton('swfurl', array('swf_swfurl', get_string('swfurl', 'swf'), 'swf'));
 	
 	//width
 	$mform->addElement('text', 'width', get_string('width', 'swf'), array('size'=>'9'));
 	$mform->addRule('width', get_string('required'), 'required', null, 'client');
-	$mform->setHelpButton('width', array('swf_width', get_string('width', 'swf'), 'swf'));
 	$mform->setDefault('width', '900');
 	
 	//height
 	$mform->addElement('text', 'height', get_string('height', 'swf'), array('size'=>'9'));
 	$mform->addRule('height', get_string('required'), 'required', null, 'client');
-	$mform->setHelpButton('height', array('swf_height', get_string('height', 'swf'), 'swf'));
 	$mform->setDefault('height', '480');
 	
 	//version
 	$mform->addElement('text', 'version', get_string('version', 'swf'), array('size'=>'9'));
 	$mform->addRule('version', get_string('required'), 'required', null, 'client');
-	$mform->setHelpButton('version', array('swf_version', get_string('version', 'swf'), 'swf'));
 	$mform->setDefault('version', '9.0.115');
 	
 //----------------------------------------------------------------------------------------
@@ -119,6 +118,7 @@ class mod_swf_mod_form extends moodleform_mod {
 	
 	// AMF header ----------------------------------------------------------------------------- 
 	$mform->addElement('header', 'amf', get_string('amf', 'swf'));
+	$mform->setHelpButton('amf', array('swf_interaction', get_string('interactions', 'swf'), 'swf'));
 	/*
 	//amftable (AMF)
 	$swf_tables = swf_get_course_tables(); // in mod/swf/lib.php
@@ -127,35 +127,45 @@ class mod_swf_mod_form extends moodleform_mod {
 	//interaction (AMF)
 	$swf_interactions = swf_get_interactions($COURSE->id); // in mod/swf/lib.php
 	$mform->addElement('select', 'interaction', get_string('interactions', 'swf'), swf_get_interactions($COURSE->id));
-	$mform->setHelpButton('interaction', array('swf_interaction', get_string('interactions', 'swf'), 'swf'));
 	
 	// XML header ----------------------------------------------------------------------------- 
 	$mform->addElement('header', 'xml', get_string('xml', 'swf'));
+	$mform->setHelpButton('xml', array('swf_xmlurl', get_string('xml', 'swf'), 'swf'));
 	//xmlurl
 	$mform->addElement('choosecoursefile', 'xmlurl', get_string('xmlurl', 'swf'), array('courseid'=>$COURSE->id));
-	$mform->setHelpButton('xmlurl', array('swf_xmlurl', get_string('xmlurl', 'swf'), 'swf'));
 	
 	// FlashVars header -----------------------------------------------------------------------
 	$mform->addElement('header', 'flashvars', get_string('flashvars', 'swf'));
+	$mform->setHelpButton('flashvars', array('swf_flashvars', get_string('flashvars', 'swf'), 'swf'));
 	//attributes for flashvars text areas
-	$flashvars_att = 'wrap="virtual" rows="3" cols="57"';
-	//flashvar1
-	$mform->addElement('textarea', 'flashvar1', get_string("flashvar1", "swf"), $flashvars_att);
-	$mform->setHelpButton('flashvar1', array('swf_flashvars', get_string('flashvar1', 'swf'), 'swf'));
-	//flashvar2
-	$mform->addElement('textarea', 'flashvar2', get_string("flashvar2", "swf"), $flashvars_att);
-	$mform->setHelpButton('flashvar2', array('swf_flashvars', get_string('flashvar2', 'swf'), 'swf'));
-	//flashvar3
-	$mform->addElement('textarea', 'flashvar3', get_string("flashvar3", "swf"), $flashvars_att);
-	$mform->setHelpButton('flashvar3', array('swf_flashvars', get_string('flashvar3', 'swf'), 'swf'));
+	$swf_flashvars_att = 'wrap="virtual" rows="3" cols="57"';
+	$swf_flashvars_name = array('size'=>'75');
+	//name1
+	$mform->addElement('text', 'name1', get_string("name", "swf"), $swf_flashvars_name);
+	//value1
+	$mform->addElement('textarea', 'value1', get_string("value", "swf"), $swf_flashvars_att);
+	//name2
+	$mform->addElement('text', 'name2', get_string("name", "swf"), $swf_flashvars_name);
+	//value2
+	$mform->addElement('textarea', 'value2', get_string("value", "swf"), $swf_flashvars_att);
+	//name3
+	$mform->addElement('text', 'name3', get_string("name", "swf"), $swf_flashvars_name);
+	//value3
+	$mform->addElement('textarea', 'value3', get_string("value", "swf"), $swf_flashvars_att);
 	
 	// Grading header -----------------------------------------------------------------------
 	$mform->addElement('header', 'gradeweight', get_string('grading', 'swf'));
-	// grading
-	$mform->addElement('select', 'grading', get_string('grading', 'swf'), swf_list_grading());
-	$mform->setDefault('grading', '100');
-	$mform->setHelpButton('grading', array('swf_grading', get_string('grading', 'swf'), 'swf'));
-
+	$mform->setHelpButton('gradeweight', array('swf_grademax', get_string('grademax', 'swf'), 'swf'));
+	// grademax
+	$mform->addElement('select', 'grademax', get_string('grademax', 'swf'), swf_list_gradevalues());
+	$mform->setDefault('grademax', '100');
+	// gradepass
+	$mform->addElement('select', 'gradepass', get_string('gradepass', 'swf'), swf_list_gradevalues());
+	$mform->setDefault('gradepass', '80');
+	// feedback
+	$mform->addElement('textarea', 'feedback', get_string('feedback', 'swf'), $swf_flashvars_att);
+	// feedbacklink
+	$mform->addElement('choosecoursefile', 'feedbacklink', get_string('feedbacklink', 'swf'), array('courseid'=>$COURSE->id));
 	
 //----------------------------------------------------------------------------------------
 	// Advanced header
