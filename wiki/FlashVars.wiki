@@ -13,9 +13,6 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
   * configxml - An option to set all FlashVars parameters via an externally loaded XML file
   * course - Current Moodle course ID
   * coursepage - Quick link to current Moodle course page
-  * flashvar1 - Text data that doesn't fit in any of the other parameters
-  * flashvar2
-  * flashvar3
   * gateway - URL to Flash Remoting gateway
   * grading - 0% - 100% value for weighting grades in SWF Activity Module instances (learning interactions)
   * instance - Moodle module instance ID
@@ -26,6 +23,14 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
   * swfid - SWF Activity Module instance ID
   * xmlurl - URL to learning interaction data XML file
 
+----
+
+== Optional user-defined FlashVars ===
+
+The SWF Activity Module now includes 3 optional FlashVars that are user-defined name-value pairs. These were originally set names, i.e. flashvar1, flashvar2 and flashvar3. Now you can pass any FlashVars into your Flash e-learning applications.
+
+----
+  
 == New FlashVars ==
 
 Please comment on this page if there are any more FlashVars that you'd like to see included in the SWF Activity Module.
