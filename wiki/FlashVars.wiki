@@ -28,9 +28,3 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
 == Optional user-defined FlashVars ===
 
 The SWF Activity Module now includes 3 optional FlashVars that are user-defined name-value pairs. These were originally set names, i.e. flashvar1, flashvar2 and flashvar3. Now you can pass any FlashVars into your Flash e-learning applications.
-
-----
-  
-== New FlashVars ==
-
-Please comment on this page if there are any more FlashVars that you'd like to see included in the SWF Activity Module.
