@@ -27,58 +27,58 @@
 
 /// Replace swf with the name of your module
 
-    require_once("../../config.php");
-    require_once("lib.php");
+    require_once('../../config.php');
+    require_once('lib.php');
 
     $id = required_param('id', PARAM_INT);   // course
+	$a  = optional_param('a', 0, PARAM_INT);  // swf ID
 
-    if (! $course = get_record("course", "id", $id)) {
-        error("Course ID is incorrect");
+    if (! $course = get_record('course', 'id', $id)) {
+        error('Course ID is incorrect');
     }
 
     require_login($course->id);
 
-    add_to_log($course->id, "swf", "view all", "index.php?id=$course->id", "");
+    add_to_log($course->id, 'swf', 'view all', "index.php?id=$course->id", '');
 
 
 /// Get all required stringsswf
 
-    $strswfs = get_string("modulenameplural", "swf");
-    $strswf  = get_string("modulename", "swf");
+    $strswfs = get_string('modulenameplural', 'swf');
+    $strswf  = get_string('modulename', 'swf');
 
 
 /// Print the header
 
     $navlinks = array();
     $navlinks[] = array('name' => $strswfs, 'link' => '', 'type' => 'activity');
-    //$navigation = build_navigation($navlinks);
+    $navigation = build_navigation($navlinks);
 	
-	//print_header_simple("$strswfs", "", $navigation, "", "", true, "", navmenu($course));
-    print_header_simple("$strswfs", "", 'swf', "", "", true, "", navmenu($course));
+    print_header_simple("$strswfs", '', $navigation, '', '', true, '', navmenu($course));
 
 /// Get all the appropriate data
 
-    if (! $swfs = get_all_instances_in_course("swf", $course)) {
-        notice("There are no swfs", "../../course/view.php?id=$course->id");
+    if (! $swfs = get_all_instances_in_course('swf', $course)) {
+        notice('There are no swfs', "../../course/view.php?id=$course->id");
         die;
     }
 
 /// Print the list of instances (your module will probably extend this)
 
     $timenow = time();
-    $strname  = get_string("name");
-    $strweek  = get_string("week");
-    $strtopic  = get_string("topic");
+    $strname  = get_string('name');
+    $strweek  = get_string('week');
+    $strtopic  = get_string('topic');
 
-    if ($course->format == "weeks") {
+    if ($course->format == 'weeks') {
         $table->head  = array ($strweek, $strname);
-        $table->align = array ("center", "left");
-    } else if ($course->format == "topics") {
+        $table->align = array ('center', 'left');
+    } else if ($course->format == 'topics') {
         $table->head  = array ($strtopic, $strname);
-        $table->align = array ("center", "left", "left", "left");
+        $table->align = array ('center', 'left', 'left', 'left');
     } else {
         $table->head  = array ($strname);
-        $table->align = array ("left", "left", "left");
+        $table->align = array ('left', 'left', 'left');
     }
 
     foreach ($swfs as $swf) {
@@ -90,14 +90,14 @@
             $link = "<a href=\"view.php?id=$swf->coursemodule\">$swf->name</a>";
         }
 
-        if ($course->format == "weeks" or $course->format == "topics") {
+        if ($course->format == 'weeks' or $course->format == 'topics') {
             $table->data[] = array ($swf->section, $link);
         } else {
             $table->data[] = array ($link);
         }
     }
 
-    echo "<br />";
+    echo '<br />';
 
     print_table($table);
 
