@@ -11,7 +11,6 @@ $mod_swf_capabilities = array(
     // Ability to see that swf exists, and the basic information about it.
 	// For guests+
     'mod/swf:view' => array(
-							
         'captype' => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'legacy' => array(
@@ -50,6 +49,21 @@ $mod_swf_capabilities = array(
             'admin' => CAP_ALLOW
         )
     ),
+	
+    // Edit all swf grades in course.
+	// For teachers+
+    'mod/swf:updategrades' => array(
+		'riskbitmask' => RISK_PERSONAL,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_MODULE,
+        'legacy' => array(
+			'guest' => CAP_PREVENT,
+			'student' => CAP_PREVENT,
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'admin' => CAP_ALLOW
+        )
+    )
 	
     // Edit all swf grades in course.
 	// For teachers+
