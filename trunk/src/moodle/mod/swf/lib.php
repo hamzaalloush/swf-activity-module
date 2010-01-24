@@ -32,14 +32,44 @@
  *
  * @param object $instance An object from the form in mod.html
  * @return int The id of the newly inserted swf record
- **/
+ */
 function swf_add_instance($swf) {
     
-    $swf->timecreated = time();
+	$swf->timecreated = time();
+	// Try to store it in the database.
+	if (!$swf->id = insert_record('swf', $swf)) {
+		return false;
+	}
+	//$swf->id = insert_record('swf', $swf);
+	// Add corresponding grade item
+	swf_insert_grade_item($swf);
+    return $swf->id;
+}
 
-    # May have to add extra stuff in here #
+/**
+ * Insert module instance in swf_grade_items table for grade book
+ * TODO - merge with update_grade_item
+ * @param object $instance An object from the form in mod.html
+ * @return boolean Success/Fail
+ **/
+function swf_insert_grade_item($swf) {
 	
-	return insert_record('swf', $swf);
+	// Define parameters
+	$swf_grade_item->course = $swf->course;
+	$swf_grade_item->name = $swf->name;
+	$swf_grade_item->intro = $swf->intro;
+	$swf_grade_item->swfid = $swf->id;
+	$swf_grade_item->grademax = $swf->grademax;
+	$swf_grade_item->gradepass = $swf->gradepass;
+	$swf_grade_item->feedback = $swf->feedback;
+	$swf_grade_item->feedbacklink = $swf->feedbacklink;
+	$swf_grade_item->timecreated = $swf->timecreated;
+	// Insert new record
+	if (!insert_record('swf_grade_items',$swf_grade_item)) {
+		return false;
+	}
+	
+	return true;
 }
 
 /**
@@ -53,11 +83,44 @@ function swf_add_instance($swf) {
 function swf_update_instance($swf) {
 
     $swf->timemodified = time();
-    $swf->id = $swf->instance;
+	// Update the database.
+	$swf->id = $swf->instance;
+	if (!update_record("swf", $swf)) {
+		return false;  // some error occurred
+	}
+	// Ammend changes to corresponding swf_grade_items record
+	swf_update_grade_item($swf);
 	
-	# May have to add extra stuff in here #
-		
-    return update_record("swf", $swf);
+    return true;
+}
+
+/**
+ * Insert module instance in swf_grade_items table for grade book
+ * TODO - merge with insert_grade_item
+ * @param object $instance An object from the form in mod.html
+ * @return boolean Success/Fail
+ **/
+function swf_update_grade_item($swf) {
+	
+	// get original record
+	$swf_grade_item = get_record('swf_grade_items','swfid',$swf->id);
+	
+	// change parameters record
+	$swf_grade_item->course = $swf->course;
+	$swf_grade_item->name = $swf->name;
+	$swf_grade_item->swfid = $swf->id;
+	$swf_grade_item->grademax = $swf->grademax;
+	$swf_grade_item->gradepass = $swf->gradepass;
+	$swf_grade_item->feedback = $swf->feedback;
+	$swf_grade_item->feedbacklink = $swf->feedbacklink;
+	$swf_grade_item->timemodified = $swf->timemodified;
+	
+	// update record
+	if (!update_record('swf_grade_items',$swf_grade_item)) {
+		return false;
+	}
+	
+	return true;
 }
 
 /**
@@ -70,19 +133,20 @@ function swf_update_instance($swf) {
  **/
 function swf_delete_instance($id) {
 
-    if (! $swf = get_record("swf", "id", "$id")) {
+    if (! $swf = get_record('swf', 'id', "$id")) {
         return false;
     }
-
     $result = true;
 
-    # Delete any dependent records here #
-
-    if (! delete_records("swf", "id", "$swf->id")) {
+    if (! delete_records('swf', 'id', "$swf->id")) {
         $result = false;
     }
-
-    return $result;
+	
+	// Delete swf_grade_items entry
+	if (! delete_records('swf_grade_items', 'swfid', "$swf->id")) {
+        $result = false;
+    }
+	return $result;
 }
 
 /**
@@ -96,7 +160,21 @@ function swf_delete_instance($id) {
  * @todo Finish documenting this function
  **/
 function swf_user_outline($course, $user, $mod, $swf) {
-    return $return;
+	
+	/*global $CFG;
+	require_once("$CFG->libdir/gradelib.php");
+	$grades = grade_get_grades($course->id, 'mod', 'swf', $swf->id, $user->id);
+	if (empty($grades->items[0]->grades)) {
+		return null;
+	} else {
+		$grade = reset($grades->items[0]->grades);
+	}
+	
+	$result = new stdClass;
+	$result->info = get_string('grade') . ': ' . $grade->str_long_grade;
+	$result->time = $grade->dategraded;*/
+	return $result;
+	
 }
 
 /**
@@ -107,6 +185,16 @@ function swf_user_outline($course, $user, $mod, $swf) {
  * @todo Finish documenting this function
  **/
 function swf_user_complete($course, $user, $mod, $swf) {
+    /*global $CFG;
+	require_once($CFG->libdir.'/gradelib.php');
+	$grades = grade_get_grades($course->id,'mod','swf',$swf->id,$user->id);
+	if (!empty($grades->items[0]->grades)) {
+		$grade = reset($grades->items[0]->grades);
+		echo '<p>'.get_string('grade').': '.$grade->str_long_grade.'</p>';
+		if ($grade->str_feedback) {
+			echo '<p>'.get_string('feedback').': '.$grade->str_feedback.'<p/>';
+		}
+	}*/
     return true;
 }
 
@@ -228,19 +316,20 @@ function swf_uninstall() {
     return true;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/// Specific generic functions for SWF Activity Module
+//////////////////////////////////////////////// Specific generic functions for SWF Activity Module //////////////////////////////////////
 
 
 // ------------------------------------------------------------ mod_form.php ---------------------------------------------------------- //
 
-// The following function for mod_form.php all return arrays for the drop down lists in the SWF Activity Module instance creator form
+// The following function for mod_form.php all return arrays for the drop down lists in the SWF Activity Module instance form
 
 /**
 * Retrieve list of available interactions for current course
+* Only for database driven learning interaction data
 *
 * @param $swf_courseid int
 * @return array
@@ -249,28 +338,28 @@ function swf_get_interactions($swf_courseid) {
 	$swf_interactions = get_records('swf_interactions', 'course', $swf_courseid);
 	$swf_select_interaction = array('' => 'none');
 	if($swf_interactions) {
-		foreach($swf_interactions as $swf_value)
+		foreach($swf_interactions as $swf_interaction)
 		{
-			$swf_select_interaction[$swf_value->id] = $swf_value->name;
+			$swf_select_interaction[$swf_interaction->id] = $swf_value->name;
 		}
-		unset($swf_value);
+		unset($swf_interaction);
 	}
 	return $swf_select_interaction;
 }
 
 /*
+* Create align parameter array list
 * @return array
 */
 function swf_list_align() {
-	$swf_align_array = array('middle' => 'middle',
+	$swf_align_array = array('center' => 'center',
 							'left' => 'left',
-							'right' => 'right',
-							'top' => 'top',
-							'bottom' => 'bottom');
+							'right' => 'right');
 	return $swf_align_array;
 }
 
 /*
+* Create allow networking parameter array list
 * @return array
 */
 function swf_list_allownetworking() {
@@ -281,6 +370,7 @@ function swf_list_allownetworking() {
 }
 
 /*
+* Create allow script access parameter array list
 * @return array
 */
 function swf_list_allowscriptaccess() {
@@ -291,19 +381,21 @@ function swf_list_allowscriptaccess() {
 }
 
 /*
+* Create grading parameter array list
 * Create an associative array from 0 - 100
 *
 * @return array
 */
-function swf_list_grading() {
-	$swf_list_grading = array();
+function swf_list_gradevalues() {
+	$swf_list_gradevalues = array();
 	for($i = 0; $i < 101; $i++) {
-		$swf_list_grading["$i"] = "$i";
+		$swf_list_gradevalues["$i"] = "$i";
 	}
-	return $swf_list_grading;
+	return $swf_list_gradevalues;
 }
 
 /*
+* Create playback quality parameter array list
 * @return array
 */
 function swf_list_quality() {
@@ -317,6 +409,7 @@ function swf_list_quality() {
 }
 
 /*
+* Create stage align parameter array list
 * @return array
 */
 function swf_list_salign() {
@@ -332,6 +425,7 @@ function swf_list_salign() {
 }
 
 /*
+* Create stage scale mode parameter array list
 * @return array
 */
 function swf_list_scale() {
@@ -343,6 +437,8 @@ function swf_list_scale() {
 }
 
 /*
+* Create skins parameter array list
+* TODO - replace this function with one that searches a specified directory for skin SWFs
 * @return array
 */
 function swf_list_skins() {
@@ -353,6 +449,7 @@ function swf_list_skins() {
 }
 
 /*
+* Create true/false parameter array list
 * @return array
 */
 function swf_list_truefalse() {
@@ -362,6 +459,17 @@ function swf_list_truefalse() {
 }
 
 /*
+* Create true/false parameter array list
+* @return array
+*/
+function swf_list_widthpercent() {
+	$swf_list_widthpercent = array('true' => 'true',
+								'false' => 'false');
+	return $swf_list_widthpercent;
+}
+
+/*
+* Create window mode parameter array list
 * @return array
 */
 function swf_list_wmode() {
@@ -382,109 +490,127 @@ function swf_list_wmode() {
 * @param $swf (mdl_swf DB record for current SWF module instance)
 * @return string
 */
-function swf_print_header_js($swf) {
-	global $CFG;
-	// Build URL to AMFPHP (Flash Remoting) service
-	// Moodle 1.8 and 1.9 only
-	// This will be replaced by Zend_Amf in Moodle 2.0
-	$swf_gateway = $CFG->wwwroot.'/lib/amfphp/gateway.php';
-	// Build URL to moodledata directory
-	// This is where SWF files and media should be stored
-	$swf_moodledata = $CFG->wwwroot.'/file.php/'.$swf->course.'/';
-	// e.g. http://yoursite.com/file.php/99/
-	// Build URL back to course page. Useful for redirects from embedded swfs.
-	// There's no need to redirect to user feedback pages as these can be easily handled by swfs.
-	$swf_coursepage = $CFG->wwwroot.'/course/view.php?id='.$swf->course;
-	// e.g. http://yoursite.com/course/view.php?id=99
-	// Prevent using SWF file in browser cache by attaching time as query string
-	$swf_time = time();
-	$swf_swfurl = $swf_moodledata.$swf->swfurl.'?'.$swf_time;
-	$swf_xmlurl = $swf_moodledata.$swf->xmlurl.'?'.$swf_time;
-	// e.g. http://yourmoodlesite.com/file.php/99/swf/flash_file.swf?123513670
-	// configxml
-	$swf_configxml = $swf_moodledata.$swf->configxml.'?'.$swf_time;
+function swf_print_header_js($swf)
+{
 	// Build Javascript code for view.php print_header() function
 	$swf_header_js = '<script type="text/javascript" src="swfobject/swfobject.js"></script>
 		<script type="text/javascript">
-			var flashvars = {};
-			flashvars.gateway = "'.$swf_gateway.'";
-			flashvars.course = "'.$swf->course.'";
-			flashvars.swfid = "'.$swf->id.'";
-			flashvars.instance = "'.$swf->instance.'";
-			flashvars.interaction = "'.$swf->interaction.'";
-			flashvars.moodledata = "'.$swf_moodledata.'";
-			flashvars.coursepage = "'.$swf_coursepage.'";
-			flashvars.xmlurl = "'.$swf_xmlurl.'";
-			flashvars.apikey = "'.$swf->apikey.'";
-			flashvars.flashvar1 = "'.$swf->flashvar1.'";
-			flashvars.flashvar2 = "'.$swf->flashvar2.'";
-			flashvars.flashvar3 = "'.$swf->flashvar3.'";
-			flashvars.starttime = "'.$swf_time.'";
-			flashvars.grading = "'.$swf->grading.'";
-			flashvars.skin = "'.$swf->skin.'";
-			flashvars.configxml = "'.$swf_configxml.'";
-			var params = {};
-			params.play = "'.$swf->width.'";
-			params.loop = "'.$swf->loopswf.'";
-			params.menu = "'.$swf->menu.'";
-			params.quality = "'.$swf->quality.'";
-			params.scale = "'.$swf->scale.'";
-			params.salign = "'.$swf->salign.'";
-			params.wmode = "'.$swf->wmode.'";
-			params.bgcolor = "#'.$swf->bgcolor.'";
-			params.devicefont = "'.$swf->devicefont.'";
-			params.seamlesstabbing = "'.$swf->seamlesstabbing.'";
-			params.allowfullscreen = "'.$swf->allowfullscreen.'";
-			params.allowscriptaccess = "'.$swf->allowscriptaccess.'";
-			params.allownetworking = "'.$swf->allownetworking.'";
-			var attributes = {};
-			attributes.id = "contentid";
-			attributes.align = "middle";
-			swfobject.embedSWF("'.$swf_swfurl.'?'.$swf_time.'", "myAlternativeContent", "'.$swf->width.'", "'.$swf->height.'", "'.$swf->version.'", "swfobject/expressInstall.swf", flashvars, params, attributes);
+			swfobject.registerObject("myFlashContent", "'.$swf->version.'");
 		</script>';
+	// Don't show default dotted outline around Flash Player window in Firefox 3
+	$swf_header_js .= '<style type="text/css" media="screen">
+    		object { outline:none; }
+		</style>';
 		
-	//return ''; // uncomment this line to test alternative embed code (body) i.e. If Javascript isn't enabled in user's browser
 	return $swf_header_js;
 }
 
 /**
-* Construct Javascript SWFObject embed code for <body> section of view.php
-* Note: everything between the <div id="myAlternativeContent"></div> tags
-* is overwritten by SWFObject. This embed code will only be used if SWFObject
-* fails for some reason, e.g. Javascript isn't enabled. In any case, the module
-* should function normally.
+* Build absolute URLs
 *
 * @param $swf (mdl_swf DB record for current SWF module instance)
-* @param $cm module instance data
 * @return string
 */
-function swf_print_body($swf) {
+function swf_build_paths($swf)
+{
 	global $CFG;
-	// Build URL to AMFPHP (Flash Remoting) service
-	// Moodle 1.8 and 1.9 only
-	// This will be replaced by Zend_Amf in Moodle 2.0
-	$swf_gateway = $CFG->wwwroot.'/lib/amfphp/gateway.php';
-	// Build URL to moodledata directory
-	// This is where SWF files and media should be stored
-	$swf_moodledata = $CFG->wwwroot.'/file.php/'.$swf->course.'/';
-	// e.g. http://yoursite.com/file.php/99/
-	// Build URL back to course page. Useful for redirects from embedded swfs.
-	// There's no need to redirect to user feedback pages as these can be easily handled by swfs.
-	$swf_coursepage = $CFG->wwwroot.'/course/view.php?id='.$swf->course;
-	// e.g. http://yoursite.com/course/view.php?id=99
-	// Prevent using SWF file in browser cache by attaching time as query string
+	
+	$swf->coursepage = $CFG->wwwroot.'/course/view.php?id='.$swf->course;
+	$swf->gateway = $CFG->wwwroot.'/lib/amfphp/gateway.php';
+	$swf->moodledata = $CFG->wwwroot.'/file.php/'.$swf->course.'/';
+	$swf->swfurl = $swf->moodledata.$swf->swfurl;
+	//$swf->percent = '%';
+	// Don't pass in empty vars
+	if($swf->configxml != '')
+	{
+		$swf->configxml = '&configXml='.$CFG->wwwroot.'/file.php/'.$swf->course.'/'.$swf->configxml;
+	}
+	
+	if($swf->xmlurl != '')
+	{
+		$swf->xmlurl = '&xmlUrl='.$CFG->wwwroot.'/file.php/'.$swf->course.'/'.$swf->xmlurl;
+	}
+	
+	if($swf->apikey != '')
+	{
+		$swf->apikey = '&apiKey='.$swf->apikey;
+	}
+	
+	// FlashVars name value pairs
+	if($swf->name1 != '' && $swf->value1 != '')
+	{
+		$swf->namevalue1 = '&'.$swf->name1.'='.$swf->value1;
+	} else {
+		$swf->namevalue1 = '';
+	}
+	
+	if($swf->name2 != '' && $swf->value2 != '')
+	{
+		$swf->namevalue2 = '&'.$swf->name2.'='.$swf->value2;
+	} else {
+		$swf->namevalue2 = '';
+	}
+	
+	if($swf->name3 != '' && $swf->value3 != '')
+	{
+		$swf->namevalue3 = '&'.$swf->name3.'='.$swf->value3;
+	} else {
+		$swf->namevalue3 = '';
+	}
+	
+	if($swf->interaction == 0)
+	{
+		$swf->interaction = '';
+	} else {
+		$swf->interaction = '&interaction='.$swf->interaction;
+	}
+}
+
+/**
+* Print FlashVars
+*
+* @param $swf (mdl_swf DB record for current SWF module instance)
+* @return string
+*/
+function swf_print_flashvars($swf)
+{
+	$swf_flashvars = 'course='.$swf->course.
+						'&coursePage='.$swf->coursepage.
+						'&gateway='.$swf->gateway.
+						'&gradeMax='.$swf->grademax.
+						'&gradePass='.$swf->gradepass.
+						'&instance='.$swf->instance.
+						'&moodleData='.$swf->moodledata.
+						'&startTime='.time().
+						'&skin='.$swf->skin.
+						'&swfId='.$swf->id.
+						$swf->interaction.
+						$swf->apikey.
+						$swf->configxml.
+						$swf->namevalue1.
+						$swf->namevalue2.
+						$swf->namevalue3.
+						$swf->xmlurl;
+	
+	return $swf_flashvars;
+}
+
+/**
+* Construct Javascript SWFObject embed code for <body> section of view.php
+*
+* @param $swf (mdl_swf DB record for current SWF module instance)
+* @return string
+*/
+function swf_print_body($swf)
+{
+	global $CFG;
+	
+	swf_build_paths($swf);
 	$swf_time = time();
-	$swf_swfurl = $swf_moodledata.$swf->swfurl.'?'.$swf_time;
-	$swf_xmlurl = $swf_moodledata.$swf->xmlurl.'?'.$swf_time;
-	// e.g. http://yourmoodlesite.com/file.php/99/swf/flash_file.swf?123513670
-	// configxml
-	$swf_configxml = $swf_moodledata.$swf->configxml.'?'.$swf_time;
 	//
-	$swf_body = '<div align="center">
-		<div id="myAlternativeContent">
-			<div>
-			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'.$swf->width.'" height="'.$swf->height.'" id="contentid" align="'.$swf->align.'">
-				<param name="movie" value="'.$swf_swfurl.'" />
+	$swf_body = '<div align="'.$swf->align.'">
+	<object id="myFlashContent" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'.$swf->width.'" height="'.$swf->height.'" align="middle">
+				<param name="movie" value="'.$swf->swfurl.'?stopCache='.$swf_time.'" />
 				<param name="play" value="'.$swf->play.'" />
 				<param name="loop" value="'.$swf->loopswf.'" />
 				<param name="menu" value="'.$swf->menu.'" />
@@ -498,9 +624,9 @@ function swf_print_body($swf) {
 				<param name="allowfullscreen" value="'.$swf->allowfullscreen.'" />
 				<param name="allowscriptaccess" value="'.$swf->allowscriptaccess.'" />
 				<param name="allownetworking" value="'.$swf->allownetworking.'" />
-				<param name="flashvars" value="gateway='.$swf_gateway.'&amp;course='.$swf->course.'&amp;swfid='.$swf->id.'&amp;interaction='.$swf->interaction.'&amp;instance='.$swf->instance.'&amp;moodledata='.$swf_moodledata.'&amp;coursepage='.$swf_coursepage.'&amp;swfurl='.$swf_swfurl.'&amp;xmlurl='.$swf_xmlurl.'&amp;apikey='.$swf->apikey.'&amp;flashvar1='.$swf->flashvar1.'&amp;flashvar2='.$swf->flashvar2.'&amp;flashvar3='.$swf->flashvar3.'&amp;starttime='.$swf_time.'&amp;grading='.$swf->grading.'&amp;skin='.$swf->skin.'&amp;configxml='.$swf_configxml.'" />
+				<param name="flashvars" value="'.swf_print_flashvars($swf).'" />
 				<!--[if !IE]>-->
-				<object type="application/x-shockwave-flash" data="'.$swf_swfurl.'" width="'.$swf->width.'" height="'.$swf->height.'" align="'.$swf->align.'">
+				<object type="application/x-shockwave-flash" data="'.$swf->swfurl.'?stopCache='.$swf_time.'" width="'.$swf->width.'" height="'.$swf->height.'" align="'.$swf->align.'">
 					<param name="play" value="'.$swf->play.'" />
 					<param name="loop" value="'.$swf->loopswf.'" />
 					<param name="menu" value="'.$swf->menu.'" />
@@ -514,20 +640,20 @@ function swf_print_body($swf) {
 					<param name="allowfullscreen" value="'.$swf->allowfullscreen.'" />
 					<param name="allowscriptaccess" value="'.$swf->allowscriptaccess.'" />
 					<param name="allownetworking" value="'.$swf->allownetworking.'" />
-					<param name="flashvars" value="gateway='.$swf_gateway.'&amp;course='.$swf->course.'&amp;swfid='.$swf->id.'&amp;interaction='.$swf->interaction.'&amp;instance='.$swf->instance.'&amp;moodledata='.$swf_moodledata.'&amp;coursepage='.$swf_coursepage.'&amp;swfurl='.$swf_swfurl.'&amp;xmlurl='.$swf_xmlurl.'&amp;apikey='.$swf->apikey.'&amp;flashvar1='.$swf->flashvar1.'&amp;flashvar2='.$swf->flashvar2.'&amp;flashvar3='.$swf->flashvar3.'&amp;starttime='.$swf_time.'&amp;grading='.$swf->grading.'&amp;skin='.$swf->skin.'&amp;configxml='.$swf_configxml.'" />
-				<!--<![endif]-->'.get_string('embederror','swf').'
+					<param name="flashvars" value="'.swf_print_flashvars($swf).'" />
+				<!--<![endif]-->
 <div align="center">
-  <p><strong>This activity requires <a href="http://www.adobe.com/products/flashplayer/">Flash Player '.$swf->version.'</a> to be installed.</strong></p>
-  <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" border=0/>
-    </a>
-    </p>
+  '.get_string('embederror1','swf').$swf->version.get_string('embederror2','swf').'
+  <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" border=0/></a></p>
+  <p><a href="http://matbury.com/" title="SWF Activity Module developed by Matt Bury">by matbury.com</a></p>
 </div>
 				<!--[if !IE]>-->
 				</object>
 				<!--<![endif]-->
 			</object>
-		</div>
-	</div>';
+			</div>';
+	//
+	//return $swf_body.print_object($swf);
 	return $swf_body;
 }
 
