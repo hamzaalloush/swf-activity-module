@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.monospace {
+	font-family: "Courier New", Courier, monospace;
+}
+-->
+</style>
+</head>
+
+<body>
+<p>Read Me</p>
+<p><strong>SWF Activity Module Service Library</strong></p>
+<p>This directory contains scripts that give Flash applications access to Moodle lib functions.</p>
+<p><strong>Please note:</strong> These are not yet working scripts. The <span class="monospace">$swfId</span> and <span class="monospace">$instance</span> variables have been hard coded to make testing in the AMFPHP service browser possible. These variables identify the SWF Activity Module instance so that Moodle can check if the current user has the necessary capabilities to execute the class methods.</p>
+<p>To use the service browser:</p>
+<ol>
+  <li>In start up your development server and login to your development Moodle (don't do this on a public server!)</li>
+  <li>On a course, create an instance of the SWF Activity Module with any Flash application embedded, and make a note of the instance ID, i.e.   <span class="monospace">http://localhost/moodle/mod/swf/view.php?id=10</span> and the module ID, i.e. look at the module instance page source and find   <span class="monospace">swfId=4</span> for example.</li>
+  <li>In each of the service classes in <span class="monospace">http://localhost/moodle/lib/amfphp/services/</span>, change these lines:<span class="monospace"> $obj['instance'] = 76; </span>and<span class="monospace"> $obj['swfId'] = 4;</span> In some cases, such as Groups.php, it is necessary to change more variables and create dummy users and groups to test the services but you get the basic idea.</li>
+  <li>Go to <span class="monospace">http://localhost/moodle/lib/amfphp/browser/</span> - The Flex service browser will initialise and automatically load all the classes in the services directory.</li>
+  <li>In the service browser, you can call all the class methods in the service library and see the returned results.</li>
+</ol>
+<p>The SWF Activity Module project is hosted at:   <a href="http://code.google.com/p/swf-activity-module/">http://code.google.com/p/swf-activity-module/</a></p>
+<p>And developed by Matt Bury: <a href="http://matbury.com/">http://matbury.com/</a>, <a href="mailto:matbury@gmail.com">matbury@gmail.com</a></p>
+</body>
+</html>
