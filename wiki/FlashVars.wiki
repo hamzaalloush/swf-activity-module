@@ -16,7 +16,7 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
   * gateway - URL to Flash Remoting gateway
   * grading - 0% - 100% value for weighting grades in SWF Activity Module instances (learning interactions)
   * instance - Moodle module instance ID
-  * interaction - Learning interaction data ID for use with Flash Remoting
+  * interaction - Learning interaction data ID for use with Flash Remoting (deprecated)
   * moodledata - URL to current Moodle course files directory
   * skin - URL to skin SWF file
   * starttime - Server time for start of learning interaction
