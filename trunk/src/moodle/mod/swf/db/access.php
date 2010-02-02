@@ -50,6 +50,20 @@ $mod_swf_capabilities = array(
         )
     ),
 	
+    // View all swf grades reports in course.
+	// For teachers+
+    'mod/swf:viewreports' => array(
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_MODULE,
+        'legacy' => array(
+			'guest' => CAP_PREVENT,
+			'student' => CAP_PREVENT,
+            'teacher' => CAP_ALLOW,
+            'editingteacher' => CAP_ALLOW,
+            'admin' => CAP_ALLOW
+        )
+    ),
+	
     // Edit all swf grades in course.
 	// For teachers+
     'mod/swf:updategrades' => array(
@@ -63,7 +77,7 @@ $mod_swf_capabilities = array(
             'editingteacher' => CAP_ALLOW,
             'admin' => CAP_ALLOW
         )
-    )
+    ),
 	
     // Edit all swf grades in course.
 	// For teachers+
