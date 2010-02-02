@@ -33,22 +33,24 @@ $string['width'] = 'Width';
 $string['height'] = 'Height';
 $string['version'] = 'Version';
 // Optional
-//AMF
-$string['amf'] = 'AMF Interaction Data';
-$string['intsource'] = 'Interaction Data Source'; // header
-$string['amftable'] = 'AMF Table Name';
-$string['interactions'] = 'AMF Interaction';
-$string['newamftable'] = 'AMF Table Name'; //Advanced
 //XML
 $string['xml'] = 'XML Interaction Data';
 $string['xmlurl'] = 'XML file URL';
 //FlashVars
 $string['flashvars'] = 'FlashVars Interaction Data';
-$string['flashvar1'] = 'FlashVars #1';
-$string['flashvar2'] = 'FlashVars #2';
-$string['flashvar3'] = 'FlashVars #3';
+$string['name'] = 'Name';
+$string['value'] = 'Value';
 // Grading
-$string['grading'] = "Grading";
+$string['grading'] = 'Grading';
+$string['gradetype'] = 'Grade Type';
+$string['scale'] = 'Scale';
+$string['grademax'] = 'Maximum Grade';
+$string['grademin'] = 'Minimum Grade';
+$string['gradepass'] = 'Grade to Pass';
+$string['gradedisplaytype'] = 'Grade Display Type';
+$string['decimalpoints'] = 'Decimal Points';
+$string['feedback'] = 'Feedback Text';
+$string['feedbacklink'] = 'Feedback Link';
 //Advanced
 $string['advanced'] = 'Advanced Parameters'; // header
 $string['skin'] = 'Skin';
@@ -70,9 +72,11 @@ $string['allownetworking'] = 'Allow Networking';
 $string['configxml'] = 'SWF Configuration file (XML)';
 //---------------------------------------------------------------------------------------------
 // SWF embed alternative content error message for mod/swf/view.php
-$string['embederror'] = '<p><strong>There was a problem with the SWF activity module.</strong></p>
-<p><strong>Please return to the course page and try again.</strong></p>
-<p><strong>If this problem persists, please contact your teacher or site admin.</strong></p>';
+$string['embederror1'] = '<p><strong>There was a problem with the SWF activity module.</strong></p>
+<p><strong>This activity may be incorrectly configured or you may not have the required Flash Player version.</strong></p>
+<p><strong>This activity requires Flash Player ';
+$string['embederror2'] = ' or later.</strong></p>
+<p><strong>You can upgrade to the latest version if you have administrator rights on your computer.</strong></p>';
 //---------------------------------------------------------------------------------------------
 
 ?>
