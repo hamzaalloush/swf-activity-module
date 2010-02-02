@@ -1,4 +1,4 @@
-<?php  // $Id: lib.php,v 1.0 2009/09/28 matbury Exp $
+<?php  // $Id: lib.php,v 1.1 2010/02/02 matbury Exp $
 /**
 * Library of functions and constants for module swf
 * 
@@ -33,43 +33,20 @@
  * @param object $instance An object from the form in mod.html
  * @return int The id of the newly inserted swf record
  */
-function swf_add_instance($swf) {
+function swf_add_instance($swf)
+{
     
 	$swf->timecreated = time();
 	// Try to store it in the database.
-	if (!$swf->id = insert_record('swf', $swf)) {
+	if (!$swf->id = insert_record('swf', $swf))
+	{
 		return false;
 	}
-	//$swf->id = insert_record('swf', $swf);
-	// Add corresponding grade item
-	swf_insert_grade_item($swf);
+	
+	// Insert corresponding grade item into grade book
+	swf_grade_item_update($swf);
+	
     return $swf->id;
-}
-
-/**
- * Insert module instance in swf_grade_items table for grade book
- * TODO - merge with update_grade_item
- * @param object $instance An object from the form in mod.html
- * @return boolean Success/Fail
- **/
-function swf_insert_grade_item($swf) {
-	
-	// Define parameters
-	$swf_grade_item->course = $swf->course;
-	$swf_grade_item->name = $swf->name;
-	$swf_grade_item->intro = $swf->intro;
-	$swf_grade_item->swfid = $swf->id;
-	$swf_grade_item->grademax = $swf->grademax;
-	$swf_grade_item->gradepass = $swf->gradepass;
-	$swf_grade_item->feedback = $swf->feedback;
-	$swf_grade_item->feedbacklink = $swf->feedbacklink;
-	$swf_grade_item->timecreated = $swf->timecreated;
-	// Insert new record
-	if (!insert_record('swf_grade_items',$swf_grade_item)) {
-		return false;
-	}
-	
-	return true;
 }
 
 /**
@@ -80,47 +57,54 @@ function swf_insert_grade_item($swf) {
  * @param object $instance An object from the form in mod.html
  * @return boolean Success/Fail
  **/
-function swf_update_instance($swf) {
+function swf_update_instance($swf)
+{
 
     $swf->timemodified = time();
 	// Update the database.
 	$swf->id = $swf->instance;
-	if (!update_record("swf", $swf)) {
+	if (!update_record('swf', $swf))
+	{
 		return false;  // some error occurred
 	}
-	// Ammend changes to corresponding swf_grade_items record
-	swf_update_grade_item($swf);
+	// TODO - update changes to corresponding grade_items record
+	swf_grade_item_update($swf);
 	
     return true;
 }
 
 /**
- * Insert module instance in swf_grade_items table for grade book
- * TODO - merge with insert_grade_item
- * @param object $instance An object from the form in mod.html
- * @return boolean Success/Fail
+ * Inserts or updates corresponding grade item in grade book
+ * 
+ * @param object $swf
+ * @return ??
  **/
-function swf_update_grade_item($swf) {
+function swf_grade_item_update($swf)
+{
+	global $CFG;
+    if (!function_exists('grade_update')) { //workaround for buggy PHP versions
+        require_once($CFG->libdir.'/gradelib.php');
+    }
 	
-	// get original record
-	$swf_grade_item = get_record('swf_grade_items','swfid',$swf->id);
+    /*if (array_key_exists('cmidnumber', $swf)) { //it may not be always present
+        $params = array('itemname'=>$swf->name, 'idnumber'=>$swf->cmidnumber);
+    } else {
+        $params = array('itemname'=>$swf->name);
+    }*/
 	
-	// change parameters record
-	$swf_grade_item->course = $swf->course;
-	$swf_grade_item->name = $swf->name;
-	$swf_grade_item->swfid = $swf->id;
-	$swf_grade_item->grademax = $swf->grademax;
-	$swf_grade_item->gradepass = $swf->gradepass;
-	$swf_grade_item->feedback = $swf->feedback;
-	$swf_grade_item->feedbacklink = $swf->feedbacklink;
-	$swf_grade_item->timemodified = $swf->timemodified;
+	$params = array('itemname'=>$swf->name);
 	
-	// update record
-	if (!update_record('swf_grade_items',$swf_grade_item)) {
-		return false;
-	}
+	// If set grade is more than 0, otherwise don't grade
+    if ($swf->grademax > 0) {
+        $params['gradetype'] = $swf->gradetype;
+        $params['grademax']  = $swf->grademax;
+        $params['grademin']  = $swf->grademin;
+    } else {
+		$params['gradetype'] = GRADE_TYPE_NONE;
+    }
 	
-	return true;
+	// Insert/Update grade item
+	return grade_update('mod/swf', $swf->course, 'mod', 'swf', $swf->id, 0, NULL, $params);
 }
 
 /**
@@ -131,7 +115,8 @@ function swf_update_grade_item($swf) {
  * @param int $id Id of the module instance
  * @return boolean Success/Failure
  **/
-function swf_delete_instance($id) {
+function swf_delete_instance($id)
+{
 
     if (! $swf = get_record('swf', 'id', "$id")) {
         return false;
@@ -142,10 +127,9 @@ function swf_delete_instance($id) {
         $result = false;
     }
 	
-	// Delete swf_grade_items entry
-	if (! delete_records('swf_grade_items', 'swfid', "$swf->id")) {
-        $result = false;
-    }
+	// TODO - update changes to corresponding grade_items record
+	//quiz_grade_item_delete($swf);
+	
 	return $result;
 }
 
@@ -159,12 +143,14 @@ function swf_delete_instance($id) {
  * @return null
  * @todo Finish documenting this function
  **/
-function swf_user_outline($course, $user, $mod, $swf) {
+function swf_user_outline($course, $user, $mod, $swf)
+{
 	
-	/*global $CFG;
-	require_once("$CFG->libdir/gradelib.php");
+	global $CFG;
+	require_once($CFG->libdir.'/gradelib.php');
 	$grades = grade_get_grades($course->id, 'mod', 'swf', $swf->id, $user->id);
-	if (empty($grades->items[0]->grades)) {
+	if (empty($grades->items[0]->grades))
+	{
 		return null;
 	} else {
 		$grade = reset($grades->items[0]->grades);
@@ -172,7 +158,7 @@ function swf_user_outline($course, $user, $mod, $swf) {
 	
 	$result = new stdClass;
 	$result->info = get_string('grade') . ': ' . $grade->str_long_grade;
-	$result->time = $grade->dategraded;*/
+	$result->time = $grade->dategraded;
 	return $result;
 	
 }
@@ -184,8 +170,9 @@ function swf_user_outline($course, $user, $mod, $swf) {
  * @return boolean
  * @todo Finish documenting this function
  **/
-function swf_user_complete($course, $user, $mod, $swf) {
-    /*global $CFG;
+function swf_user_complete($course, $user, $mod, $swf)
+{
+    global $CFG;
 	require_once($CFG->libdir.'/gradelib.php');
 	$grades = grade_get_grades($course->id,'mod','swf',$swf->id,$user->id);
 	if (!empty($grades->items[0]->grades)) {
@@ -194,7 +181,7 @@ function swf_user_complete($course, $user, $mod, $swf) {
 		if ($grade->str_feedback) {
 			echo '<p>'.get_string('feedback').': '.$grade->str_feedback.'<p/>';
 		}
-	}*/
+	}
     return true;
 }
 
@@ -207,7 +194,8 @@ function swf_user_complete($course, $user, $mod, $swf) {
  * @return boolean
  * @todo Finish documenting this function
  **/
-function swf_print_recent_activity($course, $isteacher, $timestart) {
+function swf_print_recent_activity($course, $isteacher, $timestart)
+{
     global $CFG;
 
     return false;  //  True if anything was printed, otherwise false 
@@ -222,9 +210,9 @@ function swf_print_recent_activity($course, $isteacher, $timestart) {
  * @return boolean
  * @todo Finish documenting this function
  **/
-function swf_cron () {
+function swf_cron ()
+{
     global $CFG;
-
     return true;
 }
 
@@ -241,8 +229,15 @@ function swf_cron () {
  * @param int $swfid ID of an instance of this module
  * @return mixed Null or object with an array of grades and with the maximum grade
  **/
-function swf_grades($swfid) {
-   return NULL;
+function swf_grades($swfid)
+{
+	global $CFG;
+	require_once($CFG->libdir.'/gradelib.php');
+	if($grades = grade_get_grades($course->id,'mod','swf',$swf->id))
+	{
+		return $grades;
+	}
+	return NULL;
 }
 
 /**
@@ -254,7 +249,8 @@ function swf_grades($swfid) {
  * @param int $swfid ID of an instance of this module
  * @return mixed boolean/array of students
  **/
-function swf_get_participants($swfid) {
+function swf_get_participants($swfid)
+{
     return false;
 }
 
@@ -327,31 +323,12 @@ function swf_uninstall() {
 
 // The following function for mod_form.php all return arrays for the drop down lists in the SWF Activity Module instance form
 
-/**
-* Retrieve list of available interactions for current course
-* Only for database driven learning interaction data
-*
-* @param $swf_courseid int
-* @return array
-*/
-function swf_get_interactions($swf_courseid) {
-	$swf_interactions = get_records('swf_interactions', 'course', $swf_courseid);
-	$swf_select_interaction = array('' => 'none');
-	if($swf_interactions) {
-		foreach($swf_interactions as $swf_interaction)
-		{
-			$swf_select_interaction[$swf_interaction->id] = $swf_value->name;
-		}
-		unset($swf_interaction);
-	}
-	return $swf_select_interaction;
-}
-
 /*
 * Create align parameter array list
 * @return array
 */
-function swf_list_align() {
+function swf_list_align()
+{
 	$swf_align_array = array('center' => 'center',
 							'left' => 'left',
 							'right' => 'right');
@@ -362,7 +339,8 @@ function swf_list_align() {
 * Create allow networking parameter array list
 * @return array
 */
-function swf_list_allownetworking() {
+function swf_list_allownetworking()
+{
 	$swf_list_allownetworking = array('all' => 'all',
 									'internal' => 'internal',
 									'none' => 'none');
@@ -480,6 +458,43 @@ function swf_list_wmode() {
 							'gpu' => 'gpu');
 	return $swf_list_wmode;
 }
+
+/*
+* Create grade type array 0 - 3
+* @return array
+*/
+function swf_list_gradetype() {
+	$swf_list_gradetype = array('0' => 'none',
+							'1' => 'value',
+							//'2' => 'scale',
+							'3' => 'text');
+	return $swf_list_gradetype;
+}
+
+/*
+* Create decimal points array 0 - 5
+* @return array
+*/
+function swf_list_decimalpoints() {
+	$swf_list_decimalpoints = array('0' => '0',
+							'1' => '1',
+							'2' => '2',
+							'3' => '3',
+							'4' => '4',
+							'5' => '5');
+	return $swf_list_decimalpoints;
+}
+
+
+/*
+* Create grade scale parameter array list - Not yet implemented
+* @return array
+*/
+/*function swf_list_scale() {
+	$swf_list_scale = array('' => 'Use no scale');
+	return $swf_list_scale;
+}*/
+
 
 // ------------------------------------------------------------ view.php ---------------------------------------------------------- //
 
@@ -652,10 +667,8 @@ function swf_print_body($swf)
 				<!--<![endif]-->
 			</object>
 			</div>';
-	//
-	//return $swf_body.print_object($swf);
+	
 	return $swf_body;
 }
 
-/// End of mod/swf/lib.php
 ?>
