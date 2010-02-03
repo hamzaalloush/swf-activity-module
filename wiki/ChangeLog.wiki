@@ -7,6 +7,12 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 === 2009/12/21 ===
 
+  * Added grade_update() function (moodle/lib/gradelib.php) to moodle/mod/swf/lib.php. Now, SWF instances have corresponding grade item in Moodle grade book
+  * Also added gradetype, grademax and grademin parameters to swf DB table and mod_form.php to manage grade items for corresponding SWF instance.
+  * Updated install.xml. Removed swf_interactions and swf_interaction_data tables. Now, XML is the preferred method of loading learning interaction data into Flash applications.
+
+=== 2009/12/21 ===
+
   * Gradebook.php and Access.php scripts taking shape and functioning well. MDL.php can now be deprecated.
   * Started work on Flash grade book client to display and edit grades.
 
