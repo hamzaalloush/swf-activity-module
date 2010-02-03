@@ -5,7 +5,7 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
-=== 2009/12/21 ===
+=== 2010/02/03 ===
 
   * Added grade_update() function (moodle/lib/gradelib.php) to moodle/mod/swf/lib.php. Now, SWF instances have corresponding grade item in Moodle grade book
   * Also added gradetype, grademax and grademin parameters to swf DB table and mod_form.php to manage grade items for corresponding SWF instance.
