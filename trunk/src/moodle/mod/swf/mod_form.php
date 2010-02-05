@@ -73,6 +73,9 @@ class mod_swf_mod_form extends moodleform_mod {
 
 		global $COURSE;
 		$mform =& $this->_form;
+		
+		// If we're updating the module instance, we need the ID to get the grade_items record
+		$swf_id = optional_param('update', 0, PARAM_INT);  // swf update ID
 
 //-------------------------------------------------------------------------------
     /// Adding the "general" fieldset, where all the common settings are shown
@@ -97,26 +100,33 @@ class mod_swf_mod_form extends moodleform_mod {
 	//swfurl - SWF file select/upload
 	$mform->addElement('choosecoursefile', 'swfurl', get_string('swfurl', 'swf'), array('courseid'=>$COURSE->id));
 	$mform->addRule('swfurl', get_string('required'), 'required', null, 'client');
+	$mform->setType('swfurl', PARAM_NOTAGS);
 	//width
 	$mform->addElement('text', 'width', get_string('width', 'swf'), array('size'=>'9'));
 	$mform->addRule('width', get_string('required'), 'required', null, 'client');
+	$mform->setType('width', PARAM_NOTAGS);
 	$mform->setDefault('width', '900');
 	//height
 	$mform->addElement('text', 'height', get_string('height', 'swf'), array('size'=>'9'));
 	$mform->addRule('height', get_string('required'), 'required', null, 'client');
+	$mform->setType('height', PARAM_NOTAGS);
 	$mform->setDefault('height', '480');
 	//version
 	$mform->addElement('text', 'version', get_string('version', 'swf'), array('size'=>'9'));
 	$mform->addRule('version', get_string('required'), 'required', null, 'client');
+	$mform->setType('version', PARAM_NOTAGS);
 	$mform->setDefault('version', '9.0.115');
 	
-//----------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------------------
 	// OPTIONAL PARAMETERS
+	
 	// XML header ----------------------------------------------------------------------------- 
 	$mform->addElement('header', 'xml', get_string('xml', 'swf'));
 	$mform->setHelpButton('xml', array('swf_xmlurl', get_string('xml', 'swf'), 'swf'));
 	//xmlurl
 	$mform->addElement('choosecoursefile', 'xmlurl', get_string('xmlurl', 'swf'), array('courseid'=>$COURSE->id));
+	$mform->setType('xmlurl', PARAM_NOTAGS);
+	
 	// FlashVars header -----------------------------------------------------------------------
 	$mform->addElement('header', 'flashvars', get_string('flashvars', 'swf'));
 	$mform->setHelpButton('flashvars', array('swf_flashvars', get_string('flashvars', 'swf'), 'swf'));
@@ -125,40 +135,44 @@ class mod_swf_mod_form extends moodleform_mod {
 	$swf_flashvars_name = array('size'=>'75');
 	// name1
 	$mform->addElement('text', 'name1', get_string("name", "swf"), $swf_flashvars_name);
+	$mform->setType('name1', PARAM_NOTAGS);
 	// value1
 	$mform->addElement('textarea', 'value1', get_string("value", "swf"), $swf_flashvars_att);
+	$mform->setType('value1', PARAM_NOTAGS);
 	// name2
 	$mform->addElement('text', 'name2', get_string("name", "swf"), $swf_flashvars_name);
+	$mform->setType('name2', PARAM_NOTAGS);
 	// value2
 	$mform->addElement('textarea', 'value2', get_string("value", "swf"), $swf_flashvars_att);
+	$mform->setType('value2', PARAM_NOTAGS);
 	// name3
 	$mform->addElement('text', 'name3', get_string("name", "swf"), $swf_flashvars_name);
+	$mform->setType('name3', PARAM_NOTAGS);
 	// value3
 	$mform->addElement('textarea', 'value3', get_string("value", "swf"), $swf_flashvars_att);
+	$mform->setType('value3', PARAM_NOTAGS);
 	
 	// ----------------------------------------------------- Grading header ----------------------------------------------------- //
 	// grading
 	$mform->addElement('header', 'grading', get_string('grading', 'swf'));
 	$mform->setHelpButton('grading', array('swf_grading', get_string('grading', 'swf'), 'swf'));
+	// grade_item settings - TODO: Can we get these to overide the $swf entries on update?
+	//$swf_grade_item = swf_get_grade_item($swf_id);
 	// gradetype
 	$mform->addElement('select', 'gradetype', get_string('gradetype', 'swf'), swf_list_gradetype());
 	$mform->setDefault('gradetype', '1');
-	// scale - scales not yet implemented
-	//$mform->addElement('select', 'scale', get_string('scale', 'swf'), swf_list_scale());
-	//$mform->setDefault('scale', '100');
 	// grademax
 	$mform->addElement('select', 'grademax', get_string('grademax', 'swf'), swf_list_gradevalues());
 	$mform->setDefault('grademax', '100');
 	// grademin
 	$mform->addElement('select', 'grademin', get_string('grademin', 'swf'), swf_list_gradevalues());
 	$mform->setDefault('grademin', '0');
-	// decimalpoints
-	$mform->addElement('select', 'decimalpoints', get_string('decimalpoints', 'swf'), swf_list_decimalpoints());
-	$mform->setDefault('decimalpoints', '0');
 	// feedback
 	$mform->addElement('textarea', 'feedback', get_string('feedback', 'swf'), $swf_flashvars_att);
+	$mform->setType('feedback', PARAM_NOTAGS);
 	// feedbacklink
 	$mform->addElement('choosecoursefile', 'feedbacklink', get_string('feedbacklink', 'swf'), array('courseid'=>$COURSE->id));
+	$mform->setType('feedbacklink', PARAM_NOTAGS);
 	
 	//-------------------------------------------- Advanced header --------------------------------------------
 	// advanced
@@ -171,6 +185,7 @@ class mod_swf_mod_form extends moodleform_mod {
 	//apikey
 	$mform->addElement('text', 'apikey', get_string('apikey', 'swf'), array('size'=>'75'));
 	$mform->setHelpButton('apikey',  array('swf_apikey', get_string('apikey', 'swf'), 'swf'));
+	$mform->setType('apikey', PARAM_NOTAGS);
 	$mform->setAdvanced('apikey');
 	// align
 	$mform->addElement('select', 'align', get_string('align', 'swf'), swf_list_align());
@@ -215,12 +230,13 @@ class mod_swf_mod_form extends moodleform_mod {
 	//bgcolor
 	$mform->addElement('text', 'bgcolor', get_string('bgcolor', 'swf'), array('size'=>'20'));
 	$mform->setHelpButton('bgcolor', array('swf_bgcolor', get_string('bgcolor', 'swf'), 'swf'));
-	$mform->setDefault('bgcolor', '');
+	$mform->setType('bgcolor', PARAM_NOTAGS);
+	$mform->setDefault('bgcolor', 'FFFFFF');
 	$mform->setAdvanced('bgcolor');
 	//devicefont
 	$mform->addElement('select', 'devicefont', get_string('devicefont', 'swf'), swf_list_truefalse());
 	$mform->setHelpButton('devicefont', array('swf_devicefont', get_string('devicefont', 'swf'), 'swf'));
-	$mform->setDefault('devicefont', '');
+	$mform->setDefault('devicefont', 'true');
 	$mform->setAdvanced('devicefont');
 	//seamlesstabbing
 	$mform->addElement('select', 'seamlesstabbing', get_string('seamlesstabbing', 'swf'), swf_list_truefalse());
@@ -245,6 +261,7 @@ class mod_swf_mod_form extends moodleform_mod {
 	//configxml - Configuration XML file select/upload
 	$mform->addElement('choosecoursefile', 'configxml', get_string('configxml', 'swf'), array('courseid'=>$COURSE->id));
 	$mform->setHelpButton('configxml', array('swf_configxml', get_string('configxml', 'swf'), 'swf'));
+	$mform->setType('configxml', PARAM_NOTAGS);
 	$mform->setAdvanced('configxml');
 	
 //-------------------------------------------------------------------------------
