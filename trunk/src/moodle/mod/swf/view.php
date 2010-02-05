@@ -69,7 +69,7 @@
 	// Print Javascript head code that embeds SWF file using SWFObject. If SWFObject fails
 	// for some reason, the standard <embed> and <object> HTML code should work.
 	// The "swf_print_header_js()" function is in mod/swf/lib.php
-	$navigation = build_navigation(get_string('swf', 'swf').': '.$swf->name, $id);
+	$navigation = build_navigation($swf->name, $id);
     print_header_simple(format_string($swf->name), '', $navigation, '', swf_print_header_js($swf), true, update_module_button($cm->id, $course->id, $strswf), navmenu($course, $cm));
 	
 	// Everything between the myAlternativeContent <div> tags is 
@@ -78,6 +78,5 @@
 	
 /// Finish the page
     print_footer($course);
-	
-// End of mod/swf/view.php
+
 ?>
