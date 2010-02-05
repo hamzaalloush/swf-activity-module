@@ -37,6 +37,7 @@ function swf_add_instance($swf)
 {
     
 	$swf->timecreated = time();
+	$swf->timemodified = time();
 	// Try to store it in the database.
 	if (!$swf->id = insert_record('swf', $swf))
 	{
@@ -59,7 +60,6 @@ function swf_add_instance($swf)
  **/
 function swf_update_instance($swf)
 {
-
     $swf->timemodified = time();
 	// Update the database.
 	$swf->id = $swf->instance;
@@ -67,7 +67,7 @@ function swf_update_instance($swf)
 	{
 		return false;  // some error occurred
 	}
-	// TODO - update changes to corresponding grade_items record
+	// Update changes to corresponding grade_items record
 	swf_grade_item_update($swf);
 	
     return true;
@@ -93,7 +93,6 @@ function swf_grade_item_update($swf)
     }*/
 	
 	$params = array('itemname'=>$swf->name);
-	
 	// If set grade is more than 0, otherwise don't grade
     if ($swf->grademax > 0) {
         $params['gradetype'] = $swf->gradetype;
@@ -264,7 +263,7 @@ function swf_get_participants($swfid)
  * @return mixed
  * @todo Finish documenting this function
  **/
-function swf_scale_used ($swfid,$scaleid) {
+function swf_scale_used($swfid,$scaleid) {
     $return = false;
 
     //$rec = get_record("swf","id","$swfid","scale","-$scaleid");
@@ -351,7 +350,8 @@ function swf_list_allownetworking()
 * Create allow script access parameter array list
 * @return array
 */
-function swf_list_allowscriptaccess() {
+function swf_list_allowscriptaccess()
+{
 	$swf_list_allowscriptaccess = array('always' => 'always',
 										'sameDomain' => 'sameDomain',
 										'never' => 'never');
@@ -359,24 +359,11 @@ function swf_list_allowscriptaccess() {
 }
 
 /*
-* Create grading parameter array list
-* Create an associative array from 0 - 100
-*
-* @return array
-*/
-function swf_list_gradevalues() {
-	$swf_list_gradevalues = array();
-	for($i = 0; $i < 101; $i++) {
-		$swf_list_gradevalues["$i"] = "$i";
-	}
-	return $swf_list_gradevalues;
-}
-
-/*
 * Create playback quality parameter array list
 * @return array
 */
-function swf_list_quality() {
+function swf_list_quality()
+{
 	$swf_list_quality = array('best' => 'best',
 							'high' => 'high',
 							'medium' => 'medium',
@@ -390,7 +377,8 @@ function swf_list_quality() {
 * Create stage align parameter array list
 * @return array
 */
-function swf_list_salign() {
+function swf_list_salign()
+{
 	$swf_list_salign = array('tl' => 'top left',
 							'tr' => 'top right',
 							'bl' => 'bottom left',
@@ -406,7 +394,8 @@ function swf_list_salign() {
 * Create stage scale mode parameter array list
 * @return array
 */
-function swf_list_scale() {
+function swf_list_scale()
+{
 	$swf_list_scale = array('showall' => 'showall',
 							'noborder' => 'noborder',
 							'exactfit' => 'exactfit',
@@ -419,7 +408,8 @@ function swf_list_scale() {
 * TODO - replace this function with one that searches a specified directory for skin SWFs
 * @return array
 */
-function swf_list_skins() {
+function swf_list_skins()
+{
 	$swf_list_skins = array('default' => '',
 							'skins/gradient_square_blue.swf' => 'Square blue gradient',
 							'skins/shiny_round_red.swf' => 'Shiny round red');
@@ -430,7 +420,8 @@ function swf_list_skins() {
 * Create true/false parameter array list
 * @return array
 */
-function swf_list_truefalse() {
+function swf_list_truefalse()
+{
 	$swf_list_truefalse = array('true' => 'true',
 								'false' => 'false');
 	return $swf_list_truefalse;
@@ -440,7 +431,8 @@ function swf_list_truefalse() {
 * Create true/false parameter array list
 * @return array
 */
-function swf_list_widthpercent() {
+function swf_list_widthpercent()
+{
 	$swf_list_widthpercent = array('true' => 'true',
 								'false' => 'false');
 	return $swf_list_widthpercent;
@@ -450,7 +442,8 @@ function swf_list_widthpercent() {
 * Create window mode parameter array list
 * @return array
 */
-function swf_list_wmode() {
+function swf_list_wmode()
+{
 	$swf_list_wmode = array('window' => 'window',
 							'opaque' => 'opaque',
 							'transparent' => 'transparent',
@@ -460,10 +453,26 @@ function swf_list_wmode() {
 }
 
 /*
-* Create grade type array 0 - 3
+* Create grading parameter array list
+* Create an associative array from 0 - 100
+*
 * @return array
 */
-function swf_list_gradetype() {
+function swf_list_gradevalues()
+{
+	$swf_list_gradevalues = array();
+	for($i = 0; $i < 101; $i++) {
+		$swf_list_gradevalues["$i"] = "$i";
+	}
+	return $swf_list_gradevalues;
+}
+
+/*
+* Create gradetype array 0 - 3
+* @return array
+*/
+function swf_list_gradetype()
+{
 	$swf_list_gradetype = array('0' => 'none',
 							'1' => 'value',
 							//'2' => 'scale',
@@ -471,20 +480,24 @@ function swf_list_gradetype() {
 	return $swf_list_gradetype;
 }
 
-/*
-* Create decimal points array 0 - 5
-* @return array
+/**
+* Get grading settings if grade_item record exists, else set defaults
+* @return object
 */
-function swf_list_decimalpoints() {
-	$swf_list_decimalpoints = array('0' => '0',
-							'1' => '1',
-							'2' => '2',
-							'3' => '3',
-							'4' => '4',
-							'5' => '5');
-	return $swf_list_decimalpoints;
+function swf_get_grade_item($swf_id)
+{
+	if($record = get_record('grade_items','iteminstance',$swf_id))
+	{
+		$swf_grade_item->gradetype = $record->gradetype;
+		$swf_grade_item->grademax = $record->grademax;
+		$swf_grade_item->grademin = $record->grademin;
+	} else {
+		$swf_grade_item->gradetype = '1';
+		$swf_grade_item->grademax = '100';
+		$swf_grade_item->grademin = '0';
+	}
+	return $swf_grade_item;
 }
-
 
 /*
 * Create grade scale parameter array list - Not yet implemented
@@ -512,7 +525,7 @@ function swf_print_header_js($swf)
 		<script type="text/javascript">
 			swfobject.registerObject("myFlashContent", "'.$swf->version.'");
 		</script>';
-	// Don't show default dotted outline around Flash Player window in Firefox 3
+	// Don't show default dotted outline around Flash Player window in Firefox 3 / Google Chrome
 	$swf_header_js .= '<style type="text/css" media="screen">
     		object { outline:none; }
 		</style>';
@@ -534,7 +547,7 @@ function swf_build_paths($swf)
 	$swf->gateway = $CFG->wwwroot.'/lib/amfphp/gateway.php';
 	$swf->moodledata = $CFG->wwwroot.'/file.php/'.$swf->course.'/';
 	$swf->swfurl = $swf->moodledata.$swf->swfurl;
-	//$swf->percent = '%';
+	
 	// Don't pass in empty vars
 	if($swf->configxml != '')
 	{
@@ -549,6 +562,11 @@ function swf_build_paths($swf)
 	if($swf->apikey != '')
 	{
 		$swf->apikey = '&apiKey='.$swf->apikey;
+	}
+	
+	if($swf->skin != '')
+	{
+		$swf->skin = '&skin='.$swf->skin;
 	}
 	
 	// FlashVars name value pairs
@@ -572,13 +590,6 @@ function swf_build_paths($swf)
 	} else {
 		$swf->namevalue3 = '';
 	}
-	
-	if($swf->interaction == 0)
-	{
-		$swf->interaction = '';
-	} else {
-		$swf->interaction = '&interaction='.$swf->interaction;
-	}
 }
 
 /**
@@ -593,13 +604,12 @@ function swf_print_flashvars($swf)
 						'&coursePage='.$swf->coursepage.
 						'&gateway='.$swf->gateway.
 						'&gradeMax='.$swf->grademax.
-						'&gradePass='.$swf->gradepass.
+						'&gradeMin='.$swf->grademin.
 						'&instance='.$swf->instance.
 						'&moodleData='.$swf->moodledata.
 						'&startTime='.time().
-						'&skin='.$swf->skin.
 						'&swfId='.$swf->id.
-						$swf->interaction.
+						$swf->skin.
 						$swf->apikey.
 						$swf->configxml.
 						$swf->namevalue1.
