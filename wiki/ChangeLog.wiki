@@ -5,6 +5,10 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
+=== 2010/02/05 ===
+
+  * Created new moodle/lib/amfphp/services/Grades.php class. It simply leverages moodle/lib/gradelib.php::update_grade() to insert or update grades in the grade_grades table. 
+
 === 2010/02/03 ===
 
   * Added grade_update() function (moodle/lib/gradelib.php) to moodle/mod/swf/lib.php. Now, SWF instances have corresponding grade item in Moodle grade book
