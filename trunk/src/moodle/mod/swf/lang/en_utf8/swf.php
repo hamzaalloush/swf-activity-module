@@ -78,5 +78,6 @@ $string['embederror1'] = '<p><strong>There was a problem with the SWF activity m
 $string['embederror2'] = ' or later.</strong></p>
 <p><strong>You can upgrade to the latest version if you have administrator rights on your computer.</strong></p>';
 //---------------------------------------------------------------------------------------------
-
+// Reports and grades
+$string['report'] = 'Report';
 ?>
