@@ -40,23 +40,76 @@
     require_capability('mod/swf:viewreports', $context);
 	
     add_to_log($course->id, 'swf', 'report', 'report.php?id='.$cm->id, "$swf->id", "$cm->id");
+	
+	/// Print the page header
+    $strswfs = get_string('modulenameplural', 'swf');
+    $strswf  = get_string('modulename', 'swf');
+	
+	$navigation = build_navigation(get_string('report', 'swf'), $cm);
+	print_header_simple(format_string($swf->name), '', $navigation, '', '', true, '', navmenu($course, $cm));
+	
 
-/// Open the selected swf report and display it
+/// Print report...
 
-    $mode = clean_param($mode, PARAM_SAFEDIR);
+    //error('Reports not yet implemented');
+	
+	require_once($CFG->libdir.'/gradelib.php');
+	
+	//$swf_grades = grade_get_grades($course->id, 'mod', 'swf', $swf->id);
+	$swf_grades = grade_get_grades($course->id, 'mod', 'quiz', 10);
+	
+	print_object($swf_grades);
+	
+/*
+object Object
+(
+    [items] => Array
+        (
+            [0] => object Object
+                (
+                    [itemnumber] => 0
+                    [scaleid] => 
+                    [name] => Grade Item 2
+                    [grademin] => 0.00000
+                    [grademax] => 100.00000
+                    [gradepass] => 0.00000
+                    [locked] => 
+                    [hidden] => 
+                    [grades] => Array
+                        (
+                        )
 
-    if (! is_readable('report/'.$mode.'/report.php')) {
-        error('Report not known ('.$mode.')');
-    }
+                )
 
-    include('report/default.php');  // Parent class
-    include('report/'.$mode.'/report.php');
+        )
 
-    $report = new quiz_report();
+    [outcomes] => Array
+        (
+        )
 
-    if (! $report->display($swf, $cm, $course)) {             // Run the report!
-        error('Error occurred during pre-processing!');
-    }
+)
+*/
+	
+	echo '<div align="center">
+	<table width="80%" border="0" cellpadding="10">
+	<tr>
+    <td><strong>SWF Name</strong></td>
+    <td><strong>Minimum Grade</strong></td>
+    <td><strong>Maximum Grade</strong></td>
+    <td><strong>Pass Grade</strong></td>
+  </tr>';
+	foreach($swf_grades->items as $swf_grade_item)
+	{
+		echo '<tr>
+				<td>'.$swf_grade_item->name.'</td>
+				<td>'.$swf_grade_item->grademin.'</td>
+				<td>'.$swf_grade_item->grademax.'</td>
+				<td>'.$swf_grade_item->gradepass.'</td>
+			  </tr>';
+		
+	}
+	echo '</table>
+		</div>';
 
 /// Print footer
 
