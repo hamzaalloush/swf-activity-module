@@ -18,11 +18,11 @@ The Amf class handles passing objects and arrays between Flash and Moodle.
 
 === Amf.array ===
 
-Array returned from remoting service.
+A getter method that returns an array returned from remoting service.
 
 === Amf.obj ===
 
-Object returned from remoting service.
+A getter method that returns an object returned from remoting service.
 
 ----
 
@@ -30,7 +30,14 @@ Object returned from remoting service.
 
 === Amf():void (constructor) ===
 
-Creates Amf object and calls NetConnection.connect() with remoting server
+Creates Amf object and calls NetConnection.connect() with remoting server.
+
+The following parameters are accessed by com.matbury.sam.data.FlashVars:
+
+  * object.instance (required if swfid is absent)
+  * object.swfid (required if instance is absent)
+
+Other parameters may be added to the Object as required by the service class methods the client is calling.
 
 === Amf.getArray(object:Object):void ===
 
