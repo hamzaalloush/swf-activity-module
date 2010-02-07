@@ -36,6 +36,9 @@ The following parameters are accessed by com.matbury.sam.data.FlashVars:
 
   * object.instance (required if swfid is absent)
   * object.swfid (required if instance is absent)
+
+The following parameters are added when pushing grades into Moodle's grade book with MOODLE/lib/amfphp/services/Grades.php:
+
   * object.feedback (String) = Specific feedback for user. Appears in rollover message in grade book
   * object.feedbackformat (int) = Flash client elapsed time in seconds. This item accumulative each time the grade is updated and measures the total time spent by the user on the SWF Activity Module instance
   * object.rawgrade (Number) = The raw grade pushed by the Flash client
