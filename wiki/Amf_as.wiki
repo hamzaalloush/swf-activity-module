@@ -82,7 +82,7 @@ The was a Flash Player Security Model violation. Usually caused by cross domain 
 
 = Examples =
 
-== Hot to push a grade into grade_grades (Moodle grade book) ==
+== How to push a grade into grade_grades (Moodle grade book) ==
 
 Here is an example script that creates a simple Flash client that pushes grades, elapsed time and feedback into grade_grades:
 
