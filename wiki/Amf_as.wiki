@@ -16,30 +16,36 @@ The Amf class handles passing objects and arrays between Flash and Moodle.
 
 = Public Properties =
 
-*Amf.array*
+=== Amf.array ===
 
-*Amf.obj*
+Array returned from remoting service.
+
+=== Amf.obj ===
+
+Object returned from remoting service.
 
 ----
 
 = Public Methods =
 
-*Amf.getArray(object:Object):void*
+=== Amf():void (constructor) ===
 
-*Amf.getObj(object:Object):void*
+Creates Amf object and calls NetConnection.connect() with remoting server
 
-----
+=== Amf.getArray(object:Object):void ===
 
-== Constructor ==
+Sends a request object to the remoting server. If the request is successful, an array is returned and the Amf.GOT_DATA event is triggered.
 
-*Amf():void*
+=== Amf.getObj(object:Object):void ===
+
+Sends a request object to the remoting server. If the request is successful, an object is returned and the Amf.GOT_DATA event is triggered.
 
 ----
 
 = Events =
 
-*GOT_DATA*
+=== GOT_DATA ===
 
-*FAULT*
+=== FAULT ===
 
-*SECURITY_FAULT*
+=== SECURITY_FAULT ===
