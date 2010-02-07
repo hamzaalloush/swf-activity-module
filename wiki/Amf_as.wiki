@@ -6,9 +6,13 @@ Uses: com.matbury.sam.data.FlashVars
 
 Connects to: MOODLE/lib/amfphp/services/...
 
+----
+
 == Description ==
 
 The Amf class handles passing objects and arrays between Flash and Moodle.
+
+----
 
 = Public Properties =
 
@@ -16,6 +20,7 @@ The Amf class handles passing objects and arrays between Flash and Moodle.
 
 *Amf.obj*
 
+----
 
 = Public Methods =
 
@@ -23,9 +28,13 @@ The Amf class handles passing objects and arrays between Flash and Moodle.
 
 *Amf.getObj(object:Object):void*
 
+----
+
 == Constructor ==
 
 *Amf():void*
+
+----
 
 = Events =
 
