@@ -1,0 +1,16 @@
+#summary The ActionScript class that handles communication with Moodle
+
+Package: com.matbury.sam.data
+
+Connects to: MOODLE/lib/amfphp/services/...
+
+== Description ==
+
+The Amf class handles passing objects and arrays between Flash and Moodle.
+
+= Public Properties =
+
+= Public Methods =
+
+= Events =
+
