@@ -36,8 +36,18 @@ The following parameters are accessed by com.matbury.sam.data.FlashVars:
 
   * object.instance (required if swfid is absent)
   * object.swfid (required if instance is absent)
+  * object.feedback (String) = Specific feedback for user. Appears in rollover message in grade book
+  * object.feedbackformat (int) = Flash client elapsed time in seconds. This item accumulative each time the grade is updated and measures the total time spent by the user on the SWF Activity Module instance
+  * object.rawgrade (Number) = The raw grade pushed by the Flash client
 
-Other parameters may be added to the Object as required by the service class methods the client is calling.
+Other parameters may be added to the Object as required by the service class methods the client is calling. In most cases the following parameters are handled in the service methods and do not need to be supplied:
+
+  * object.course (int) = Moodle course ID
+  * object.userid (int) = Moodle user ID
+  * object.rawgrademax (Number) = The maximum permitted grade for this activity 0 - 100
+  * object.rawgrademin (Number) = The minimum permitted grade for this activity 0 - 100
+  * object.timemodified (int) = timestamp when grade is submitted
+  * object.usermodified (int) = Moodle user ID of whoever alters that grade (grades can be edited manually in Moodle grade book)
 
 === Amf.getArray(object:Object):void ===
 
