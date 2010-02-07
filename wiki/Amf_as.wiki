@@ -18,11 +18,11 @@ The Amf class handles passing objects and arrays between Flash and Moodle.
 
 === Amf.array:Array ===
 
-A getter method that returns an array returned from remoting service.
+A getter method that returns an array returned from remoting service. This property is null until a successful call has been made to the remoting service.
 
 === Amf.obj:Object ===
 
-A getter method that returns an object returned from remoting service.
+A getter method that returns an object returned from remoting service. This property is null until a successful call has been made to the remoting service.
 
 ----
 
