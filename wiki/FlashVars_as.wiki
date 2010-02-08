@@ -1,0 +1,52 @@
+#summary The ActionScript class that stores FlashVars and learning interaction data
+
+Package: com.matbury.sam.data
+
+== Description ==
+
+FlashVars is a static class that acts as a global object to store FlashVars passed in through the SWF Activity Module embed page. It also holds learning interaction data making it easily accessible anywhere in a Flash application.
+
+*It isn't possible to declare ActionScript classes as static but you can declare all their properties and methods as static.
+
+----
+
+= Public Properties =
+
+=== FlashVars.apikey ===
+
+
+=== FlashVars.course ===
+
+
+=== FlashVars.coursepage ===
+
+
+=== FlashVars.gateway ===
+
+
+=== FlashVars.grademax ===
+
+
+=== FlashVars.grademin ===
+
+
+=== FlashVars.instance ===
+
+
+=== FlashVars.moodledata ===
+
+
+=== FlashVars.starttime ===
+
+
+=== FlashVars.swfid ===
+
+
+=== FlashVars.skin ===
+
+
+=== FlashVars.configxml ===
+
+
+=== FlashVars.xmlurl ===
+
