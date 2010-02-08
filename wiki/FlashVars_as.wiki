@@ -12,41 +12,74 @@ FlashVars is a static class that acts as a global object to store FlashVars pass
 
 = Public Properties =
 
-=== FlashVars.apikey ===
+=== FlashVars.apikey:String ===
 
+Some web service providers require a key string to grant access to their services. This property provides a way of using API keys without hard-coding them into applications.
 
-=== FlashVars.course ===
+=== FlashVars.course:uint ===
 
+The ID of the current Moodle course.
 
-=== FlashVars.coursepage ===
+=== FlashVars.coursepage:String ===
 
+A convenient URL for Flash applications to navigate to. For example, when a user completes a learning interaction.
 
-=== FlashVars.gateway ===
+=== FlashVars.gateway:String ===
 
+The Flash Remoting gateway for the class com.matbury.sam.data.Amf to connect to. Necessary for pushing grades and other types of communication with Moodle.
 
-=== FlashVars.grademax ===
+=== FlashVars.grademax:Number ===
 
+The maximum grade setting for the module instance's corresponding grade book item. This is also automatically handled in moodle/lib/amfphp/services/Grades.php
 
-=== FlashVars.grademin ===
+=== FlashVars.grademin:Number ===
 
+The minimum grade setting for the module instance's corresponding grade book item. This is also automatically handled in moodle/lib/amfphp/services/Grades.php
 
-=== FlashVars.instance ===
+=== FlashVars.instance:uint ===
 
+The ID of the Moodle course module instance. Not to be confused with FlashVars.swfid, which is the SWF Activity Module instance ID. Both can be used to identify the module instance and authenticate users.
 
-=== FlashVars.moodledata ===
+=== FlashVars.moodledata:String ===
 
+The URL to the root of the corresponding Moodle course files directory. This is where all course images, audio, video, Flash applications and XML files should be stored for the SWF Activity Module.
 
-=== FlashVars.starttime ===
+=== FlashVars.starttime:uint ===
 
+A server time stamp created at the time the SWF Activity Module instance is viewed.
 
-=== FlashVars.swfid ===
+=== FlashVars.swfid:uint ===
 
+The SWF Activity Module instance ID. Not to be confused with FlashVars.instance, which is the Moodle course module instance. Both can be used to identify the module instance and authenticate users.
 
-=== FlashVars.skin ===
+=== FlashVars.skin:String ===
 
+The URL to a UI skin file. Some Flash applications may allow users to specify the user interface appearance by loading an external UI skin SWF file.
 
-=== FlashVars.configxml ===
+=== FlashVars.configxml:String ===
 
+The URL to an XML file that configures the Flash e-learning application, for example physical appearance, volume or web camera settings. This makes it easy to set course wide settings policies by sharing the same configxml file between several Flash applications.
 
-=== FlashVars.xmlurl ===
+=== FlashVars.xmlurl:String ===
 
+The URL to an XML file containing learning interaction data. Dynamic Flash e-learning applications are essentially "empty projectors" that use provided learning interaction data to project the lessons. Of course, in practice, learning interactions are far more complex than simple projectors and can be highly sophisticated and interactive.
+
+----
+
+= Examples =
+
+== How to initialise FlashVars ==
+
+The following example shows how to set the FlashVars parameters from the Flash application's LoaderInfo object:
+
+{{{
+import com.matbury.sam.data.FlashVars;
+
+FlashVars.vars = this.root.loaderInfo.parameters;
+}}}
+
+Yes, it's really that simple! You can then access the FlashVars parameters from anywhere in your application. The following example shows how to build the absolute URL to the specified learning interaction data XML file stored in the Moodle course files directory:
+
+{{{
+var _xmlFile:String = FlashVars.moodledata + FlashVars.xmlurl;
+}}}
