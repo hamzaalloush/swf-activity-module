@@ -5,6 +5,13 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
+=== 2010/02/08 ===
+
+  * install.xml, backuplib.php and restorelib.php successfully tested.
+  * Updated com.matbury.sam.data package (Amf.as and FlashVars.as)
+  * Removed hard-coded values from Grades.php and successfully tested with Flash client (grade_pusher.swf).
+  * Created moodle/mod/swf/report.php and grade.php (a redirect so that only teachers and admins can view the reports) scripts which are navigated to from Moodle grade book and displays user grades for the selected SWF Activity Module instance. Includes a "Total Time" column which shows time spent by users accumulatively on the selected activity.
+
 === 2010/02/05 ===
 
   * Created new moodle/lib/amfphp/services/Grades.php class. It simply leverages moodle/lib/gradelib.php::update_grade() to insert or update grades in the grade_grades table. 
@@ -13,7 +20,7 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
   * Added grade_update() function (moodle/lib/gradelib.php) to moodle/mod/swf/lib.php. Now, SWF instances have corresponding grade item in Moodle grade book
   * Also added gradetype, grademax and grademin parameters to swf DB table and mod_form.php to manage grade items for corresponding SWF instance.
-  * Updated install.xml. Removed swf_interactions and swf_interaction_data tables. Now, XML is the preferred method of loading learning interaction data into Flash applications.
+  * Updated install.xml. Removed swf_interactions and swf_interaction_data tables. Now, XML is the only provided method of loading learning interaction data into Flash applications.
 
 === 2009/12/21 ===
 
