@@ -21,51 +21,64 @@ package com.matbury.sam.data {
 	public class FlashVars extends Object {
 // ------------------------------- VARS ------------------------------------ //
 		private static var _info:Object; // stores error messages about parameters in FlashVars
+		private static var _amfinfo:Object; // stores error messages about parameters in Amf
 		// passed in by mod/swf/lib.php
 		// Moodle FlashVars in alphabetical order
-		private static var _amfTable:String;
-		private static var _apiKey:String;
-		private static var _configXml:String;
-		private static var _coursePage:String;
-		private static var _flashVar1:String;
-		private static var _flashVar2:String;
-		private static var _flashVar3:String;
+		private static var _apikey:String;
+		private static var _configxml:String;
+		private static var _course:String;
+		private static var _coursepage:String;
 		private static var _gateway:String;
-		private static var _grading:String;
+		private static var _grademax:String;
+		private static var _gradepass:String;
 		private static var _instance:uint;
 		private static var _interaction:uint;
-		private static var _moodleData:String;
+		private static var _moodledata:String;
 		private static var _skin:String;
 		private static var _starttime:String;
-		private static var _swfId:uint;
-		private static var _xmlUrl:String;
+		private static var _swfid:uint;
+		private static var _xmlurl:String;
 		
 		// retrieved from XML or AMFPHP:
-		public static var interactionInfo:Object;
-		public static var interactionData:Array;
+		public static var interactioninfo:Object;
+		public static var interactiondata:Array;
 		public static var feedback:Array;
 		public static var grade:Object;
 		public static var grades:Array;
 		
 // ------------------------ SETTER FUNCTION ------------------------ //
-		// this.root.loaderInfo.parameters object passed in from main SWF
-		// assign parameters to static variables so they can be accessed
-		// from anywhere in an application
+		// this.root.loaderInfo.parameters object passed in from main SWF assign parameters to 
+		//static variables so they can be accessed from anywhere in an application
+		// Listed in alphabetical order
 		public static function set vars(obj:Object):void {
 			_info = new Object();
-			// amfTable:String = null - name of table that stores learning interaction data
-			validated = checkVar(obj.amftable);
-			if(validated) {
-				_amfTable = obj.amftable;
-			} else {
-				_info.amfTable = "amftable not set";
-			}
 			// apiKey:String = null - Some web services require an API key for authentication, e.g. Google Maps
 			validated = checkVar(obj.apikey);
 			if(validated) {
-				_apiKey = obj.apikey;
+				_apikey = obj.apikey;
 			} else {
-				_info.apiKey = "apiKey not set";
+				_info.apikey = "apikey not set";
+			}
+			// configXml:String = null - FlashVars can also be set using a config XML file
+			validated = checkVar(obj.configxml);
+			if(validated) {
+				_configxml = obj.configxml;
+			} else {
+				_info.configxml = "configxml not set";
+			}
+			// course:String - Current course ID
+			validated = checkVar(obj.course);
+			if(validated) {
+				_course = obj.course;
+			} else {
+				_info.course = "course not set";
+			}
+			// coursePage:String - URL to current course page, useful for redirects
+			validated = checkVar(obj.coursepage);
+			if(validated) {
+				_coursepage = obj.coursepage;
+			} else {
+				_info.coursepage = "coursepage not set";
 			}
 			// gateway:String - Flash Remoting gateway for communicating with Moodle
 			var validated:Boolean = checkVar(obj.gateway);
@@ -73,6 +86,20 @@ package com.matbury.sam.data {
 				_gateway = obj.gateway;
 			} else {
 				_info.gateway = "gateway not set";
+			}
+			// gradeMax:String = null - FlashVars can also be set using a config XML file
+			validated = checkVar(obj.grademax);
+			if(validated) {
+				_grademax = obj.grademax;
+			} else {
+				_info.grademax = "grademax not set";
+			}
+			// gradePass:String = null - FlashVars can also be set using a config XML file
+			validated = checkVar(obj.gradepass);
+			if(validated) {
+				_gradepass = obj.gradepass;
+			} else {
+				_info.gradepass = "gradepass not set";
 			}
 			// instance:int - instance of activity module ID
 			validated = checkVar(obj.instance);
@@ -88,54 +115,12 @@ package com.matbury.sam.data {
 			} else {
 				_info.interaction = "interaction not set";
 			}
-			// swfId:int - instance of swf module ID
-			validated = checkVar(obj.swfid);
-			if(validated) {
-				_swfId = obj.swfid;
-			} else {
-				_info.swfId = "swfId not set";
-			}
 			// moodleData:String - URL to current course moodledata directory
 			validated = checkVar(obj.moodledata);
 			if(validated) {
-				_moodleData = obj.moodledata;
+				_moodledata = obj.moodledata;
 			} else {
-				_info.moodleData = "moodleData not set";
-			}
-			// coursePage:String - URL to current course page, useful for redirects
-			validated = checkVar(obj.coursepage);
-			if(validated) {
-				_coursePage = obj.coursepage;
-			} else {
-				_info.coursePage = "coursePage not set";
-			}
-			// xmlUrl:String = null - URL to learning interaction data XML file
-			validated = checkVar(obj.xmlurl);
-			if(validated) {
-				_xmlUrl = obj.xmlurl;
-			} else {
-				_info.xmlUrl = "xmlUrl not set";
-			}
-			// flashVar1:String = null - pass in anything here that doesn't fit anywhere else
-			validated = checkVar(obj.flashvar1);
-			if(validated) {
-				_flashVar1 = obj.flashvar1;
-			} else {
-				_info.flashVar1 = "flashVar1 not set";
-			}
-			// flashVar2:String = null - pass in anything here that doesn't fit anywhere else
-			validated = checkVar(obj.flashvar2);
-			if(validated) {
-				_flashVar2 = obj.flashvar2;
-			} else {
-				_info.flashVar2 = "flashVar2 not set";
-			}
-			// flashVar3:String = null - pass in anything here that doesn't fit anywhere else
-			validated = checkVar(obj.flashvar3);
-			if(validated) {
-				_flashVar3 = obj.flashvar3;
-			} else {
-				_info.flashVar3 = "flashVar3 not set";
+				_info.moodledata = "moodledata not set";
 			}
 			// skin:String = null - Flash applications can load an external SWF containing GUI classes
 			validated = checkVar(obj.skin);
@@ -144,20 +129,6 @@ package com.matbury.sam.data {
 			} else {
 				_info.skin = "skin not set";
 			}
-			// configXml:String = null - FlashVars can also be set using a config XML file
-			validated = checkVar(obj.configxml);
-			if(validated) {
-				_configXml = obj.configxml;
-			} else {
-				_info.configXml = "configXml not set";
-			}
-			// grading:String = null - FlashVars can also be set using a config XML file
-			validated = checkVar(obj.grading);
-			if(validated) {
-				_grading = obj.grading;
-			} else {
-				_info.grading = "grading not set";
-			}
 			// starttime:String - start time on server of learning interaction
 			validated = checkVar(obj.starttime);
 			if(validated) {
@@ -165,16 +136,52 @@ package com.matbury.sam.data {
 			} else {
 				_info.starttime = "starttime not set";
 			}
+			// swfId:int - instance of swf module ID
+			validated = checkVar(obj.swfid);
+			if(validated) {
+				_swfid = obj.swfid;
+			} else {
+				_info.swfid = "swfid not set";
+			}
+			// xmlUrl:String = null - URL to learning interaction data XML file
+			validated = checkVar(obj.xmlurl);
+			if(validated) {
+				_xmlurl = obj.xmlurl;
+			} else {
+				_info.xmlurl = "xmlurl not set";
+			}
 		}
 		
 // ------------------------ GETTER FUNCTIONS ------------------------ //
 
+		// Listed in alphabetical order
+		
+		public static function get apikey():String {
+			return _apikey;
+		}
+		
+		public static function get configxml():String {
+			return _configxml;
+		}
+		
+		public static function get coursepage():String {
+			return _coursepage;
+		}
+		
+		public static function get course():String {
+			return _course;
+		}
+		
 		public static function get gateway():String {
 			return _gateway;
 		}
 		
-		public static function get amfTable():String {
-			return _amfTable;
+		public static function get grademax():String {
+			return _grademax;
+		}
+		
+		public static function get gradepass():String {
+			return _gradepass;
 		}
 		
 		public static function get instance():uint {
@@ -185,61 +192,43 @@ package com.matbury.sam.data {
 			return _interaction;
 		}
 		
-		public static function get swfId():uint {
-			return _swfId;
-		}
-		
-		public static function get moodleData():String {
-			return _moodleData;
-		}
-		
-		public static function get coursePage():String {
-			return _coursePage;
-		}
-		
-		public static function get xmlUrl():String {
-			return _xmlUrl;
-		}
-		
-		public static function get apiKey():String {
-			return _apiKey;
-		}
-		
-		public static function get flashVar1():String {
-			return _flashVar1;
-		}
-		
-		public static function get flashVar2():String {
-			return _flashVar2;
-		}
-		
-		public static function get flashVar3():String {
-			return _flashVar3;
+		public static function get moodledata():String {
+			return _moodledata;
 		}
 		
 		public static function get skin():String {
 			return _skin;
 		}
 		
-		public static function get configXml():String {
-			return _configXml;
-		}
-		
-		public static function get grading():String {
-			return _grading;
-		}
-		
 		public static function get starttime():String {
 			return _starttime;
 		}
 		
+		public static function get swfid():uint {
+			return _swfid;
+		}
+		
+		public static function get xmlurl():String {
+			return _xmlurl;
+		}
+		
 // -------------------------------------------------------------------------- //
+		
+		// Error report
+		public static function set amfinfo(obj:Object):void {
+			_amfinfo = obj;
+		}
+		
+		public static function get amfinfo():Object {
+			return _amfinfo;
+		}
 		
 		public static function get info():Object {
 			return _info;
 		}
 		
 // --------------------------- VALIDATE FLASHVARS --------------------------- //
+		
 		private static function checkVar(s:String):Boolean {
 			// If null
 			if(!s) {
@@ -252,8 +241,9 @@ package com.matbury.sam.data {
 			}
 			// If malicious injection attack
 			if(s.indexOf("javascript") != -1) {
-				s = null;
 				_info += "WARNING! Malicious injection attack detected!!! -> ";
+				throw new Error("WARNING! Malicious injection attack detected!!! -> " + s);
+				s = null;
 				return false;
 			}
 			return true;
