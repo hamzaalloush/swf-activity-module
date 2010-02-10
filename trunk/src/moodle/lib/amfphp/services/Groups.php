@@ -27,13 +27,15 @@ class Groups
 		require_once('Access.php');
 		$this->access = new Access();
 		// For testing in AMFPHP browser
+		/*
 		$this->obj['instance'] = 71;
-		$this->obj['swfId'] = 4;
-		$this->obj['groupId'] = 2;
-		$this->obj['groupingId'] = 0;
-		$this->obj['groupName'] = 'Matt\'s Group';
-		$this->obj['groupingName'] = 'Matt\'s Grouping';
-		$this->obj['userId'] = 2;
+		$this->obj['swfid'] = 4;
+		$this->obj['groupid'] = 2;
+		$this->obj['groupingid'] = 0;
+		$this->obj['groupname'] = 'Matt\'s Group';
+		$this->obj['groupingname'] = 'Matt\'s Grouping';
+		$this->obj['userid'] = 2;
+		*/
 	}
 	
 	
@@ -41,15 +43,20 @@ class Groups
 	/** Check if a group exists
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return boolean
 	*/
 	public function group_exists($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			return groups_group_exists($this->obj['groupId']);
+			return groups_group_exists($obj['groupid']);
 		}
 		return 'error';
 	}
@@ -57,15 +64,20 @@ class Groups
 	/** Get name of a group
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return string
 	*/
 	public function get_group_name($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			return groups_get_group_name($this->obj['groupId']);
+			return groups_get_group_name($obj['groupid']);
 		}
 		return false;
 	}
@@ -73,15 +85,20 @@ class Groups
 	/** Get name of a grouping
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_grouping_name($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			return groups_get_grouping_name($this->obj['groupingId']);
+			return groups_get_grouping_name($obj['groupingid']);
 		}
 		return false;
 	}
@@ -89,15 +106,20 @@ class Groups
 	/** Get a group by name
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_group_by_name($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			return groups_get_group_by_name($capabilities->course, $this->obj['groupName']);
+			return groups_get_group_by_name($capabilities->course, $obj['groupname']);
 		}
 		return false;
 	}
@@ -105,15 +127,20 @@ class Groups
 	/** Get a grouping by name
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_grouping_by_name($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			return groups_get_grouping_by_name($capabilities->course, $this->obj['groupingName']);
+			return groups_get_grouping_by_name($capabilities->course, $obj['groupingname']);
 		}
 		return false;
 	}
@@ -121,15 +148,20 @@ class Groups
 	/** Get a group
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_group($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			$record = groups_get_group($this->obj['groupId']);
+			$record = groups_get_group($obj['groupid']);
 			if($record)
 			{
 				$result = $this->convert_record_to_array($record);
@@ -142,15 +174,20 @@ class Groups
 	/** Get a grouping
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_grouping($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			$record = groups_get_grouping($this->obj['groupingId']);
+			$record = groups_get_grouping($obj['groupingid']);
 			if($record)
 			{
 				$result = $this->convert_record_to_array($record);
@@ -163,16 +200,21 @@ class Groups
 	/** Get all groups on current course
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_all_groups($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			//groups_get_all_groups($courseid, $userid=0, $groupingid=0, $fields='g.*')
-			$records = groups_get_all_groups($capabilities->course,/*$this->obj['userId'],*/$this->obj['groupingId']);
+			$records = groups_get_all_groups($capabilities->course,/*$obj['userid'],*/$obj['groupingid']);
 			if($records)
 			{
 				$result = $this->convert_records_to_array($records);
@@ -185,15 +227,20 @@ class Groups
 	/** Get user groups
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_user_groups($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			$records = groups_get_user_groups($this->obj['groupingId'],$this->obj['userId']);
+			$records = groups_get_user_groups($obj['groupingid'],$obj['userid']);
 			if($records)
 			{
 				$result = $this->convert_records_to_array($records);
@@ -206,12 +253,17 @@ class Groups
 	/** Get all groupings
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_all_groupings($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			$records = groups_get_all_groupings($capabilities->course);
@@ -227,15 +279,20 @@ class Groups
 	/** Check if user is a member of a group
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function is_member($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			return groups_is_member($this->obj['groupId'],$this->obj['userId']);
+			return groups_is_member($obj['groupid'],$obj['userid']);
 		}
 		return false;
 	}
@@ -243,18 +300,23 @@ class Groups
 	/** Check if user is member of any group
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function has_membership($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			$cm = new object();
-			$cm->groupingid = $this->obj['groupingId'];
+			$cm->groupingid = $obj['groupingid'];
 			$cm->course = $capabilities->course;
-			return groups_has_membership($cm, $this->obj['userId']);
+			return groups_has_membership($cm, $obj['userid']);
 		}
 		return false;
 	}
@@ -262,15 +324,20 @@ class Groups
 	/** Get members of a group
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_members($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			$records = groups_get_members($this->obj['groupId']);
+			$records = groups_get_members($obj['groupid']);
 			if($records)
 			{
 				$result = $this->convert_user_records_to_array($records);
@@ -283,15 +350,20 @@ class Groups
 	/** Get members of a grouping
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_grouping_members($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
-			$records = groups_get_grouping_members($this->obj['groupingId']);
+			$records = groups_get_grouping_members($obj['groupingid']);
 			if($records)
 			{
 				$result = $this->convert_user_records_to_array($records);
@@ -304,12 +376,17 @@ class Groups
 	/** Get course group mode
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return int
 	*/
 	public function get_course_groupmode($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			global $COURSE;
@@ -322,12 +399,17 @@ class Groups
 	/** Get activity group mode
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_activity_groupmode($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			global $COURSE;
@@ -341,12 +423,17 @@ class Groups
 	/** Not tested yet!
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function print_course_menu($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			global $CFG;
@@ -360,20 +447,25 @@ class Groups
 	/** Not tested yet!
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function print_activity_menu($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			global $CFG;
 			global $COURSE;
 			$cm = new object();
-			$cm->groupingid = $this->obj['groupingId'];
+			$cm->groupingid = $obj['groupingid'];
 			$cm->course = $capabilities->course;
-			$cm->id = $this->obj['instance'];
+			$cm->id = $obj['instance'];
 			$urlroot = $CFG->wwwroot; // not sure what this should be
 			return groups_print_activity_menu($cm, $urlroot);
 		}
@@ -383,18 +475,23 @@ class Groups
 	/** Get group for an activity module instance
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_activity_group($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			$cm = new object();
-			$cm->groupingid = $this->obj['groupingId'];
+			$cm->groupingid = $obj['groupingid'];
 			$cm->course = $capabilities->course;
-			$cm->id = $this->obj['instance'];
+			$cm->id = $obj['instance'];
 			return groups_get_activity_group($cm);
 		}
 		return false;
@@ -403,18 +500,23 @@ class Groups
 	/** 
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_activity_allowed_groups($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			$cm = new object();
-			$cm->groupingid = $this->obj['groupingId'];
+			$cm->groupingid = $obj['groupingid'];
 			$cm->course = $capabilities->course;
-			$cm->id = $this->obj['instance'];
+			$cm->id = $obj['instance'];
 			return groups_get_activity_allowed_groups($cm);
 		}
 		return false;
@@ -423,18 +525,23 @@ class Groups
 	/** Not fully tested yet but seems to work
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function course_module_visible($obj) {
 		//
-		$capabilities = $this->access->get_capabilities($this->obj['instance'],$this->obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			$cm = new object();
-			$cm->groupingid = $this->obj['groupingId'];
+			$cm->groupingid = $obj['groupingid'];
 			$cm->course = $capabilities->course;
-			$cm->id = $this->obj['instance'];
+			$cm->id = $obj['instance'];
 			//$cm->groupmembersonly = ??;
 			return groups_course_module_visible($cm);
 		}
