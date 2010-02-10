@@ -39,14 +39,20 @@ class Users
 	*/
 	public function get_user($obj)
 	{
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		$obj['userId'] = 3;
-		//
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$obj['swfid'] = 4;
+		$obj['userid'] = 3;
+		*/
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades){
 			//
-			$record = get_record('user','id',$obj['userId']);
+			$record = get_record('user','id',$obj['userid']);
 			// Only send safe data, i.e. no passwords, user names, etc.
 			if($record) {
 				$result = $this->convert_record_to_object($record);
@@ -63,11 +69,17 @@ class Users
 	*/
 	public function get_self($obj)
 	{
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		//
+		$obj['swfid'] = 4;
+		*/
 		global $USER;
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades){
 			$record = get_record('user','id',$USER->id);
 			// Only send safe data, i.e. no passwords, user names, etc.
@@ -82,17 +94,23 @@ class Users
 	/** Get all groups on current course
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_groups($obj)
 	{
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		//
+		$obj['swfid'] = 4;
+		*/
 		global $CFG;
 		global $USER;
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			
 			$records = user_group($capabilities->course, $USER->id);
@@ -118,16 +136,22 @@ class Users
 	/** Get all groups on current course
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_all_groups($obj) {
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		//
+		$obj['swfid'] = 4;
+		*/
 		global $CFG;
 		global $USER;
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			//groups_get_all_groups($courseid, $userid=0, $groupingid=0, $fields='g.*')
@@ -139,18 +163,24 @@ class Users
 	/** Get all users in group on current course - !!!not working yet!
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_group_users($obj)
 	{
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		//
+		$obj['swfid'] = 4;
+		*/
 		global $CFG;
 		global $USER;
 		
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades){
 			
 			$records = user_group($capabilities->course, $USER->id);
@@ -176,15 +206,21 @@ class Users
 	/** Get all users on current course
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_course_users($obj)
 	{
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		//
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$obj['swfid'] = 4;
+		*/
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_all_grades){
 			//
 			$records = get_course_users($capabilities->course);
@@ -200,15 +236,21 @@ class Users
 	/** Get all teachers on current course
 	* 
 	* @param instance
-	* @param swfId
+	* @param swfid
 	* @return array
 	*/
 	public function get_course_teachers($obj)
 	{
+		/*
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		//
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$obj['swfid'] = 4;
+		*/
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades)
 		{
 			$records = get_course_teachers($capabilities->course);
