@@ -43,8 +43,13 @@ class GradeLib
 	public function grade_update($obj=NULL)
 	{
 		$obj['instance'] = 76;
-		$obj['swfId'] = 4;
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$obj['swfid'] = 4;
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades){
 			//
 			/*$source = 'mod/swf'; // $obj->['source']; // string source of the grade such as 'mod/assignment'
@@ -81,8 +86,13 @@ class GradeLib
 	public function grade_update_outcomes($obj=NULL)
 	{
 		$obj['instance'] = 71;
-		$obj['swfId'] = 4;
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$obj['swfid'] = 4;
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades){
 			global $USER;
 			//
@@ -110,12 +120,17 @@ class GradeLib
 	{
 		// SEt up dummy data for testing
 		$obj['instance'] = 76;
-		$obj['swfId'] = 4;
+		$obj['swfid'] = 4;
 		$obj['itemtype'] = 'mod';
 		$obj['itemmodule'] = 'quiz';
 		$obj['userid_or_ids'] = array(1,2,3);
 		//
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades){
 			//
 			$courseid = $capabilities->course; // ID of course
