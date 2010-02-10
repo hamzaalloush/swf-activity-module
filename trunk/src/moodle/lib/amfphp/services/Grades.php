@@ -52,20 +52,33 @@ class Grades
 	
 	/**
 	* 
-	* @param obj
-	* @return obj
+	* @param obj->instance int course instance ID
+	* @param obj->swfid int swf instance ID
+	* @param obj->feedback int/text feedback for user either elapsed time in seconds or text
+	* @param obj->feedbackformat int format of feedback
+	* @param obj->rawgrade int grade before calculation as a percentage, scale, etc.
+	* @return array of grade information objects (scaleid, name, grade and locked status, etc.) indexed with itemnumbers
 	*/
 	public function amf_grade_update($obj)
 	{
 		// Dummy values for testing in service browser
-		$obj['instance'] = 3;
-		$obj['swfId'] = 7;
-		$obj['feedback'] = 720; // This should be the duration (e.g. 360 seconds)
-		$obj['feedbackformat'] = 0;
-		$obj['rawgrade'] = 100;
+		// Get the instance and swfid values from any instance of a SWF Activity Module
+		// and these values will work
+		/*
+		$obj['instance'] = 3; // Course module ID, i.e. mod/swf/view.php?id=3
+		$obj['swfid'] = 2; // SWF Activity Module ID
+		$obj['feedback'] = 'This is some sample feedback and here\'s a link: http://blog.matbury.com/';
+		$obj['feedbackformat'] = rand(29,3800); // time elapsed
+		$obj['rawgrade'] = rand(0,100);
+		*/
 		
 		// Get current user's capabilities
-		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfId']);
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
 		// Make sure they have permission to call this function
 		if ($capabilities->is_logged_in && $capabilities->view_own_grades)
 		{
@@ -74,21 +87,88 @@ class Grades
 			
 			require_once($CFG->libdir.'/gradelib.php');
 			
+			// Create grade object to pass in grade data
+			$grade = new stdClass();
+			$grade->swfid = $obj['swfid'];
+			$grade->feedback = $obj['feedback'];
+			$grade->feedbackformat = $obj['feedbackformat'];
+			$grade->rawgrade = $obj['rawgrade'];
+			$grade->timemodified = time();
+			$grade->userid = $USER->id;
+			$grade->usermodified = $USER->id;
+			
 			// Get grade item for grademax and grademin values
 			// If SWF mod instance gradetype is set to none, no grade item is created
-			if(!$record = get_record('grade_items','iteminstance',$obj['swfId']))
+			if(!$record = get_record('grade_items','iteminstance',$grade->swfid))
 			{
 				// Send error string back to Flash client
-				return 'Grade item '.$obj['swfId'].' does not exist.';
+				return 'Grade item '.$grade->swfid.' does not exist.';
 			}
 			
-			$obj['rawgrademax'] = $record->grademax;
-			$obj['rawgrademin'] = $record->grademin;
-			$obj['timemodified'] = time();
-			$obj['userid'] = $USER->id;
-			$obj['usermodified'] = $USER->id;
+			// Set grade min and max values
+			$grade->rawgrademax = $record->grademax;
+			$grade->rawgrademin = $record->grademin;
 			
-			return grade_update('mod/swf', $capabilities->course, 'mod', 'swf', $obj['swfId'], 0, $obj, NULL);
+			// Set upper time limit of 24 hours
+			// Assume that Flash app. sent time in milliseconds if it's higher and divide by 1000
+			$swf_maxtime = 86399;
+			if($grade->feedbackformat > $swf_maxtime)
+			{
+				$grade->feedbackformat = round($grade->feedbackformat / 1000);
+			}
+			
+			// Insert or update grade
+			grade_update('mod/swf', $capabilities->course, 'mod', 'swf', $grade->swfid, 0, $grade, NULL);
+			
+			// Return updated grade item
+			$result = grade_get_grades($capabilities->course, 'mod', 'swf', $grade->swfid, $grade->userid);
+			// Only return the single grade object - simpler for Flash apps. to handle
+			return $result->items[0]->grades[$grade->userid];
+		}
+	}
+	
+	/**
+	* Returns grade for the specified grade_item and user
+	* @param obj->instance int course instance ID
+	* @param obj->swfid int swf module ID
+	* @param obj->userid int (optional) specify ID of user if teacher or admin
+	* @return array of grade information objects (scaleid, name, grade and locked status, etc.) indexed with itemnumbers
+	*/
+	public function amf_grade_get_grades($obj)
+	{
+		// Dummy values for testing in service browser
+		/*
+		$obj['instance'] = 3;
+		$obj['swfid'] = 2;
+		$obj['userid'] = 2;
+		*/
+		
+		// Get current user's capabilities
+		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
+		// If there was a problem with authentication, return the error message
+		if(!empty($capabilities->error))
+		{
+			return $capabilities->error;
+		}
+		// Make sure they have permission to call this function
+		if ($capabilities->is_logged_in && $capabilities->view_own_grades)
+		{
+			global $CFG;
+			global $USER;
+			
+			require_once($CFG->libdir.'/gradelib.php');
+			
+			// Only users with capabilties can view other users' grades
+			if($capabilities->view_all_grades)
+			{
+				$userid = $obj['userid'];
+			} else {
+				$userid = $USER->id;
+			}
+			
+			$result = grade_get_grades($capabilities->course, 'mod', 'swf', $obj['swfid'], $userid);
+			// Only return the single grade object
+			return $result->items[0]->grades[$userid];
 		}
 	}
 	
