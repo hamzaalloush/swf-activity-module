@@ -1,4 +1,21 @@
 #summary Documentation for the free word search Flash learning application
 
-= Word Search =
+The xml_word_search.swf Flash learning application is an XML driven word search generator.
 
+== Installation ==
+
+No Flash learning applications require installation in Moodle 1.9. All you need is:
+
+  * The SWF Activity Module installed (single upload and install)
+  * The AMFPHP Flash Remoting gateway and service library installed (single upload)
+
+----
+
+== How to create a word search in Moodle 1.9 ==
+
+  * Go to a Moodle course page
+  * Click on "Turn editing on"
+  * Select "Add an activity..." > "SWF"
+  * Complete the SWF Activity Module form
+
+----
