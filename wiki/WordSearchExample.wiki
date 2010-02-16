@@ -3,6 +3,8 @@
 
 The xml_word_search.swf Flash learning application is an XML driven word search generator.
 
+----
+
 == Installation ==
 
 No Flash learning applications require installation in Moodle 1.9. All you need is:
@@ -20,7 +22,7 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
   * Complete the SWF Activity Module form
   * Click on "Save and display" to preview the word search
 
-== SWF Activity Module form parameters ==
+=== SWF Activity Module form parameters ===
 
   * *Name* - (e.g. "Common Objects Word Search") The name of your learning interaction as it will appear on the Moodle course page.
   * *Description* - (e.g. "Every day objects found in the home") A brief description of the learning interaction.
@@ -36,6 +38,10 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
 ----
 
 == Example Word Search learning interaction data file ==
+
+Note that you can change the language of the xml_word_search.swf user interface with the learning interaction data XML file in the `<usermessages>` tabs.
+
+The words or phrases between the `<option>` tabs appear in the word search.
 
 {{{
 <?xml version="1.0" encoding="utf-8"?>
