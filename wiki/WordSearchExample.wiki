@@ -17,5 +17,19 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
   * Click on "Turn editing on"
   * Select "Add an activity..." > "SWF"
   * Complete the SWF Activity Module form
+  * Click on "Save and display" to preview the word search
+
+== SWF Activity Module form parameters ==
+
+  * *Name* - The name of your learning interaction as it will appear on the Moodle course page.
+  * *Description* - A brief description of the learning interaction.
+  * *SWF File* - The Flash learning application, in this case, xml_word_search.swf.
+  * *Width* - Width of the Flash Player window in pixels, also accepts % values.
+  * *Height* - Height of the Flash Player window in pixels.
+  * *Version* - Minimum required Flash Player version to run Flash learning application.
+  * *XML File URL* - The learning interaction (lesson) data XML file.
+  * *Grade Type* - "value" pushes numerical grades into Moodle's grade book, "none" does not create a grade item in the grade book
+  * *Maximum Grade* - Maximum grade 0 - 100
+  * *Minimum Grade* - Minimum grade 0 - 100
 
 ----
