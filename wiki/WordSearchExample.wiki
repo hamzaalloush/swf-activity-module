@@ -16,11 +16,11 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
 
 == How to create a word search in Moodle 1.9 ==
 
-  * Go to a Moodle course page
-  * Click on "Turn editing on"
-  * Select "Add an activity..." > "SWF"
-  * Complete the SWF Activity Module form
-  * Click on "Save and display" to preview the word search
+  # Go to a Moodle course page
+  # Click on "Turn editing on"
+  # Select "Add an activity..." > "SWF"
+  # Complete the SWF Activity Module form
+  # Click on "Save and display" to preview the word search
 
 === SWF Activity Module form parameters ===
 
