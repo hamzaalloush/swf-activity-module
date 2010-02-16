@@ -1,0 +1,4 @@
+#summary Documentation for the free word search Flash learning application
+
+= Word Search =
+
