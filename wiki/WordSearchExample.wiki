@@ -59,14 +59,6 @@ The words or phrases between the `<option>` tabs appear in the word search.
 	<datecreated>14/02/2010</datecreated>
 	<datemodified>16/02/2010</datemodified>
   </metadata>
-  <usermessages>
-	<usermessage> palabras.</usermessage>
-	<usermessage>¡Bien hecho! Has encontrado </usermessage>
-	<usermessage> palabras.</usermessage>
-	<usermessage>Tu nota se ha grabado. Volviendo a la pagina del curso...</usermessage>
-	<usermessage>Hubo un problema con esta actividad de aprendizaje. Por favor, inténtelo de nuevo o póngase en contacto con su profesor / admin.</usermessage>
-	<usermessage>Esta aplicación de aprendizaje requiere de una mínima de 2 palabras para funcionar correctamente. Póngase en contacto con su profesor / admin.</usermessage>
-  </usermessages>
   <interaction>
 	<node>
 	  <keywords>
