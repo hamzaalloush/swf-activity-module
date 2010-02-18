@@ -5,6 +5,26 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
+=== 2010/02/18 ===
+
+  * Updated report.php page to display the following user reports for each user on a selected SWF Activity Module instance:
+  * Date Taken - (last attempt)
+  * Time Taken - (last attempt)
+  * Grade - (last attempt)
+  * Duration - (last attempt)
+  * Attempts - Total number of attempts
+  * Total Attempts Duration - Total duration of all attempts
+  * Average Grade - Average grade of all attempts
+  * Feedback - (last attempt)
+
+=== 2010/02/17 ===
+
+  * Uploaded xml_word_search.swf Flash learning application which generates word searches for external XML files and pushes grades and feedback into Moodle grade book.
+
+=== 2010/02/13 ===
+
+  * Started work on ErrorReport classes for both ActionScript (client-side) and PHP (server-side). The idea is to provide detailed information about users' computer, Flash Player and Flash learning application to IT support staff when users experience technical problems. Will simultaneously send detailed reports as emails to course teachers and admins.
+
 === 2010/02/08 ===
 
   * install.xml, backuplib.php and restorelib.php successfully tested.
