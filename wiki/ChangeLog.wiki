@@ -9,7 +9,7 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 === 2010/02/18 ===
 
-  * Updated report.php page to display the following user reports for each user on a selected SWF Activity Module instance:
+Updated report.php page to display the following user reports for each user on a selected SWF Activity Module instance:
   * Date Taken - (last attempt)
   * Time Taken - (last attempt)
   * Grade - (last attempt)
