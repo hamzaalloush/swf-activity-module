@@ -5,6 +5,8 @@
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
 
+----
+
 === 2010/02/18 ===
 
   * Updated report.php page to display the following user reports for each user on a selected SWF Activity Module instance:
