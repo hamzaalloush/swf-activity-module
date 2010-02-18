@@ -64,9 +64,6 @@ Updated report.php page to display the following user reports for each user on a
 === 2009/12/08 ===
 
   * Backup, restore and upgrade scripts have been completed. Not thoroughly tested however. Please try it out on your development server and report any bugs in the issues tracker.
-
-----
-
   * Uploaded the preliminary stages of the skinning API library. Optionally, Flash e-learning interactions can load in a skin file that provides a standardised set of user interface graphics to change their visual appearance. A similar concept to CSS and themes.
 
 ----
