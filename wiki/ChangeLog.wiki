@@ -19,6 +19,8 @@ Updated report.php page to display the following user reports for each user on a
   * Average Grade - Average grade of all attempts
   * Feedback - (last attempt)
 
+----
+
 === 2010/02/17 ===
 
   * Uploaded xml_word_search.swf Flash learning application which generates word searches for external XML files and pushes grades and feedback into Moodle grade book.
@@ -27,6 +29,8 @@ Updated report.php page to display the following user reports for each user on a
 
   * Started work on ErrorReport classes for both ActionScript (client-side) and PHP (server-side). The idea is to provide detailed information about users' computer, Flash Player and Flash learning application to IT support staff when users experience technical problems. Will simultaneously send detailed reports as emails to course teachers and admins.
 
+----
+
 === 2010/02/08 ===
 
   * install.xml, backuplib.php and restorelib.php successfully tested.
@@ -34,9 +38,13 @@ Updated report.php page to display the following user reports for each user on a
   * Removed hard-coded values from Grades.php and successfully tested with Flash client (grade_pusher.swf).
   * Created moodle/mod/swf/report.php and grade.php (a redirect so that only teachers and admins can view the reports) scripts which are navigated to from Moodle grade book and displays user grades for the selected SWF Activity Module instance. Includes a "Total Time" column which shows time spent by users accumulatively on the selected activity.
 
+----
+
 === 2010/02/05 ===
 
-  * Created new moodle/lib/amfphp/services/Grades.php class. It simply leverages moodle/lib/gradelib.php::update_grade() to insert or update grades in the grade_grades table. 
+  * Created new moodle/lib/amfphp/services/Grades.php class. It simply leverages moodle/lib/gradelib.php::update_grade() to insert or update grades in the grade_grades table.
+
+----
 
 === 2010/02/03 ===
 
@@ -44,16 +52,24 @@ Updated report.php page to display the following user reports for each user on a
   * Also added gradetype, grademax and grademin parameters to swf DB table and mod_form.php to manage grade items for corresponding SWF instance.
   * Updated install.xml. Removed swf_interactions and swf_interaction_data tables. Now, XML is the only provided method of loading learning interaction data into Flash applications.
 
+----
+
 === 2009/12/21 ===
 
   * Gradebook.php and Access.php scripts taking shape and functioning well. MDL.php can now be deprecated.
   * Started work on Flash grade book client to display and edit grades.
 
+----
+
 === 2009/12/08 ===
 
   * Backup, restore and upgrade scripts have been completed. Not thoroughly tested however. Please try it out on your development server and report any bugs in the issues tracker.
 
+----
+
   * Uploaded the preliminary stages of the skinning API library. Optionally, Flash e-learning interactions can load in a skin file that provides a standardised set of user interface graphics to change their visual appearance. A similar concept to CSS and themes.
+
+----
 
 === 2009/12/07 ===
 
