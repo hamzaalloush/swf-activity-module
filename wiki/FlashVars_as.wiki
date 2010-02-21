@@ -1,5 +1,7 @@
 #summary The ActionScript class that stores FlashVars and learning interaction data
 
+<wiki:toc max_depth="3" />
+
 Package: com.matbury.sam.data
 
 == Description ==
