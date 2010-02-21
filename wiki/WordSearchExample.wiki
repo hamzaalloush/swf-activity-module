@@ -1,6 +1,8 @@
 #summary Documentation for the free word search Flash learning application
 #labels Featured
 
+<wiki:toc max_depth="3" />
+
 The xml_word_search.swf Flash learning application is an XML driven word search generator.
 
 ----
