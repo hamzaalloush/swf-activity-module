@@ -1,6 +1,8 @@
 #summary How to install AMFPHP (Flash Remoting) in Moodle
 #labels Featured,Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 == Introduction ==
 
 This tutorial describes how to install the AMFPHP Flash Remoting web service in Moodle on a server. If you do not want to record users' results or grades then this installation is unnecessary.
