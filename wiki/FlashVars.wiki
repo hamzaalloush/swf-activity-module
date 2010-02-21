@@ -1,6 +1,8 @@
 #summary Parameters passed into Flash e-learning applications via FlashVars
 #labels Featured
 
+<wiki:toc max_depth="3" />
+
 ==Introduction==
 
 The Flash embed code of the SWF Activity Module passes in parameters via FlashVars dynamically that can be accessed by the e-learning application.
