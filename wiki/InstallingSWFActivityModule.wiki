@@ -1,6 +1,8 @@
 #summary How to install the SWF Activity Module in Moodle
 #labels Featured,Phase-Implementation
 
+<wiki:toc max_depth="3" />
+
 == Introduction ==
 
 This page describes how to install the SWF Activity Module in Moodle.
