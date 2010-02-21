@@ -1,5 +1,7 @@
 #summary AMFPHP service class documentation.
 
+<wiki:toc max_depth="3" />
+
 == Description ==
 
 === lib/amfphp/services/Gradebook.php ===
