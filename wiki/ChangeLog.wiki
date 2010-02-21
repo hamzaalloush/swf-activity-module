@@ -1,6 +1,8 @@
 #summary Updates to the SWF Activity Module
 #labels Featured
 
+<wiki:toc max_depth="3" />
+
 == Introduction ==
 
 This page lists changes and updates to the SWF Activity Module. They are listed in reverse chronological order.
