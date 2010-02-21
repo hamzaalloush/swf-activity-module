@@ -1,5 +1,7 @@
 #summary The ActionScript class that handles communication with Moodle
 
+<wiki:toc max_depth="3" />
+
 Package: com.matbury.sam.data
 
 Uses: com.matbury.sam.data.FlashVars
