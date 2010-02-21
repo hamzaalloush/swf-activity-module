@@ -1,6 +1,8 @@
 #summary How to change between the file-picker and the drop-down list for XML and SWF files
 #labels Featured
 
+<wiki:toc max_depth="3" />
+
 This page describes how to modify the PHP code in the SWF Activity Module so that you can use either the Moodle file-picker or a drop-down list to select XML files and Flash learning applications.
 
 ----
