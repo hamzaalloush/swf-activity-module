@@ -3,10 +3,13 @@
 
 <wiki:toc max_depth="3" />
 
+----
+
 == Introduction ==
 
 The SWF Activity Module allows Flash e-learning applications to load learning interaction data specified by a URL passed in via FlashVars. This page is the specification for a standardised XML data model tree structure so that learning interaction data can be shared (interoperable) between different Flash e-learning applications.
 
+----
 
 == Example XML file tree structure ==
 
