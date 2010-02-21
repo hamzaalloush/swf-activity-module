@@ -1,6 +1,8 @@
 #summary How to deploy a Flash learning interaction using the SWF Activity Module
 #labels Featured
 
+<wiki:toc max_depth="3" />
+
 This page gives step by step instructions of how to deploy a Flash learning interaction using the SWF Activity Module.
 
 *Please note:* The module does not come with any Flash learning applications. A word search activity is available in the downloads section of this project site for testing purposes.
