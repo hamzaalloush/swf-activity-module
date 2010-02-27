@@ -18,18 +18,28 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 Instructions: Complete the second sentence so that it has a similar meaning to the first
 sentence, using the word given. Do not change the word given. You must use between three and six words, including the word given. Here is an example:
 
-Fernanda refused to wear her sister's old dress.
+Model: Would you mind helping me carry this heavy box to the car?
 
-Fernanda said that ____________________________ her sister's old dress.
+This box is really heavy so I'd __________________________ help me carry it to the car.
 
-Answer: she would not wear
+Answer: be (very) grateful if | you would / could / 'd
+
+The question awards 2 marks, one for each half of the answer provided so it's a little different to regular gap-fill questions. There are also often multiple possible answers to each half. So the possible answers would be:
+
+  * be grateful if
+  * be very grateful if
+
+  * you would
+  * you could
+  * you'd
 
 This requires:
 {{{
-<model>Fernanda refused to wear her sister's old dress.</model>
-<beg>Fernanda said that</beg>
-<mid>she would not wear</mid>
-<end>her sister's old dress.</end>
+<model>Would you mind helping me carry this heavy box to the car?</model>
+<beg>This box is really heavy so I'd</beg>
+<mid1>she would</mid1>
+<mid2>not wear</mid2>
+<end>I'd help me carry it to the car</end>
 }}}
 
 ----
