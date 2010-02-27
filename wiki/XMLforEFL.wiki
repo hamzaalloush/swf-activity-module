@@ -11,6 +11,29 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 
 ----
 
+== Examples of typical EFL/ESL tests ==
+
+=== Keyword sentence transformations ===
+
+Instructions: Complete the second sentence so that it has a similar meaning to the first
+sentence, using the word given. Do not change the word given. You must use between three and six words, including the word given. Here is an example:
+
+Fernanda refused to wear her sister's old dress.
+
+Fernanda said that ____________________________ her sister's old dress.
+
+Answer: she would not wear
+
+This requires:
+{{{
+<model>Fernanda refused to wear her sister's old dress.</model>
+<beg>Fernanda said that</beg>
+<mid>she would not wear</mid>
+<end>her sister's old dress.</end>
+}}}
+
+----
+
 == Example XML file tree structure ==
 
 {{{
