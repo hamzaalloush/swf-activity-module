@@ -37,6 +37,7 @@ This requires:
 {{{
 <node>
     <model>Would you mind helping me carry this heavy box to the car?</model>
+    <keyword>grateful</keyword>
     <beg>This box is really heavy so I'd</beg>
     <mid1>be grateful if</mid1>
     <mid1>be very grateful if</mid1>
