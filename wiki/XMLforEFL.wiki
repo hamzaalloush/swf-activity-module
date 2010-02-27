@@ -35,11 +35,16 @@ The question awards 2 marks, one for each half of the answer provided so it's a 
 
 This requires:
 {{{
-<model>Would you mind helping me carry this heavy box to the car?</model>
-<beg>This box is really heavy so I'd</beg>
-<mid1>she would</mid1>
-<mid2>not wear</mid2>
-<end>I'd help me carry it to the car</end>
+<node>
+    <model>Would you mind helping me carry this heavy box to the car?</model>
+    <beg>This box is really heavy so I'd</beg>
+    <mid1>be grateful if</mid1>
+    <mid1>be very grateful if</mid1>
+    <mid2>you would</mid2>
+    <mid2>you could</mid2>
+    <mid2>you'd</mid2>
+    <end>I'd help me carry it to the car</end>
+</node>
 }}}
 
 ----
