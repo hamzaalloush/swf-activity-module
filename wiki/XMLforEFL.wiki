@@ -34,16 +34,12 @@ This requires:
         <text>Which animal is the biggest?</text>
     </question>
     <correct>
-        <image>
-            <option>animals/pix/elephant.jpg</option>
-        </image>
+        <image>animals/pix/elephant.jpg</image>
     </correct>
     <wrong>
-        <image>
-            <option>animals/pix/cat.jpg</option>
-            <option>animals/pix/dog.jpg</option>
-            <option>animals/pix/mouse.jpg</option>
-        </image>
+        <image>animals/pix/cat.jpg</image>
+        <image>animals/pix/dog.jpg</image>
+        <image>animals/pix/mouse.jpg</image>
     </wrong>
 </node>
 }}}
@@ -196,30 +192,13 @@ This requires:
 					<option>This is wrong option 3</option>
 					<option>This is wrong option 4</option>
 				</text>
-				<image>
-					<option>interaction_name/pix/wrong_option_01.jpg</option>
-					<option>interaction_name/pix/wrong_option_02.jpg</option>
-					<option>interaction_name/pix/wrong_option_03.jpg</option>
-					<option>interaction_name/pix/wrong_option_04.jpg</option>
-					<option>interaction_name/pix/wrong_option_05.jpg</option>
-					<option>interaction_name/pix/wrong_option_06.jpg</option>
-					<option>interaction_name/pix/wrong_option_07.jpg</option>
-					<option>interaction_name/pix/wrong_option_08.jpg</option>
-				</image>
+					<image>interaction_name/pix/wrong_option_01.jpg</image>
+					<image>interaction_name/pix/wrong_option_02.jpg</image>
+					<image>interaction_name/pix/wrong_option_03.jpg</image>
 			</wrong>
-			<keywords>
-				<option>one</option>
-				<option>two</option>
-				<option>three</option>
-				<option>four</option>
-				<option>five</option>
-				<option>six</option>
-				<option>seven</option>
-				<option>eight</option>
-				<option>nine</option>
-				<option>ten</option>
-				<option>eleven</option>
-			</keywords>
+			<keyword>one</keyword>
+			<keyword>two</keyword>
+			<keyword>three</keyword>
 			<speaker>Mr. Smith</speaker>
 			<video>
 				<source>flv/fluffy_hamster_01.flv</source>
