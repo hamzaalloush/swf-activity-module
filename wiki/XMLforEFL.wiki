@@ -11,7 +11,44 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 
 ----
 
-== Examples of typical EFL/ESL tests ==
+== Examples of typical EFL/ESL activities ==
+
+=== Simple multiple choice ===
+
+*Instructions:* Read/Listen/Look and select the correct answer. Example:
+
+*Question:* Which animal is the biggest?
+
+`[photo of a cat]`
+`[photo of a dog]`
+`[photo of a mouse]`
+`[photo of a elephant]`
+
+*Answer:* `[photo of a elephant]`
+
+This requires:
+{{{
+<node>
+    <question>
+        <audio>animals/mp3/which_animal_is_the_biggest.mp3</audio>
+        <text>Which animal is the biggest?</text>
+    </question>
+    <correct>
+        <image>
+            <option>animals/pix/elephant.jpg</option>
+        </image>
+    </correct>
+    <wrong>
+        <image>
+            <option>animals/pix/cat.jpg</option>
+            <option>animals/pix/dog.jpg</option>
+            <option>animals/pix/mouse.jpg</option>
+        </image>
+    </wrong>
+</node>
+}}}
+
+----
 
 === Gap-fills ===
 
