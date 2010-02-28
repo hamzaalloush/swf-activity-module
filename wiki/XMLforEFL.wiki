@@ -24,7 +24,7 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 `[photo of a mouse]`
 `[photo of an elephant]`
 
-*Answer:* `[photo of a elephant]`
+*Answer:* `[photo of an elephant]`
 
 This requires:
 {{{
