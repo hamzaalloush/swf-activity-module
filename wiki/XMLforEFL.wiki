@@ -19,7 +19,7 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 
 *Keyword:* learn
 
-David _______________ to speak Chinese for the last eight months.
+David `___________________` to speak Chinese for the last eight months.
 
 *Answer:* 's/has been learning
 
@@ -47,7 +47,7 @@ sentence, using the word given. Do not change the word given. You must use betwe
 
 *Keyword:* grateful
 
-This box is really heavy so I'd __________________________ help me carry it to the car.
+This box is really heavy so I'd `__________________________` help me carry it to the car.
 
 *Answer:* be (very) grateful if | you would / could / 'd
 
