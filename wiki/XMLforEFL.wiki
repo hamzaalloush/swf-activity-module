@@ -15,13 +15,13 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 
 === Gap-fills ===
 
-Instructions: Complete the sentence with the word given in the correct tense. Here is an example:
+*Instructions:* Complete the sentence with the word given in the correct tense. Here is an example:
 
-Keyword: learn
+*Keyword:* learn
 
 David _______________ to speak Chinese for the last eight months.
 
-Answer: 's/has been learning
+*Answer:* 's/has been learning
 
 This question awards one mark. It's a straightforward match between user input and any of the given answers.
 
@@ -40,16 +40,16 @@ This requires:
 
 === Keyword sentence transformations ===
 
-Instructions: Complete the second sentence so that it has a similar meaning to the first
+*Instructions:* Complete the second sentence so that it has a similar meaning to the first
 sentence, using the word given. Do not change the word given. You must use between three and six words, including the word given. Here is an example:
 
-Model: Would you mind helping me carry this heavy box to the car?
+*Model:* Would you mind helping me carry this heavy box to the car?
 
-Keyword: grateful
+*Keyword:* grateful
 
 This box is really heavy so I'd __________________________ help me carry it to the car.
 
-Answer: be (very) grateful if | you would / could / 'd
+*Answer:* be (very) grateful if | you would / could / 'd
 
 The question awards 2 marks, one for each half of the answer provided so it's a little different to regular gap-fill questions. There are also often multiple possible answers to each half. So the possible answers would be:
 
