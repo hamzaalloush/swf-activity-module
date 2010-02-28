@@ -13,12 +13,39 @@ The SWF Activity Module allows Flash e-learning applications to load learning in
 
 == Examples of typical EFL/ESL tests ==
 
+=== Gap-fills ===
+
+Instructions: Complete the sentence with the word given in the correct tense. Here is an example:
+
+Keyword: learn
+
+David _______________ to speak Chinese for the last eight months.
+
+Answer: 's/has been learning
+
+This question awards one mark. It's a straightforward match between user input and any of the given answers.
+
+This requires:
+{{{
+<node>
+    <keyword>learn</keyword>
+    <beg>David</beg>
+    <mid1>'s been learning</mid1>
+    <mid1>has been learning</mid1>
+    <end>to speak Chinese for the last eight months.</end>
+</node>
+}}}
+
+----
+
 === Keyword sentence transformations ===
 
 Instructions: Complete the second sentence so that it has a similar meaning to the first
 sentence, using the word given. Do not change the word given. You must use between three and six words, including the word given. Here is an example:
 
 Model: Would you mind helping me carry this heavy box to the car?
+
+Keyword: grateful
 
 This box is really heavy so I'd __________________________ help me carry it to the car.
 
@@ -44,7 +71,7 @@ This requires:
     <mid2>you would</mid2>
     <mid2>you could</mid2>
     <mid2>you'd</mid2>
-    <end>I'd help me carry it to the car</end>
+    <end>I'd help me carry it to the car.</end>
 </node>
 }}}
 
