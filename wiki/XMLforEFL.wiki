@@ -145,56 +145,31 @@ This requires:
 				<end>and then the end.</end>
 			</gapfill>
 			<correct>
-				<audio>
-					<option>interaction_name/mp3/correct_option_01.mp3</option>
-					<option>interaction_name/mp3/correct_option_02.mp3</option>
-				</audio>
-				<stretched>
-					<option>interaction_name/mp3/correct_option_01_str.mp3</option>
-					<option>interaction_name/mp3/correct_option_02_str.mp3</option>
-					<option>interaction_name/mp3/correct_option_03_str.mp3</option>
-				</stretched>
-				<text>
-					<option>This is correct option 1</option>
-					<option>This is correct option 2</option>
-					<option>This is correct option 3</option>
-					<option>This is correct option 4</option>
-				</text>
-				<image>
-					<option>interaction_name/pix/correct_option_01.jpg</option>
-					<option>interaction_name/pix/correct_option_02.jpg</option>
-					<option>interaction_name/pix/correct_option_03.jpg</option>
-					<option>interaction_name/pix/correct_option_04.jpg</option>
-					<option>interaction_name/pix/correct_option_05.jpg</option>
-				</image>
+				<audio>interaction_name/mp3/correct_option_01.mp3</audio>
+				<audio>interaction_name/mp3/correct_option_02.mp3</audio>
+				<stretched>interaction_name/mp3/correct_option_01_str.mp3</stretched>
+				<stretched>interaction_name/mp3/correct_option_02_str.mp3</stretched>
+				<stretched>interaction_name/mp3/correct_option_03_str.mp3</stretched>
+				<text>This is correct option 1</text>
+				<text>This is correct option 2</text>
+				<text>This is correct option 3</text>
+				<image>interaction_name/pix/correct_option_01.jpg</image>
+				<image>interaction_name/pix/correct_option_02.jpg</image>
+				<image>interaction_name/pix/correct_option_03.jpg</image>
 			</correct>
 			<wrong>
-				<audio>
-					<option>interaction_name/mp3/wrong_option_01.mp3</option>
-					<option>interaction_name/mp3/wrong_option_02.mp3</option>
-					<option>interaction_name/mp3/wrong_option_03.mp3</option>
-					<option>interaction_name/mp3/wrong_option_04.mp3</option>
-					<option>interaction_name/mp3/wrong_option_05.mp3</option>
-					<option>interaction_name/mp3/wrong_option_06.mp3</option>
-				</audio>
-				<stretched>
-					<option>interaction_name/mp3/wrong_option_01_str.mp3</option>
-					<option>interaction_name/mp3/wrong_option_02_str.mp3</option>
-					<option>interaction_name/mp3/wrong_option_03_str.mp3</option>
-					<option>interaction_name/mp3/wrong_option_04_str.mp3</option>
-					<option>interaction_name/mp3/wrong_option_05_str.mp3</option>
-					<option>interaction_name/mp3/wrong_option_06_str.mp3</option>
-					<option>interaction_name/mp3/wrong_option_07_str.mp3</option>
-				</stretched>
-				<text>
-					<option>This is wrong option 1</option>
-					<option>This is wrong option 2</option>
-					<option>This is wrong option 3</option>
-					<option>This is wrong option 4</option>
-				</text>
-					<image>interaction_name/pix/wrong_option_01.jpg</image>
-					<image>interaction_name/pix/wrong_option_02.jpg</image>
-					<image>interaction_name/pix/wrong_option_03.jpg</image>
+				<audio>interaction_name/mp3/wrong_option_01.mp3</audio>
+				<audio>interaction_name/mp3/wrong_option_02.mp3</audio>
+				<audio>interaction_name/mp3/wrong_option_03.mp3</audio>
+				<stretched>interaction_name/mp3/wrong_option_01_str.mp3</stretched>
+				<stretched>interaction_name/mp3/wrong_option_02_str.mp3</stretched>
+				<stretched>interaction_name/mp3/wrong_option_03_str.mp3</stretched>
+				<text>This is wrong option 1</text>
+				<text>This is wrong option 2</text>
+				<text>This is wrong option 3</text>
+				<image>interaction_name/pix/wrong_option_01.jpg</image>
+				<image>interaction_name/pix/wrong_option_02.jpg</image>
+				<image>interaction_name/pix/wrong_option_03.jpg</image>
 			</wrong>
 			<keyword>one</keyword>
 			<keyword>two</keyword>
