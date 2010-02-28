@@ -116,7 +116,8 @@ This requires:
 <?xml version="1.0" encoding="utf-8"?>
 <swfmoddata>
 	<metadata>
-		<course>9</course>
+		<courseid>9</courseid>
+		<coursename>Elementary 101</coursename>
 		<name>Title of learning interaction</name>
 		<intro>A brief description of learning interaction</intro>
 		<author>Matt Bury</author>
