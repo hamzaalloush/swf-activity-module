@@ -1,5 +1,5 @@
-#summary How to install AMFPHP (Flash Remoting) in Moodle
-#labels Featured,Phase-Implementation
+#summary Developers' guide on how to install AMFPHP (Flash Remoting) in Moodle
+#labels Phase-Implementation
 
 <wiki:toc max_depth="3" />
 
