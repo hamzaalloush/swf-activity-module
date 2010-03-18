@@ -3,6 +3,8 @@
 
 <wiki:toc max_depth="3" />
 
+----
+
 == Introduction ==
 
 This page describes how to install the SWF Activity Module in Moodle.
