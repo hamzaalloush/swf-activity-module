@@ -11,7 +11,7 @@ This page describes how to install the SWF Activity Module in Moodle.
 
 ----
 
-== Installing ==
+== Installing the Activity Module ==
 
   * Download and unzip the swf-activity-module...zip file from the Downloads section of this project site
   * Put the /swf/directory in MOODLE/mod/
@@ -25,4 +25,22 @@ This page describes how to install the SWF Activity Module in Moodle.
 
 Make sure that the SWF Activity Module directory structure in Moodle is as follows:
 
-  * MOODLE/mod/swf/... - NOT - MOODLE/mod/swf/swf/... 
+  * MOODLE/mod/swf/... - NOT - MOODLE/mod/swf/swf/...
+
+----
+
+== Installing the Flash-Moodle interface (AMFPHP) ==
+
+A version of AMFPHP 1.9 which is preconfigured for Moodle is included is the SWF Activity Module installer package. How to install it:
+
+  * Download and unzip the SWF Activity Module installer package
+  * Find the /amfphp/ directory
+  * Upload the /amfphp/ directory and all its contents to MOODLE/lib/
+  * It isn't necessary to go to Moodle's Administration > Notifications page after installation
+  * That's it!
+
+----
+
+== Any other installation problems ==
+
+Please report any problems you have with installing any part of The SWF Activity Module in the issues tracker, even if you managed to resolve them yourself. I'd like to make using this module as easy as possible for everyone and I regularly update this documentation when users report difficulties. :)
