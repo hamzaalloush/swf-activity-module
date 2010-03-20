@@ -1,0 +1,68 @@
+#summary How to write Actionscript to send grades to the grade book
+#labels Phase-Implementation
+
+== Introduction ==
+
+This page describes how Actionscript 3.0 developers can include code in learning applications that sends grades to Moodle's grade book via the SWF Activity Module API.
+
+----
+
+== Getting started ==
+
+Requirements:
+
+  * The SWF Activity Module com.matbury.sam.data package installed in your Actionscript 3.0 class path
+
+
+----
+
+== Example code ==
+
+Firstly, import the SWF Activity Module API classes, usually in the document class:
+{{{
+import com.matbury.sam.data.Amf;
+import com.matbury.sam.data.FlashVars;
+}}}
+
+Next, load the SWF Activity Module instance ID numbers into the FlashVars static class object. Please note that FlashVars is a static class so there is no need to create an instance of it, i.e. var flashVars:FlashVars = new FlashVars():
+{{{
+FlashVars.vars = this.root.loaderInfo.parameters;
+}}}
+
+Then, write the function that sends the grades
+{{{
+private var _amf:Amf;
+
+private function sendGrade():void {
+	_amf = new Amf(); // create Flash Remoting API object
+	_amf.addEventListener(Amf.GOT_DATA, gotDataHandler); // listen for server response
+	_amf.addEventListener(Amf.FAULT, faultHandler); // listen for server fault
+	var obj:Object = new Object(); // create an object to hold data sent to the server
+	obj.gateway = FlashVars.gateway; // (String) AMFPHP gateway URL
+	obj.swfid = FlashVars.swfid; // (int) activity ID
+	obj.instance = FlashVars.instance; // (int) Moodle instance ID
+	obj.feedback = _feedback.text; // (String) optional
+	obj.feedbackformat = Math.round(getTimer() / 1000); // (int) elapsed time in seconds
+	obj.rawgrade = _score; // (Number) grade, normally 0 - 100 but depends on grade book settings
+	obj.servicefunction = "Grades.amf_grade_update"; // (String) ClassName.method_name
+	_amf.getObject(obj); // send the data to the server
+}
+	
+function gotDataHandler(event:Event):void {
+	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
+	_amf.addEventListener(Amf.FAULT, faultHandler);
+	// check if grade was sent successfully
+	if(_amf.obj == true) {
+		// grade sent successfully
+	} else {
+		// grade wasn't sent so report error
+	}
+}
+
+function faultHandler(event:Event):void {
+	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
+	_amf.addEventListener(Amf.FAULT, faultHandler);
+	// grade wasn't sent so report error
+}
+
+}}}
