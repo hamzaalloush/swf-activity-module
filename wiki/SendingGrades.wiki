@@ -49,8 +49,9 @@ private function sendGrade():void {
 }
 	
 function gotDataHandler(event:Event):void {
+	// clean up listeners
 	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
-	_amf.addEventListener(Amf.FAULT, faultHandler);
+	_amf.removeEventListener(Amf.FAULT, faultHandler);
 	// check if grade was sent successfully
 	if(_amf.obj == true) {
 		// grade sent successfully
@@ -60,9 +61,9 @@ function gotDataHandler(event:Event):void {
 }
 
 function faultHandler(event:Event):void {
+	// clean up listeners
 	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
-	_amf.addEventListener(Amf.FAULT, faultHandler);
+	_amf.removeEventListener(Amf.FAULT, faultHandler);
 	// grade wasn't sent so report error
 }
-
 }}}
