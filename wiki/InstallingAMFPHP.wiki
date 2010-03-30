@@ -5,7 +5,7 @@
 
 == Please note ==
 
-*The [http://code.google.com/p/swf-activity-module/downloads/list installer package] contains a read-configured version of AMFPHP. It requires no configuration and installing it is a very simple process. Just put it in the MOODLE/lib/ directory and that's it!*
+*The [http://code.google.com/p/swf-activity-module/downloads/list installer package] contains a pre-configured version of AMFPHP. It requires no configuration and installing it is a very simple process. Just put it in the MOODLE/lib/ directory and that's it!*
 
 == Introduction ==
 
