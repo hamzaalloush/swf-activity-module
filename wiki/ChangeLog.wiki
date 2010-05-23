@@ -9,6 +9,14 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 ----
 
+=== 2010/05/23 ===
+
+No longer supporting swf_interactions and swf_interaction_data tables in installer packages. I simply don't have the time to develop the framework and interfaces for editing learning interaction databases in this way.
+
+XML files are the way ahead now and. although they're not as fast and dynamic, they offer much more flexibility.
+
+----
+
 === 2010/02/18 ===
 
 Updated report.php page to display the following user reports for each user on a selected SWF Activity Module instance:
