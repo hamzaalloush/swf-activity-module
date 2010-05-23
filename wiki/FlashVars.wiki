@@ -31,3 +31,30 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
 == Optional user-defined FlashVars ===
 
 The SWF Activity Module now includes 3 optional FlashVars that are user-defined name-value pairs. These were originally set names, i.e. flashvar1, flashvar2 and flashvar3. Now you can pass any FlashVars into your Flash e-learning applications.
+
+----
+
+== Keeping learning interaction data transferable ==
+
+Please note that the following values are not passed in as full URLs:
+
+  * *FlashVars.configxml*
+  * *FlashVars.skin*
+  * *FlashVars.xmlurl*
+
+Therefore you should construct the full URLs like this:
+{{{
+var config:String = FlashVars.moodledata + FlashVars.configxml;
+var skin:String = FlashVars.moodledata + FlashVars.skin;
+var xmlurl:String = FlashVars.moodledata + FlashVars.xmlurl;
+}}}
+
+Also, when referencing media in the corresponding moodledata course directory, it's best to use URLs relative to the root of that directory and then build the full URL by concatenating it with FlashVars.moodledata. For example:
+{{{
+// Should be:
+<image>commonobjects/images/elephant_african.jpg</image>
+// and not:
+<image>http://mymoodle.com/file.php/99/commonobjects/images/elephant_african.jpg</image>
+}}}
+
+This way, you can upload entire directories of learning interaction data from any course into new courses and they will work without any modification.
