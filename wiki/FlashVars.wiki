@@ -16,6 +16,8 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
   * *course* - Current Moodle course ID
   * *coursepage* - Quick link to current Moodle course page
   * *gateway* - URL to Flash Remoting gateway
+  * *grademin* - Minimum grade currently set in Moodle grade book item
+  * *grademax* - Maximum grade currently set in Moodle grade book item
   * *instance* - Moodle module instance ID
   * *moodledata* - URL to current Moodle course files directory
   * *namevalue1, namevalue2 and namevalue3* - Three name value pairs that allow users to specify the names of FlashVars passed into apps.
