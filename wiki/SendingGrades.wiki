@@ -53,10 +53,24 @@ function gotDataHandler(event:Event):void {
 	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
 	_amf.removeEventListener(Amf.FAULT, faultHandler);
 	// check if grade was sent successfully
-	if(_amf.obj == true) {
-		// grade sent successfully
+	if(_amf.obj != false) {
+		// grade recorded successfully
+		/*_amf.obj contains all the details of the pushed grade as follows:
+		_amf.obj.locked // Boolean
+		_amf.obj.feedback // String
+		_amf.obj.str_feedback // HTML String
+		_amf.obj.str_long_grade // String
+		_amf.obj.hidden // Boolean
+		_amf.obj.datesubmitted // int (timestamp)
+		_amf.obj.dategraded // int (timestamp)
+		_amf.obj.grade // Number
+		_amf.obj.str_grade // String
+		_amf.obj.feedbackformat // Number
+		_amf.obj.overridden // int
+		_amf.obj.usermodified // int */
+		// check Moodle.org docs for details about these parameters
 	} else {
-		// grade wasn't sent so report error
+		// grade wasn't recorded so report error
 	}
 }
 
