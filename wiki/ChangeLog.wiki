@@ -19,7 +19,7 @@ Fixed FlashVars bug in lib.php where the noCache query string was interfering wi
 
 No longer supporting swf_interactions and swf_interaction_data tables in installer packages. I simply don't have the time to develop the framework and interfaces for editing learning interaction databases in this way.
 
-XML files are the way ahead now and. although they're not as fast and dynamic, they offer much more flexibility.
+XML files are the way ahead now and, although they're not as fast and dynamic, they offer much more flexibility.
 
 ----
 
