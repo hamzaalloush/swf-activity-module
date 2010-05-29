@@ -9,6 +9,12 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 ----
 
+=== 2010/05/30 ===
+
+Fixed FlashVars bug in lib.php where the noCache query string was interfering with FlashVars values when no xmlurl value was present.
+
+----
+
 === 2010/05/23 ===
 
 No longer supporting swf_interactions and swf_interaction_data tables in installer packages. I simply don't have the time to develop the framework and interfaces for editing learning interaction databases in this way.
