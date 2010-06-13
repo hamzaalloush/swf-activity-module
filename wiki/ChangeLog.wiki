@@ -9,6 +9,10 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 ----
 
+=== 2010/06/14 ===
+
+*Milestone:* No significant compatibility problems or bugs have been reported or detected. Module is ready for production use.
+
 === 2010/05/30 ===
 
 Fixed FlashVars bug in lib.php where the noCache query string was interfering with FlashVars values when no xmlurl value was present.
