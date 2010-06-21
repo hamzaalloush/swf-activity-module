@@ -172,9 +172,11 @@ This requires:
 				<image>interaction_name/pix/wrong_option_02.jpg</image>
 				<image>interaction_name/pix/wrong_option_03.jpg</image>
 			</wrong>
-			<keyword>one</keyword>
-			<keyword>two</keyword>
-			<keyword>three</keyword>
+			<keywords>
+				<keyword>one</keyword>
+				<keyword>two</keyword>
+				<keyword>three</keyword>
+			</keywords>
 			<speaker>Mr. Smith</speaker>
 			<video>
 				<source>flv/fluffy_hamster_01.flv</source>
