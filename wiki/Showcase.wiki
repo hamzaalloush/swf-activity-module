@@ -1,4 +1,4 @@
-# Flash learning applications that work with the SWF Activity Module.
+#summary Flash learning applications that work with the SWF Activity Module.
 
 == Flash elearning applications showcase ==
 
