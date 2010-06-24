@@ -1,0 +1,35 @@
+#Flash learning applications that work with the SWF Activity Module.
+
+== Flash elearning applications showcase ==
+
+This wiki page is dedicated to Flash developers who have created learning applications that work with the SWF Activity Module in Moodle. If you have Flash learning applications that you'd like to show off, please comment below with a link to a working demo, preferably in a Moodle course that allows guest access. You can also include links to your personal/organisation's web pages which will hopefully bring more Flash elearning development work your way.
+
+Please only post links directly related to Flash learning applications that can be deployed with the SWF Activity Module in Moodle. I look forward to checking out your work and seeing what wonderful things people are using this project for!
+
+----
+
+== Disclaimer ==
+
+Inclusion on this page in no way implies endorsement, recommendation or verification by the developer(s) of the SWF Activity Module and this project site. All entries are taken at their word and a brief investigation that the link actually leads to Flash learning applications and no more. The developer(s) of the SWF Activity Module bear no responsibility or liability for any links and their content posted here.
+
+----
+
+== matbury.com ==
+
+I'm the creator of this project and an elearning developer specialising in Flash. I have a research and development Moodle which showcases some of my Flash learning applications.
+
+My Moodle: http://matbury.com/moodle/
+
+My Flash learning applications: http://matbury.com/moodle/course/view.php?id=9 (Login as a guest)
+
+My blog: http://matbury.com/wordpress/
+
+----
+
+== Your name ==
+
+Your intro...
+
+Your links...
+
+----
