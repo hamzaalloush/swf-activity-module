@@ -44,7 +44,7 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
 Type the parameter name(s), i.e. "size" or "words" in the "Name" text box and the desired value(s) in the "Value" text box on the SWF Activity Module mod form.
 
   * *size* (e.g. "20", default = 20) - Number of characters in word search grid across and down
-  * *words* (e.g. "apple,banana,carrot,orange,etc.", default = undefined) - List of words to use for the word search activity, separated by commas. Spaces and punctuation count as characters. Special characters must be URL encoded.
+  * *words* (e.g. "apple,banana,carrot,orange,etc.", default = undefined) - List of words to use for the word search activity, separated by commas. Spaces and punctuation count as characters. Special characters must be URL encoded. Words passed in as FlashVars override any XML file URL passed in.
 
 ----
 
