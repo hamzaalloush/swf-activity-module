@@ -41,8 +41,10 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
 
 == Optional FlashVars Learning Interaction Data parameters (see mod form) ==
 
-  * size (e.g. "20", default = 20) - Number of characters in word search grid across and down
-  * words (e.g. "apple,banana,carrot,orange,etc.", default = undefined) - List of words to use for the word search activity, separated by commas. Spaces and punctuation count as characters. Special characters must be URL encoded.
+Type the parameter name(s), i.e. "size" or "words" in the "Name" text box and the desired value(s) in the "Value" text box on the SWF Activity Module mod form.
+
+  * *size* (e.g. "20", default = 20) - Number of characters in word search grid across and down
+  * *words* (e.g. "apple,banana,carrot,orange,etc.", default = undefined) - List of words to use for the word search activity, separated by commas. Spaces and punctuation count as characters. Special characters must be URL encoded.
 
 ----
 
@@ -50,7 +52,7 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
 
 Note that you can change the language of the xml_word_search.swf user interface with the learning interaction data XML file in the `<usermessages>` tabs.
 
-The words or phrases between the `<option>` tabs appear in the word search.
+The words or phrases between the `<keyword>` tabs appear in the word search.
 
 {{{
 <?xml version="1.0" encoding="utf-8"?>
@@ -71,34 +73,134 @@ The words or phrases between the `<option>` tabs appear in the word search.
   <interaction>
 	<node>
 	  <keywords>
-		<option>It's an address book</option>
-		<option>It's a book</option>
-		<option>They're cigarettes</option>
-		<option>They're coins</option>
-		<option>It's a comb</option>
-		<option>It's a credit card</option>
-		<option>It's a diary</option>
-		<option>It's a dictionary</option>
-		<option>It's a file</option>
-		<option>They're glasses</option>
-		<option>It's an ID card</option>
-		<option>They're keys</option>
-		<option>It's a lighter</option>
-		<option>It's a lipstick</option>
-		<option>It's a magazine</option>
-		<option>They're matches</option>
-		<option>It's a mobile</option>
-		<option>It's a newspaper</option>
-		<option>It's a pen</option>
-		<option>It's a pencil</option>
-		<option>It's a photo</option>
-		<option>It's a purse</option>
-		<option>It's a stamp</option>
-		<option>They're sunglasses</option>
-		<option>They're tissues</option>
-		<option>It's an umbrella</option>
-		<option>It's a wallet</option>
-		<option>It's a watch</option>
+		<keyword>It's an address book</keyword>
+		<keyword>It's a book</keyword>
+		<keyword>They're cigarettes</keyword>
+		<keyword>They're coins</keyword>
+		<keyword>It's a comb</keyword>
+		<keyword>It's a credit card</keyword>
+		<keyword>It's a diary</keyword>
+		<keyword>It's a dictionary</keyword>
+		<keyword>It's a file</keyword>
+		<keyword>They're glasses</keyword>
+		<keyword>It's an ID card</keyword>
+		<keyword>They're keys</keyword>
+		<keyword>It's a lighter</keyword>
+		<keyword>It's a lipstick</keyword>
+		<keyword>It's a magazine</keyword>
+		<keyword>They're matches</keyword>
+		<keyword>It's a mobile</keyword>
+		<keyword>It's a newspaper</keyword>
+		<keyword>It's a pen</keyword>
+		<keyword>It's a pencil</keyword>
+		<keyword>It's a photo</keyword>
+		<keyword>It's a purse</keyword>
+		<keyword>It's a stamp</keyword>
+		<keyword>They're sunglasses</keyword>
+		<keyword>They're tissues</keyword>
+		<keyword>It's an umbrella</keyword>
+		<keyword>It's a wallet</keyword>
+		<keyword>It's a watch</keyword>
+	  </keywords>
+	</node>
+  </interaction>
+</swfmoddata>
+}}}
+
+Alternatively, the nodes can be arranged like this:
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<swfmoddata>
+  <metadata>
+	<courseid>9</courseid>
+	<coursename>Development</coursename>
+	<name>Common objects</name>
+	<intro>Every day objects found in the home.</intro>
+	<author>Matt Bury</author>
+	<email>matbury@gmail.com</email>
+	<skype>matt.bury</skype>
+	<department></department>
+	<organisation>matbury.com</organisation>
+	<datecreated>14/02/2010</datecreated>
+	<datemodified>16/02/2010</datemodified>
+  </metadata>
+  <interaction>
+	<node>
+	  <keywords>
+	  	<keyword>It's an address book</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>It's a book</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>They're cigarettes</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>They're coins</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>It's a comb</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>It's a credit card</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>etc.</keyword>
+	  </keywords>
+	</node>
+  </interaction>
+</swfmoddata>
+}}}
+
+Or even like this:
+
+{{{
+<?xml version="1.0" encoding="utf-8"?>
+<swfmoddata>
+  <metadata>
+	<courseid>9</courseid>
+	<coursename>Development</coursename>
+	<name>Common objects</name>
+	<intro>Every day objects found in the home.</intro>
+	<author>Matt Bury</author>
+	<email>matbury@gmail.com</email>
+	<skype>matt.bury</skype>
+	<department></department>
+	<organisation>matbury.com</organisation>
+	<datecreated>14/02/2010</datecreated>
+	<datemodified>16/02/2010</datemodified>
+  </metadata>
+  <interaction>
+	<node>
+	  <keywords>
+	  	<keyword>It's an address book</keyword>
+	  	<keyword>It's a book</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>They're cigarettes</keyword>
+	  	<keyword>They're coins</keyword>
+	  </keywords>
+	</node>
+	<node>
+	  <keywords>
+	  	<keyword>It's a comb</keyword>
+	  	<keyword>It's a credit card</keyword>
+	  	<keyword>etc.</keyword>
 	  </keywords>
 	</node>
   </interaction>
