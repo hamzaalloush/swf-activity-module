@@ -36,6 +36,10 @@ The LoaderInfo object of the Flash application's this.root.loaderInfo.parameters
 
 (Read only) The Flash Remoting gateway for the class com.matbury.sam.data.Amf to connect to. Necessary for pushing grades and other types of communication with Moodle.
 
+=== FlashVars.gradebook:String ===
+
+(Read only) URL to Moodle's grade book for the current course. Useful for automatic redirects when users have completed an activity and the grade has been saved.
+
 === FlashVars.grademax:Number ===
 
 (Read only) The maximum grade setting for the module instance's corresponding grade book item. This is also automatically handled in moodle/lib/amfphp/services/Grades.php
