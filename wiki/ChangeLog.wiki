@@ -9,6 +9,14 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 ----
 
+=== 2010/09/25 ===
+
+  * Included code to insert entries into Moodle participation reports.
+  * Included URL to Moodle's grade book user report in FlashVars embed code.
+  * Added gradebook property to FlashVars.as file, i.e. FlashVars.gradebook.
+
+----
+
 === 2010/06/14 ===
 
 *Milestone:* No significant compatibility problems or bugs have been reported or detected. Module is ready for production use.
