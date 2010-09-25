@@ -39,6 +39,13 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
 
 ----
 
+== Optional FlashVars Learning Interaction Data parameters (see mod form) ==
+
+  * size (e.g. "20", default = 20) - Number of characters in word search grid across and down
+  * words (e.g. "apple,banana,carrot,orange,etc.", default = undefined) - List of words to use for the word search activity, separated by commas. Spaces and punctuation count as characters. Special characters must be URL encoded.
+
+----
+
 == Example Word Search learning interaction data file ==
 
 Note that you can change the language of the xml_word_search.swf user interface with the learning interaction data XML file in the `<usermessages>` tabs.
