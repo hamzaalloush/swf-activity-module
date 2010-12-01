@@ -19,6 +19,8 @@ This page describes how to install the SWF Activity Module in Moodle.
   * The module should install correctly
   * That's it!
 
+<img src="http://matbury.com/assets/moodle_swf_files_view.gif" width="230" height="1210" alt="Moodle SWF files view" />
+
 ----
 
 == Common installation problems ==
