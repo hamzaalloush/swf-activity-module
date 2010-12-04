@@ -16,7 +16,7 @@ This page describes how to install the SWF Activity Module in Moodle.
 The SWF Activity Module is tested and stable when running on:
 
   * LAMP server (Linux, Apache, MySQL, PHP)
-  * PHP 5.0 - 5.2 (Not 5.3+)
+  * PHP 5 (Now will work with PHP 5.3+)
   * Moodle 1.9+
   * Moodle 2.0 is not yet supported
 
