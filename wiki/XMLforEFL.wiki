@@ -116,72 +116,62 @@ This requires:
 <?xml version="1.0" encoding="utf-8"?>
 <swfmoddata>
 	<metadata>
-		<courseid>9</courseid>
-		<coursename>Elementary 101</coursename>
-		<name>Title of learning interaction</name>
-		<intro>A brief description of learning interaction</intro>
+		<courseid>0</courseid>
+		<coursename>coursename</coursename>
+		<name>name</name>
+		<intro>intro</intro>
+		<datecreated>20101204</datecreated>
+		<datemodified>20101204</datemodified>
 		<author>Matt Bury</author>
-		<email>matbury-at-gmail-dot-com</email>
-		<skype>matt.bury</skype>
-		<datecreated>20091128</datecreated>
-		<datemodified>20091128</datemodified>
+		<website>http://matbury.com/</website>
+		<email>example@mail.com</email>
+		<skype>my.skype.id</skype>
 	</metadata>
+	<feedback>
+	</feedback>
 	<interaction>
 		<node>
 			<question>
-				<audio>interaction_name/mp3/question_01.mp3</audio>
-				<stretched>interaction_name/mp3/question_01_str.mp3</stretched>
+				<audio>dirname/mp3/is_this_a_question.mp3</audio>
+				<stretched>dirname/mp3/is_this_a_question_stretched.mp3</stretched>
 				<text>Is this a question?</text>
-				<image>interaction_name/pix/question_01.jpg</image>
+				<image>dirname/pix/question_01.jpg</image>
 			</question>
 			<answer>
-				<audio>interaction_name/mp3/answer_01.mp3</audio>
-				<stretched>interaction_name/mp3/answer_01.mp3</stretched>
-				<text>Yes, it is. Isn't that wierd?</text>
-				<image>interaction_name/mp3/answer_01.mp3</image>
+				<audio>dirname/mp3/this_is_an_answer.mp3</audio>
+				<stretched>dirname/mp3/this_is_an_answer_stretched.mp3</stretched>
+				<text>This is an answer.</text>
+				<image>dirname/pix/answer_01.jpg</image>
 			</answer>
 			<gapfill>
-				<beg>The beginning of this sentence</beg>
-				<mid>is followed by the middle</mid>
-				<end>and then the end.</end>
+				<beg>Complete</beg>
+				<mid>the middle of</mid>
+				<end>this sentence.</end>
 			</gapfill>
 			<correct>
-				<audio>interaction_name/mp3/correct_option_01.mp3</audio>
-				<audio>interaction_name/mp3/correct_option_02.mp3</audio>
-				<stretched>interaction_name/mp3/correct_option_01_str.mp3</stretched>
-				<stretched>interaction_name/mp3/correct_option_02_str.mp3</stretched>
-				<stretched>interaction_name/mp3/correct_option_03_str.mp3</stretched>
-				<text>This is correct option 1</text>
-				<text>This is correct option 2</text>
-				<text>This is correct option 3</text>
-				<image>interaction_name/pix/correct_option_01.jpg</image>
-				<image>interaction_name/pix/correct_option_02.jpg</image>
-				<image>interaction_name/pix/correct_option_03.jpg</image>
+				<audio>dirname/mp3/yes_thats_correct.mp3</audio>
+				<text>Yes, that's correct!</text>
+				<image>dirname/pix/correct_01.jpg</image>
 			</correct>
 			<wrong>
-				<audio>interaction_name/mp3/wrong_option_01.mp3</audio>
-				<audio>interaction_name/mp3/wrong_option_02.mp3</audio>
-				<audio>interaction_name/mp3/wrong_option_03.mp3</audio>
-				<stretched>interaction_name/mp3/wrong_option_01_str.mp3</stretched>
-				<stretched>interaction_name/mp3/wrong_option_02_str.mp3</stretched>
-				<stretched>interaction_name/mp3/wrong_option_03_str.mp3</stretched>
-				<text>This is wrong option 1</text>
-				<text>This is wrong option 2</text>
-				<text>This is wrong option 3</text>
-				<image>interaction_name/pix/wrong_option_01.jpg</image>
-				<image>interaction_name/pix/wrong_option_02.jpg</image>
-				<image>interaction_name/pix/wrong_option_03.jpg</image>
+				<audio>dirname/mp3/no_thats_wrong.mp3</audio>
+				<text>No, that's wrong!</text>
+				<image>dirname/pix/wrong_01.jpg</image>
 			</wrong>
 			<keywords>
-				<keyword>one</keyword>
-				<keyword>two</keyword>
-				<keyword>three</keyword>
+				<keyword>question</keyword>
+				<keyword>answer</keyword>
 			</keywords>
-			<speaker>Mr. Smith</speaker>
+			<speaker>
+				<audio>dirname/mp3/nigel_intro.mp3</audio>
+				<stretched>dirname/mp3/nigel_intro_stretched.mp3</stretched>
+				<text></text>
+				<image>dirname/pix/nigel.jpg</image>
+			</speaker>
 			<video>
-				<source>flv/fluffy_hamster_01.flv</source>
-				<text><![CDATA[<a href="http://example.com/docs/cdata.html">Any kind of text data is supported here.</a>]]></text>
-				<captions>xml/fluffy_hamster_01_subtitles.xml</captions>
+				<source>dirname/video/nigel_interview.mp4</source>
+				<text>Some text about the interview video with Nigel or a transcript of it.<![CDATA[<a href="http://matbury.com/moodle/">And here's a link to a relevant web page.</a>]]></text>
+				<captions>dirname/xml/nigel_interview_captions.xml</captions>
 			</video>
 		</node>
 	</interaction>
