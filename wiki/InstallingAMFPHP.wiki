@@ -5,7 +5,7 @@
 
 == Please note ==
 
-*AMFPHP, Moodle are not fully compatible with PHP 5.3* AMFPHP has 2 instances of eregi_replace() which is easy enough to fix [http://matthiasvanneste.wordpress.com/2009/09/18/php-5-3-0-and-amfphp/ see here]. However, all versions of Moodle have hundreds of instances of eregi_replace(), ereg_replace(), etc. and is a major issue. If your server is running PHP 5.3+, eregi_replace() will return deprecated function warnings which prevent AMFPHP from functioning correctly. It is strongly recommended not to upgrade PHP versions to 5.3+ if running Moodle until they have resolved this issue (This was posted 4th December 2010).
+*AMFPHP and Moodle are not fully compatible with PHP 5.3* AMFPHP has 2 instances of eregi_replace() which is easy enough to fix [http://matthiasvanneste.wordpress.com/2009/09/18/php-5-3-0-and-amfphp/ see here]. However, all versions of Moodle have hundreds of instances of eregi_replace(), ereg_replace(), etc. and is a major issue. If your server is running PHP 5.3+, eregi_replace() will return deprecated function warnings which prevent AMFPHP from functioning correctly. It is strongly recommended not to upgrade PHP versions to 5.3+ if running Moodle until they have resolved this issue (This was posted 4th December 2010).
 
 *The [http://code.google.com/p/swf-activity-module/downloads/list installer package] contains a pre-configured version of AMFPHP. It requires no configuration and installing it is a very simple process. Just put it in the MOODLE/lib/ directory and that's it!*
 
