@@ -11,6 +11,21 @@ This page describes how to install the SWF Activity Module in Moodle.
 
 ----
 
+== Requirements ==
+
+The SWF Activity Module is tested and stable when running on:
+
+  * LAMP server (Linux, Apache, MySQL, PHP)
+  * PHP 5.0 - 5.2 (Not 5.3+)
+  * Moodle 1.9+
+  * Moodle 2.0 is not yet supported
+
+It may also work on other server configurations and previous versions of Moodle, e.g. 1.8, but this hasn't been tested. Please report known problems and bugs in the issues tracker.
+
+Please note that Moodle 1.9 is not fully compatible with PHP 5.3+
+
+----
+
 == Installing the Activity Module ==
 
   * Download and unzip the swf-activity-module...zip file from the Downloads section of this project site
