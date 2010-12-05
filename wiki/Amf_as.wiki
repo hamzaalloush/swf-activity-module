@@ -261,7 +261,7 @@ package {
 		private function fault(event:Event):void {
 			_amf.removeEventListener(Amf.GOT_DATA, gotGrade);
 			_amf.removeEventListener(Amf.FAULT, fault);
-			throw Error("Failed to connect to /lib/amfphp/services/Grades.php");
+			throw Error(Amf.error);
 		}
 	}
 }
