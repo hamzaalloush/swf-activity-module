@@ -22,6 +22,10 @@ The Amf class handles passing objects and arrays between Flash and Moodle.
 
 A getter method that returns an array returned from remoting service. This property is null until a successful call has been made to the remoting service.
 
+=== Amf.error:String ===
+
+A getter method that returns any error messages received from AMFPHP. In some cases Moodle may return errors or warnings, especially if the server is running on PHP 5.3+. This method converts error and warning objects into a single String so that it can be easily presented for development/maintenance purposes, e.g. throw an error so that it shows up in Flash debug Player or automatically email admin.
+
 === Amf.obj:Object ===
 
 A getter method that returns an object returned from remoting service. This property is null until a successful call has been made to the remoting service.
