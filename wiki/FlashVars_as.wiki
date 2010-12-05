@@ -24,6 +24,10 @@ The LoaderInfo object of the Flash application's this.root.loaderInfo.parameters
 
 (Read only) Some web service providers require a key string to grant access to their services. This property provides a way of using API keys without hard-coding them into applications.
 
+=== FlashVars.configxml:String ===
+
+(Read only) The URL to an XML file that configures the Flash e-learning application, for example physical appearance, volume or web camera settings. This makes it easy to set course wide settings policies by sharing the same configxml file between several Flash applications.
+
 === FlashVars.course:uint ===
 
 (Read only) The ID of the current Moodle course.
@@ -31,6 +35,10 @@ The LoaderInfo object of the Flash application's this.root.loaderInfo.parameters
 === FlashVars.coursepage:String ===
 
 (Read only) A convenient URL for Flash applications to navigate to. For example, when a user completes a learning interaction.
+
+=== FlashVars.gamelength:uint ===
+
+(Read only) Set the number of repetitions or score to achieve for learning interaction to be marked as completed.
 
 === FlashVars.gateway:String ===
 
@@ -52,9 +60,17 @@ The LoaderInfo object of the Flash application's this.root.loaderInfo.parameters
 
 (Read only) The ID of the Moodle course module instance. Not to be confused with FlashVars.swfid, which is the SWF Activity Module instance ID. Both can be used to identify the module instance and authenticate users.
 
+=== FlashVars.interaction:uint ===
+
+(Read only) The ID of a set of learning interaction data. This can be used with any database table to identify and/or select a set of learning interaction data (SQL). Useful for database driven learning applications.
+
 === FlashVars.moodledata:String ===
 
 (Read only) The URL to the root of the corresponding Moodle course files directory. This is where all course images, audio, video, Flash applications and XML files should be stored for the SWF Activity Module.
+
+=== FlashVars.skin:String ===
+
+(Read only) The URL to a UI skin file. Some Flash applications may allow users to specify the user interface appearance by loading an external UI skin SWF file.
 
 === FlashVars.starttime:uint ===
 
@@ -64,41 +80,11 @@ The LoaderInfo object of the Flash application's this.root.loaderInfo.parameters
 
 (Read only) The SWF Activity Module instance ID. Not to be confused with FlashVars.instance, which is the Moodle course module instance. Both can be used to identify the module instance and authenticate users.
 
-=== FlashVars.skin:String ===
-
-(Read only) The URL to a UI skin file. Some Flash applications may allow users to specify the user interface appearance by loading an external UI skin SWF file.
-
-=== FlashVars.configxml:String ===
-
-(Read only) The URL to an XML file that configures the Flash e-learning application, for example physical appearance, volume or web camera settings. This makes it easy to set course wide settings policies by sharing the same configxml file between several Flash applications.
-
 === FlashVars.xmlurl:String ===
 
 (Read only) The URL to an XML file containing learning interaction data. Dynamic Flash e-learning applications are essentially "empty projectors" that use provided learning interaction data to project the lessons. Of course, in practice, learning interactions are far more complex than simple projectors and can be highly sophisticated and interactive.
 
-=== FlashVars.interactioninfo:Object ===
-
-Information (metadata) about the learning interaction, such as author, date, copyright, etc.
-
-=== FlashVars.interactiondata:Array ===
-
-Learning interaction data stored in a 2 or 3 dimensional array. It's sometimes faster to parse an XML file into an array and access the data like that than using E4X notation which can be slow.
-
-=== FlashVars.feedback:Array ===
-
-An array to store user feedback in. Can either contain messages that the Flash application displays to users and/or sends to Moodle's grade book to be viewed later.
-
-=== FlashVars.grade:Object ===
-
-An object for storing user grade data. Can also be used to store grades from previous attempts retrieved from the grade book.
-
-=== FlashVars.grades:Array ===
-
-An array for storing user grade data. Can also be used to store grades from previous attempts retrieved from the grade book.
-
 ----
-
-= Examples =
 
 == How to initialise FlashVars ==
 
