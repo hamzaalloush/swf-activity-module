@@ -33,7 +33,7 @@ Enter a name and brief description of the learning interaction. The name will ap
 
 == Flash learning application ==
 
-<img src="http://matbury.com/tutorials/swf_mod_form_swf_parameters.gif" width="806" height="180" alt="SWF Activity Module paramters" />
+<img src="http://matbury.com/tutorials/swf_module_parameters.gif" width="568" height="318" alt="SWF Activity Module paramters" />
 
 Enter the following parameters:
 
