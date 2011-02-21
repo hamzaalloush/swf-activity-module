@@ -1,0 +1,7 @@
+#summary Important information about the SWF Activity Module.
+
+= Flash Security =
+
+The Flash platform is a fully functioning development platform. As such it is very important to ensure that any Flash applications deployed on your server are secure and contain no malware or spyware. Do not deploy any Flash application if you do not know who developed it and exactly what it does.
+
+Remember: Treat Flash applications as cautiously as you would any other software.
