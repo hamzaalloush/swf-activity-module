@@ -1,0 +1,15 @@
+#summary Future plans for the SWF Activity Module
+
+== Moodle 1.9 ==
+
+Support and development for Moodle 1.9 will continue for the foreseeable future.
+
+----
+
+== Moodle 2.0 ==
+
+A new branch will be made eventually, but not any time soon (28/02/2011). Still too many bugs and not enough development time available.
+
+Watch this space!
+
+
