@@ -37,7 +37,16 @@ The SWF Activity Module now includes 3 optional FlashVars that are user-defined 
 
 == Example code ==
 
-TODO...
+The FlashVars object is a static class and therefore can be accessed from anywhere within a Flash application. Create and initialise the FlashVars object like this:
+{{{
+import com.matbury.sam.data.FlashVars;
+
+public function initFlashVars():void {
+     FlashVars.vars = this.root.loaderInfo.parameters;
+}
+}}}
+
+All the listed FlashVars passed in via the SWF Activity Module are now accessible.
 
 ----
 
