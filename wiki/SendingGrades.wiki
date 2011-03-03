@@ -13,6 +13,10 @@ Requirements:
 
   * The SWF Activity Module com.matbury.sam.data package installed in your Actionscript 3.0 class path
 
+The following SWF Activity Module instance parameters, on the "Editing SWF" page, should be left at their default values:
+  * Allow Script Access = all
+  * Allow Networking = sameDomain
+
 
 ----
 
