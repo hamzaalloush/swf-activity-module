@@ -35,6 +35,12 @@ The SWF Activity Module now includes 3 optional FlashVars that are user-defined 
 
 ----
 
+== Example code ==
+
+TODO...
+
+----
+
 == Keeping learning interaction data transferable ==
 
 Please note that the following values are not passed in as full URLs:
