@@ -17,6 +17,9 @@ The following SWF Activity Module instance parameters, on the "Editing SWF" page
   * Allow Script Access = all
   * Allow Networking = sameDomain
 
+=== Please note ===
+
+The AMFPHP service scripts are designed for production servers. They follow Moodle's capabilities and permissions and therefore only work with users that are logged in and Flash apps that are deployed with all the correct parameters and paths suppled either by the SWF Activity Module or some other means. In other words, you can't successfully call the AMFPHP service scripts from the Flash IDE.
 
 ----
 
