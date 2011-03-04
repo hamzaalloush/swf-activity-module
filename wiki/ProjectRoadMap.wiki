@@ -4,6 +4,8 @@
 
 Support and development for Moodle 1.9 will continue for the foreseeable future.
 
+----
+
 === 04/03/2011 ===
 
   * Administration > Modules > Activities > SWF settings panel to be added soon. Set default parameters for new instances on a site wide basis.
