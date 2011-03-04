@@ -11,22 +11,29 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
 
 (In alphabetical order)
 
-  * *apikey* - Some web services require an API key for authentication
-  * *configxml* - An option to set all FlashVars parameters via an externally loaded XML file
-  * *course* - Current Moodle course ID
-  * *coursepage* - Quick link to current Moodle course page
-  * *fullbrowser* - SWF Activity Module is in full browser mode: 100% width, 100% height
-  * *gateway* - URL to Flash Remoting gateway
-  * *gradebook* - URL to Moodle's grade book user report page
-  * *grademax* - Maximum grade currently set in Moodle grade book item
-  * *grademin* - Minimum grade currently set in Moodle grade book item
-  * *instance* - Moodle module instance ID
-  * *moodledata* - URL to current Moodle course files directory
-  * *namevalue1, namevalue2 and namevalue3* - Three name value pairs that allow users to specify the names of FlashVars passed into apps.
-  * *skin* - URL to skin SWF file or skin XML file
-  * *starttime* - Server time for start of learning interaction
-  * *swfid* - SWF Activity Module instance ID
-  * *xmlurl* - URL to learning interaction data XML file
+  * *apikey:String* - Some web services require an API key for authentication
+  * *configxml:String* - An option to set all FlashVars parameters via an externally loaded XML file
+  * *course:uint* - Current Moodle course ID
+  * *coursepage:String* - Quick link to current Moodle course page
+  * *fullbrowser:String* - SWF Activity Module is in full browser mode: 100% width, 100% height
+  * *gateway:String* - URL to Flash Remoting gateway
+  * *gradebook:String* - URL to Moodle's grade book user report page
+  * *grademax:Number* - Maximum grade currently set in Moodle grade book item
+  * *grademin:Number* - Minimum grade currently set in Moodle grade book item
+  * *instance:uint* - Moodle module instance ID
+  * *moodledata:String* - URL to current Moodle course files directory
+  * *skin:String* - URL to skin SWF file or skin XML file
+  * *starttime:uint* - Server time for start of learning interaction
+  * *swfid:uint* - SWF Activity Module instance ID
+  * *xmlurl:String* - URL to learning interaction data XML file
+
+Additionally, non-standard name value pairs can be passed in by the SWF Activity Module. Access these in the normal way. For example:
+
+{{{
+var myString:String = this.root.loaderInfo.parameters.mystring;
+var myNumber:Number = this.root.loaderInfo.parameters.mynumber;
+// etc.
+}}}
 
 ----
 
