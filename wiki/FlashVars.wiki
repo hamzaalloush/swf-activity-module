@@ -51,7 +51,7 @@ All the listed FlashVars passed in via the SWF Activity Module are now accessibl
 
 ----
 
-== FlasVars.info ==
+== FlashVars.info ==
 
 The FlashVars.info object is a record of the status of each of the FlashVars parameters passed in by the SWF Activity Module. Here's some example code to read off those messages:
 
