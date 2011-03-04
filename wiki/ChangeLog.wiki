@@ -9,6 +9,14 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 ----
 
+=== 2011/03/04 ===
+
+  * Administration > Modules > Activities > SWF settings panel to be added soon. Set default parameters for new instances on a site wide basis.
+  * A full browser Flash feature will soon be added - 100% width, 100% height of browser window.
+  * Add FlashVars.fullbrowser:String (true/false) parameter so that Flash apps can detect full browser mode and adapt accordingly.
+
+----
+
 === 2010/12/04 ===
 
   * Updated AMFPHP 1.9 to be compatible with PHP 5.3.
