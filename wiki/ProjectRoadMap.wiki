@@ -4,6 +4,8 @@
 
 Support and development for Moodle 1.9 will continue for the foreseeable future.
 
+Currently looking into implementing Moodle user participation reporting. Any help in finding adequate documentation or which functions relate to this would be very helpful.
+
 ----
 
 == Moodle 2.0 ==
