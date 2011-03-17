@@ -9,7 +9,7 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 ----
 
-=== 2011/03/04 ===
+=== 2011/03/17 ===
 
   * Administration > Modules > Activities > SWF settings panel added. Sets default parameters for new instances on a site wide basis.
   * Full browser Flash feature now added.
