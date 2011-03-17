@@ -1,0 +1,9 @@
+#summary How to define the default settings for new instances of the SWF Activity Module
+
+== Settings panel ==
+
+The settings panel allows admins to define the default settings of most of the parameters of the SWF Activity Module. Defining the default settings to the most commonly used ones saves all admins, course content developers and teachers time each time they create a new instance of the SWF Activity Module.
+
+The setting panel is located in Site Administration > Modules > Activities > SWF
+
+<img src="http://matbury.com/assets/swf_site_wide_settings.gif" width="544" height="690" alt="SWF site wide settings panel" />
