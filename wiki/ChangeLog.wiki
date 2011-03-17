@@ -11,6 +11,14 @@ This page lists changes and updates to the SWF Activity Module. They are listed 
 
 === 2011/03/04 ===
 
+  * Administration > Modules > Activities > SWF settings panel added. Sets default parameters for new instances on a site wide basis.
+  * Full browser Flash feature now added.
+  * Student grade book report page added. Lists all instances of SWF Activity Module for the current course and displays current user's grade details for all of them.
+
+----
+
+=== 2011/03/04 ===
+
   * Administration > Modules > Activities > SWF settings panel to be added soon. Set default parameters for new instances on a site wide basis.
   * A full browser Flash feature will soon be added - 100% width, 100% height of browser window.
   * Add FlashVars.fullbrowser:String (true/false) parameter so that Flash apps can detect full browser mode and adapt accordingly.
