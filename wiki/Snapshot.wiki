@@ -2,7 +2,17 @@
 
 = Snapshot=
 
-The Snapshot.php service script for the SWF Activity Module saves screenshot images taken by Flash applications to the moodledata course directory and pushes an empty (0%) grade and an HTML link (feedback) to the image into the grade book.
+The Snapshot.php service script for the SWF Activity Module saves screenshot images taken by Flash applications to the moodledata course directory and pushes a grade and an HTML link (feedback) to the image into the grade book.
+
+== Work flow ==
+
+  # Learner takes snapshot in current Flash application
+  # Flash application encodes snapshot and sends it to Snapshot.php service
+  # Snapshot.php service saves snapshot image as JPG or PNG
+  # Snapshot.php pushes grade and a link to saved image into Moodle grade book
+  # Snapshot.php returns URL of saved image to Flash application
+  # Flash application opens saved image in new window (to confirm it was successfully saved)
+  # Teachers can manually edit grades and add feedback in grade book
 
 == Requirements ==
 
