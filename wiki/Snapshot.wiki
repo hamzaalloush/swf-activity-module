@@ -11,6 +11,7 @@ The Snapshot.php service script for the SWF Activity Module saves screenshot ima
   * AMFPHP 1.9 (preconfigured version with services included in SWF Activity Module downloads) installed
   * Adobe [https://github.com/mikechambers/as3corelib as3corelib class library] installed in your Actionscrip 3.0 class path
   * com.matbury.sam.data class library installed in your Actionscript 3.0 class path
+  * Your Actionscript compiler of choice.
 
 == Import Actionscript classes ==
 
