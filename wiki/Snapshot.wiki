@@ -1,0 +1,30 @@
+#summary AMFPHP service for saving screenshots on Moodle
+
+= Snapshot=
+
+The Snapshot.php service script for the SWF Activity Module saves screenshot images taken by Flash applications to the moodledata course directory and pushes an empty (0%) grade and an HTML link (feedback) to the image into the grade book.
+
+== Requirements ==
+
+  * Moodle 1.8 or 1.9
+  * SWF Activity Module installed
+  * AMFPHP 1.9 (preconfigured version with services included in SWF Activity Module downloads) installed
+  * Adobe [https://github.com/mikechambers/as3corelib as3corelib class library] installed in your Actionscrip 3.0 class path
+  * com.matbury.sam.data class library installed in your Actionscript 3.0 class path
+
+== Import Actionscript classes ==
+
+{{{
+	import com.adobe.images.PNGEncoder; // Static class, doesn't need instantiating
+	import com.adobe.images.JPGEncoder; // Normal class, needs instantiating
+	import com.matbury.sam.data.Amf; // Normal class, communicates with Moodle (AMF3)
+	import com.matbury.sam.data.FlashVars; // Static class, easy way to manage SWF Activity Module data
+}}}
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
