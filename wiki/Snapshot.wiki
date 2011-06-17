@@ -21,6 +21,30 @@ The Snapshot.php service script for the SWF Activity Module saves screenshot ima
 	import com.matbury.sam.data.FlashVars; // Static class, easy way to manage SWF Activity Module data
 }}}
 
+== Take a snapshot ==
+
+var _imageType:String; // png/jpg defines the image MIME type to be encoded
+var _byteArray:ByteArray; // stores the encoded bitmap data to send to the Snapshot service
+{{{
+	private function takeSnapshot(event:MouseEvent):void {
+		// Define the dimensions of the area to record
+		var bitmapData:BitmapData = new BitmapData(stage.stageWidth,stage.stageHeight);
+		// Record a DisplayObject. In this case the stage cast as a Sprite.
+		bitmapData.draw(Sprite(this));
+		// Record it in the selected file format
+		if(_imageType == "png") {
+			_byteArray = PNGEncoder.encode(bitmapData);
+			sendData();
+		} else if(_imageType == "jpg") {
+			var jpgEncoder:JPGEncoder = new JPGEncoder();
+			_byteArray = jpgEncoder.encode(bitmapData);
+			sendData();
+		} else {
+			throw new Error("Error: image MIME type undefined. Set it as .jpg or .png");
+		}
+	}
+}}}
+
 
 = Details =
 
