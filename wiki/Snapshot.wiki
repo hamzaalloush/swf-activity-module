@@ -113,3 +113,7 @@ var _byteArray:ByteArray; // stores the encoded bitmap data to send to the Snaps
 		//navigateToURL(request,"_self");
 	}
 }}}
+
+== Notes ==
+
+Obviously, you'll want to use something more elegant and practical that throw new Error() to inform users of what's going on with your application. This is just a quick and dirty version of example code to get you started. Good luck and happy coding! :)
