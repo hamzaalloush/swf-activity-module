@@ -100,7 +100,7 @@ var _byteArray:ByteArray; // stores the encoded bitmap data to send to the Snaps
 		// Clean up listeners
 		_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
 		_amf.removeEventListener(Amf.FAULT, faultHandler);
-		throw new Error("There was a problem. Your image was not saved.");
+		throw new Error("Error: There was a problem. Your image was not saved.");
 	}
 	
 	private function navigateToImage(url:String):void {
