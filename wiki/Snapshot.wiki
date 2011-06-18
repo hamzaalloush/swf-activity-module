@@ -131,4 +131,6 @@ Obviously, you'll want to use something more elegant and practical that throw ne
 
 == Acknowledgements ==
 
-<img src="http://matbury.com/assets/Greenwood-logo-loRes-small.jpg" alt="Greenwood logo" width="213" height="67" align="right" />The interactive whiteboard SWF idea was conceived at Greenwood College School as a means to further personalize the learning experience for its students. Greenwood is excited to be partnering with Matt Bury on this project because this module enhancement will help educators using Moodle to track student progress using a flexible, online input method.
+<a href="http://www.greenwoodcollege.com"><img src="http://matbury.com/assets/Greenwood-logo-loRes-small.jpg" alt="Greenwood logo" width="213" height="67" border="0" align="right" /></a>The interactive whiteboard SWF idea was conceived at Greenwood College School as a means to further personalize the learning experience for its students. Greenwood is excited to be partnering with Matt Bury on this project because this module enhancement will help educators using Moodle to track student progress using a flexible, online input method.
+
+[http://www.greenwoodcollege.com]
