@@ -6,7 +6,7 @@ The Snapshot.php service script for the SWF Activity Module saves screenshot ima
 
 == Example Flash application ==
 
-There is an open source [http://code.google.com/p/swf-activity-module/downloads/detail?name=concept_map_application_src_2011_06_23.zip Concept Map] application for you to try in the [http://code.google.com/p/swf-activity-module/downloads/list downloads] section.
+There is an open source [http://code.google.com/p/swf-activity-module/downloads/detail?name=concept_map_application_src_2011_06_23.zip Concept Map] application for you in the [http://code.google.com/p/swf-activity-module/downloads/list downloads] section. You can try it out on the [http://moodle.matbury.com/course/view.php?id=9 matbury.com Moodle 1.9 demo course].
 
 == Work flow ==
 
