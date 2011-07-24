@@ -4,6 +4,10 @@
 
 The Snapshot.php service script for the SWF Activity Module saves screenshot images taken by Flash applications to the moodledata course directory and pushes a grade and an HTML link (feedback) to the image into the grade book.
 
+== Example Flash application ==
+
+There is an open source [http://code.google.com/p/swf-activity-module/downloads/detail?name=concept_map_application_src_2011_06_23.zip Concept Map] application for you to try in the [http://code.google.com/p/swf-activity-module/downloads/list downloads] section.
+
 == Work flow ==
 
   # Learner takes snapshot in current Flash application
