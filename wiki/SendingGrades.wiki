@@ -1,5 +1,5 @@
 #summary How to write Actionscript to send grades to the grade book
-#labels Phase-Implementation
+#labels Phase-Implementation,Featured
 
 == Introduction ==
 
