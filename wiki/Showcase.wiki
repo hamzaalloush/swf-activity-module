@@ -13,6 +13,8 @@ Please only post links directly related to Flash learning applications that can 
 
 Inclusion on this page in no way implies endorsement, recommendation or verification by the developer(s) of the SWF Activity Module and this project site. All entries are taken at their word and a brief investigation that the link actually leads to working Flash learning applications. The developer(s) of the SWF Activity Module bear no responsibility or liability for any links and their content posted here.
 
+*Please note:* It is much easier to integrate Flash applications developed using AS 3.0 with Moodle. Only basic functions, such as pushing grades, are supported for legacy AS 2.0 applications.
+
 ----
 
 == matbury.com ==
@@ -34,6 +36,26 @@ About Envato (from http://envato.com/)
 Envato is a startup based out of Australia with people around the world and sites serving pages every second. We started in a living room in 2006 and have been steadily working to build our company into a world-class contender. Our background is creative, we love open source, we believe that work is about way more than just making money, and we’re totally committed to making products that are awesome!
 
 Flash games: http://activeden.net/category/flash/games
+
+----
+
+== Novel Games ==
+
+About Novel Games (from http://business.novelgames.com/)
+
+Welcome to Business @ Novel Games. Here you can license our games and use them in your websites or other media. We offer two types of licenses: Branded Game SWF License and Game Source Codes License. Our ever growing library has more than 280 single player and multi player Flash games and you must be able to find one that suits your needs. You can learn more about game licensing here.
+
+Novel Games: http://business.novelgames.com/
+
+----
+
+== A4 Flash Game.com ==
+
+About (from http://www.a4flashgame.com/)
+
+Buy flash game template with full source code files to make flash games yourself for online playing on website or offline playing on PC directly. Flash game templates can be customized, modified using Adobe Flash 8 or above. The full source code of flash game templates (.FLA) with actionscript will be emailed to you once the order is processed. 
+
+A4 Flash Game.com: http://www.a4flashgame.com/
 
 ----
 
