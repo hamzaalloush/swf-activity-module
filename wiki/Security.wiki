@@ -1,4 +1,5 @@
 #summary Important information about the SWF Activity Module.
+#labels Featured
 
 = Flash Security =
 
