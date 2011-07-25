@@ -1,4 +1,5 @@
 #summary Future plans for the SWF Activity Module
+#labels Featured
 
 == Moodle 1.9 ==
 
