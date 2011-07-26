@@ -54,6 +54,8 @@ var moodledata:String = this.root.loaderInfo.parameters.moodledata; // http://ex
 var mp3URL:String = moodledata + "audio/my_audio.mp3";
 }}}
 
+The static class, `com.matbury.sam.data.FlashVars`, makes accessing all FlashVars data throughout a Flash application easy, e.g. `FlashVars.moodledata`. See the FlashVars wiki page for further details.
+
 ----
 
 == Example SMIL XML Playlist ==
