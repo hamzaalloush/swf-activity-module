@@ -83,13 +83,12 @@ Please note that the following values are not passed in as full URLs:
 
   * *FlashVars.configxml*
   * *FlashVars.skin*
-  * *FlashVars.xmlurl*
 
 Therefore the full URLs should be contructed like this:
 {{{
 var config:String = FlashVars.moodledata + FlashVars.configxml;
 var skin:String = FlashVars.moodledata + FlashVars.skin;
-var xmlurl:String = FlashVars.moodledata + FlashVars.xmlurl;
+var xmlurl:String = FlashVars.xmlurl; // exception
 }}}
 
 When referencing media in the corresponding moodledata course directory, it's best to use URLs relative to the root of that directory and then build the full URL by concatenating it with FlashVars.moodledata. For example:
