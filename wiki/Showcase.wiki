@@ -59,6 +59,18 @@ A4 Flash Game.com: http://www.a4flashgame.com/
 
 ----
 
+== ElearningTemplates.com ==
+
+These are Flash eLearning game templates that are super easy to use. You purchase the Flash source file (.fla) and simply open the file in Flash and add text. Then publish the .swf and insert it into your course. (You must have Adobe Flash to edit these files.)
+
+Each template is fully customizable in Flash since we give you the .fla Flash source file. Games are made to work with rapid elearning software such as: Articulate Presenter, Adobe Captivate, Atlantic Link, Lectora, Unison, ProForm, Adobe Presenter, Adobe Flash, PowerPoint, Udutu and more.
+
+Reuse the e Learning Flash game templates over and over again in multiple courses…or even other websites and presentations.
+
+ElearningTemplates.com: http://elearningtemplates.com/elearning-games/
+
+----
+
 == Your name ==
 
 Your intro...
