@@ -45,6 +45,17 @@ The MOODLE/file.php script automatically manages access and permissions so that 
 
 ----
 
+== Dynamically accessing /moodledata/ course files ==
+
+If you copy a course to the same Moodle installation or another (backup and restore), the path to the moodledata will most likely be different resulting in broken links in any XML files or hard-coded SWF files. The SWF Activity Module provides a dynamic path to the moodledata course files directory via FlashVars. This means that individual instances or entire courses can be backed up and transfered while maintaining the correct file paths.
+
+{{{
+var moodledata:String = this.root.loaderInfo.parameters.moodledata; // http://example.com/file.php/99/
+var mp3URL:String = moodledata + "audio/my_audio.mp3";
+}}}
+
+----
+
 == Example SMIL XML Playlist ==
 
 Here is an example SMIL XML playlist that accesses files stored in /moodledata/. Note that the course number is 99. If the name if the SMIL XML file is /example_smil_playlist.xml/, then the path to it should be something like:
