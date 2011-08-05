@@ -279,14 +279,6 @@ AMFPHP 1.9.beta comes with a Flex service browser ready installed. It allows you
 
 DO NOT leave the service browser installed on a production server (i.e. public). It will leave your service library and therefore your Moodle API and databases exposed to the public!
 
-== List Of AMF Moodle Services ==
-
-  * User.php - returns user login status, returns an array of config settings you can set, returns a value of a config setting, sets a value of a config setting
-  * UserName.php - returns user login status
-  * User.php Updated
-
-If you've already seen the tutorials in Moodle docs, here's an updated version of User.php that works with AMFPHP 1.9.beta. As with UserName.php, upload it to the services directory at MOODLEROOT/lib/amfphp/services/. You can test it by navigating to MOODLEROOT/lib/amfphp/browser/index.html and selecting User from the menu of services.
-
 === User.php Script ===
 
 {{{
@@ -348,6 +340,8 @@ class User
 The following is a simple AMFPHP service that retrieves current user session data from Moodle. Save this file in the services directory of AMFPHP, i.e. MOODLEROOT/lib/amfphp/services/MDL.php.
 
 This class is PHP5 Object Oriented code and acts as a handy repository for accessing user session data. I haven't forgotten the closing ?> PHP tag. It just isn't recommended for OOP PHP5 classes. (It probably should use getter and setter methods of Moodle's API... but I can't find the relevant documentation!)
+
+*WARNING*: DO NOT upload MDL.php to a public server or anywhere accessible to other users. It exposes information about your Moodle installation that you don't want the world to see!
 
 MDL.php script:
 
