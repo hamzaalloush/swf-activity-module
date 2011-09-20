@@ -21,11 +21,11 @@ Inclusion on this page in no way implies endorsement, recommendation or verifica
 
 I'm the creator of this project and an elearning developer specialising in Flash. I have a research and development Moodle which showcases some of my Flash learning applications.
 
-My Moodle: http://matbury.com/moodle/
+My Moodle: http://moodle.matbury.com/
 
-My Flash learning applications: http://matbury.com/moodle/course/view.php?id=9 (Login as a guest)
+My Flash learning applications: http://moodle.matbury.com/course/view.php?id=17 (Login as a guest)
 
-My blog: http://matbury.com/wordpress/
+My blog: http://blog.matbury.com/
 
 ----
 
