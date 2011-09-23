@@ -7,6 +7,20 @@ The Flash platform is a fully functioning development platform. As such it is ve
 
 Remember: Treat Flash applications as cautiously as you would any other software.
 
+==Allow Script Access and Allow Networking==
+
+The default settings for these advanced parameters can be set by Admins in:
+
+  * Moodle > Site Administration > Modules > Activities > SWF
+
+This allows you to set site wide guidelines for teachers to follow. If you want to restrict the options available the parameter settings can be found in:
+
+  * moodle/mod/swf/lib.php in the functions
+  * swf_list_allownetworking() and 
+  * swf_list_allowscriptaccess()
+
+This will only effect new instances of the SWF Activity Module.
+
 ==Further reading==
 
   * [http://kb2.adobe.com/cps/164/tn_16494.html Controlling access to scripts in a host web page]
