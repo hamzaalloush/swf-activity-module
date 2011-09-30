@@ -1,7 +1,9 @@
 #summary How to implement conditional module sequencing
 #labels Featured
 
-= Title... =
+= Not released. Do not use yet! =
+
+The latest build of the SWF Activity Module for Moodle includes support for conditional sequencing between SWF course module instances. This means that Flash learning applications can stipulate that learners must successfully complete one SWF module before moving on to the next.
 
 == Using the FlashVars class ==
 
