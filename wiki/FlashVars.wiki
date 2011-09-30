@@ -22,6 +22,7 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
   * *grademin:Number* - Minimum grade currently set in Moodle grade book item
   * *instance:uint* - Moodle module instance ID
   * *moodledata:String* - URL to current Moodle course files directory
+  * *nextinstance:uint* - Next uncompleted Moodle module instance ID according to Moodle grade book
   * *skin:String* - URL to skin SWF file or skin XML file
   * *starttime:uint* - Server time for start of learning interaction
   * *swfid:uint* - SWF Activity Module instance ID
