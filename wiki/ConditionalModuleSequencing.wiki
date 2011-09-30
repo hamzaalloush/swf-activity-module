@@ -2,3 +2,33 @@
 #labels Featured
 
 = Title... =
+
+== Using the FlashVars class ==
+
+{{{
+import com.matbury.sam.data.FlashVars;
+// etc...
+
+// Initialise IDs
+FlashVars.vars = this.root.loaderInfo.parameters;
+private var _currentID:uint = FlashVars.instance;
+private var _nextID:uint = FlashVars.nextinstance;
+
+private function checkNextInstance():void {
+    if(_currentID == _nextID) {
+        // This is the next module in sequence so start
+    } else {
+        // This isn't the next module.
+        // Show user a message and show link to navigate to it
+    }
+}
+
+// Put your own notifications and navigation here...
+
+// Mouse event handler
+private function gotoNextInstance(event:MouseEvent):void {
+    var url:String = FlashVars.wwwroot + "mod/swf/view.php?id=" + _nextID;
+    var request:URLRequest = new URLRequest(url);
+    navigateTo(request,"_self");
+}
+}}}
