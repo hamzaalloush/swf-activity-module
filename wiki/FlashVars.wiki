@@ -25,6 +25,7 @@ The Flash embed code of the SWF Activity Module passes in parameters via FlashVa
   * *skin:String* - URL to skin SWF file or skin XML file
   * *starttime:uint* - Server time for start of learning interaction
   * *swfid:uint* - SWF Activity Module instance ID
+  * *wwwroot:String* - The root directory of the Moodle installation, e.g. http://example.com/moodle/
   * *xmlurl:String* - URL to learning interaction data XML file
 
 Additionally, non-standard name value pairs can be passed in by the SWF Activity Module. Access these in the normal way. For example:
