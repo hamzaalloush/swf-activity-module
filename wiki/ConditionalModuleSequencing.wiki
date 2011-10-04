@@ -1,7 +1,7 @@
 #summary How to implement conditional module sequencing
 #labels Featured
 
-= Not released. Do not use yet! =
+== Introduction ==
 
 The latest build of the SWF Activity Module for Moodle includes support for conditional sequencing between SWF course module instances.
 
