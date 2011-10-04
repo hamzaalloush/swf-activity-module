@@ -29,3 +29,5 @@ This is when a group of activities on a course must be completed in a specific o
   * Learners must complete the first uncompleted module instance before they can attempt the next in the sequence.
   * Learners are shown a summary page of the sequenced module instances if they attempt a module instance out of sequence with a button that takes them to the next one in the sequence.
   * If the order of the modules is changed or added to before learners have completed all of them, they are simply required to do the first uncompleted module(s) in the new sequence. They do not have to re-attempt already completed instances.
+
+<img src="http://blog.matbury.com/wp-content/uploads/2011/10/swf_conditional_sequencing.gif" alt="SWF Activity Module conditional sequencing" width="476" height="420" >
