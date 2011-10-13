@@ -81,3 +81,13 @@ Your intro...
 Your links...
 
 ----
+
+== eLearning Brothers ==
+
+These Flash eLearning templates and quizzes are very simple to use and edit. Each template is fully customizable in Adobe Flash (we give you the .fla Flash source file). The final exported flash (.swf) file can be imported into most rapid elearning software (Articulate Presenter, Adobe Captivate, Atlantic Link, Lectora, Unison, ProForm, Adobe Presenter, Adobe Flash, PowerPoint, Udutu, and more).
+
+Reuse the eLearning Flash interaction and quiz templates over and over again in multiple courses or even websites and other presentations.
+
+eLearning Brothers: http://elearningtemplates.com/elearning-activities/
+
+----
