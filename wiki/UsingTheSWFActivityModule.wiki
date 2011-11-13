@@ -45,7 +45,7 @@ Enter the following parameters:
    * *Full browser* - Flash app takes up 100% height and 100% width of available browser window (not to be confused with full-screen Flash)
    * *Version* - Minimum Flash Player version required to play the Flash learning application. If a user's Flash Player version is too low, express install will be initiated. Users must have administrator privileges on their computer to successfully complete a Flash Player upgrade.
 
-*Please note*: The SWF File parameter can be either a file picker (pop-up window) or a selection list. See more about customising this feature here: [http://code.google.com/p/swf-activity-module/wiki/CustomiseModuleInstanceForm http://code.google.com/p/swf-activity-module/wiki/CustomiseModuleInstanceForm]
+*Please note*: The SWF File parameter can be either a file picker (pop-up window) or a selection list. See more about customising this feature in [http://code.google.com/p/swf-activity-module/wiki/AdministrationSettings AdministrationSettings]
 
 ===XML Learning Interaction Data===
 
