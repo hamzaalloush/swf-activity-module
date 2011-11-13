@@ -53,4 +53,4 @@ The settings are:
 
   * *Allow Networking*
 
-These settings are described in more detail in UsingTheSWFActivityModule.
+These settings are described in more detail in [http://code.google.com/p/swf-activity-module/wiki/UsingTheSWFActivityModule UsingTheSWFActivityModule].
