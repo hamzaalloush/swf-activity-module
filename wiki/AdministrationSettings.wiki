@@ -15,7 +15,7 @@ The Adminstration Settings page is located in Moodle at:
 
 The settings are:
 
-  * *Application or file*
+  * *Application or file* - switch between using Moodle file picker or a dropdown list of SWF files autmoatically listed from moodledata/courseid/swf/
 
   * *Width*
 
@@ -25,7 +25,7 @@ The settings are:
 
   * *Version*
 
-  * *Conditional sequencing*
+  * *[http://code.google.com/p/swf-activity-module/wiki/ConditionalModuleSequencing Conditional sequencing]*
 
   * *Align*
 
