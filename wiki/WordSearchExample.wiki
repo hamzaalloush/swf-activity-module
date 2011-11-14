@@ -29,7 +29,7 @@ No Flash learning applications require installation in Moodle 1.9. All you need 
   * *Name* - (e.g. "Common Objects Word Search") The name of your learning interaction as it will appear on the Moodle course page.
   * *Description* - (e.g. "Every day objects found in the home") A brief description of the learning interaction.
   * *SWF File* - (e.g. "xml_word_search.swf") The Flash learning application, in this case, xml_word_search.swf. If the Flash application is not in the Moodle course files directory, you'll have to upload it.
-  * *Width* - (e.g. "100%") Width of the Flash Player window in pixels, also accepts % values.
+  * *Width* - (e.g. "900" or "100%") Width of the Flash Player window in pixels, also accepts % values.
   * *Height* - (e.g. "570") Height of the Flash Player window in pixels.
   * *Version* - (e.g. "9.0.115.0") Minimum required Flash Player version to run Flash learning application. Also accepts main Flash Player numbers, e.g. "9".
   * *XML File URL* - (e.g. "word_search_common_objects.xml") The learning interaction (lesson) data XML file. If the XML file is not present in the Moodle course files directory, you'll have to upload it.
