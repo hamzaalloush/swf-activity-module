@@ -59,7 +59,34 @@ private function sendGrade():void {
 	obj.servicefunction = "Grades.amf_grade_update"; // (String) ClassName.method_name
 	_amf.getObject(obj); // send the data to the server
 }
-		
+
+// Connection to AMFPHP succeeded
+// Manage returned data and inform user
+private function gotDataHandler(event:Event):void {
+	// Clean up listeners
+	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
+	_amf.removeEventListener(Amf.FAULT, faultHandler);
+	// Check if grade was sent successfully
+	try {
+		switch(_amf.obj.result) {
+			// Adapt the following code to manage output from AMFPHP as you wish
+			//
+			case "SUCCESS":
+			_text.appendText(_amf.obj.message);
+			break;
+			//
+			case "NO_PERMISSION":
+			_text.appendText(_amf.obj.message);
+			break;
+			//
+			default:
+			_text.appendText(_amf.obj.message);
+		}
+	} catch(e:Error) {
+		_text.appendText(_amf.obj.message);
+	}
+}
+				
 private function gotDataHandler(event:Event):void {
 	// clean up listeners
 	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
