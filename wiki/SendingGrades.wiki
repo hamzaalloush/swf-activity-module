@@ -1,4 +1,4 @@
-#summary How to write Actionscript to send grades to the grade book
+#summary How to write Actionscript to send grades to Moodle's grade book
 #labels Phase-Implementation,Featured
 
 == Introduction ==
