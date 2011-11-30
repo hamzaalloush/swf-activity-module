@@ -1,5 +1,7 @@
 #summary How to configure and install AMFPHP 2.0.
 
+= Please note this documentation is not yet in service =
+
 == Introduction ==
 
 AMFPHP 2.0 is the new Flash Remoting gateway between Flash clients in the SWF Activity Module and Moodle's server-side functions and database. With it, Flash applications can read and write to Moodle's APIs:
@@ -50,3 +52,9 @@ require_once dirname(__FILE__) . '/ClassLoader.php';
   # The service browser should appear and expose the ExampleService class
   # Enter any string in "param" and click "Call method"
   # The call should return the string you entered below
+
+== amfPHP 1.9 services ==
+
+= NOT TRUE! =
+
+Any existing amfPHP 1.9 service classes can be copied from `moodle/lib/amfphp/services/` across to the new `moodle/lib/Amfphp2/Services/` directory and they'll work without modification. However, the __construct() and __destruct() functions are no longer necessary.
