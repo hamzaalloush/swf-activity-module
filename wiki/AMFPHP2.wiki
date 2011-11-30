@@ -46,7 +46,7 @@ require_once dirname(__FILE__) . '/ClassLoader.php';
 
 == Test the connection ==
 
-  # In you web browser, navigate to http://yoursite.com/moodle/lib/Amfphp2/
+  # In you web browser, navigate to `http://yoursite.com/moodle/lib/Amfphp2/`
   # The service browser should appear and expose the ExampleService class
   # Enter any string in "param" and click "Call method"
   # The call should return the string you entered below
