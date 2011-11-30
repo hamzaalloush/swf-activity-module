@@ -55,6 +55,4 @@ require_once dirname(__FILE__) . '/ClassLoader.php';
 
 == amfPHP 1.9 services ==
 
-= NOT TRUE! =
-
-Any existing amfPHP 1.9 service classes can be copied from `moodle/lib/amfphp/services/` across to the new `moodle/lib/Amfphp2/Services/` directory and they'll work without modification. However, the __construct() and __destruct() functions are no longer necessary.
+Any existing amfPHP 1.9 service classes can be copied from `moodle/lib/amfphp/services/` across to the new `moodle/lib/Amfphp2/Services/` directory. However, the `__construct()` and `__destruct()` functions are no longer necessary. More about the modifications later...
