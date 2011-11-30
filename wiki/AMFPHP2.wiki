@@ -17,9 +17,9 @@ AMFPHP 2.0 is the new Flash Remoting gateway between Flash clients in the SWF Ac
 
   # Download the latest version of amfPHP 2.0 from the project site: [http://www.silexlabs.org/amfphp/ amfPHP 2.0]
   # Unzip the file and look for the /Amfphp/ directory
-  # Rename it to /Amfphp2/ to avoid conflict with the existing amfPHP 1.9 gateway.
-  # Put the directory and all its contents in /moodle/lib/ so that the path is /moodle/lib/Amfphp2/
-  # With a text or PHP editor, open the file /moodle/lib/Amfphp2/index.php
+  # Rename it to `/Amfphp2/` to avoid conflict with the existing amfPHP 1.9 gateway.
+  # Put the directory and all its contents in `/moodle/lib/` so that the path is `/moodle/lib/Amfphp2/`
+  # With a text or PHP editor, open the file `/moodle/lib/Amfphp2/index.php`
   # Change these lines:
 {{{
 /**
