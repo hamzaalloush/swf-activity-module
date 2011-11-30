@@ -1,0 +1,54 @@
+#summary How to configure and install AMFPHP 2.0.
+
+== Introduction ==
+
+AMFPHP 2.0 is the new Flash Remoting gateway between Flash clients in the SWF Activity Module and Moodle's server-side functions and database. With it, Flash applications can read and write to Moodle's APIs:
+
+*  Glossary - Read and write glossary entries (experimental)
+*  Grades - Read and write grades in Moodle's grade book
+*  Groups - Read and filter groups and groupings of users
+*  Message - Read and send messages
+*  Snapshot - Write images created in Flash clients to Moodle course files directories
+*  User - Read and filter users
+*  Any other classes and functions that you write service scripts for
+
+
+== How to install and configure ==
+
+Download the latest version of amfPHP 2.0 from the project site:
+
+*  [http://www.silexlabs.org/amfphp/ amfPHP 2.0]
+*  Unzip the file and look for the /Amfphp/
+*  Rename it to /Amfphp2/ to avoid conflict with the existing amfPHP 1.9 gateway.
+*  Put the directory in /moodle/lib/ so that the path is /moodle/lib/Amfphp2/
+*  With a text or PHP editor, open the file /moodle/lib/Amfphp2/index.php
+*  Change these lines:
+{{{
+/**
+*  includes
+*  */
+require_once dirname(__FILE__) . '/ClassLoader.php';
+}}}
+
+to
+
+{{{
+/**
+*  includes
+*  */
+
+//Include Moodle config.php file which holds $CFG object
+include_once "../../config.php";
+
+// If not logged in, redirect user to login page
+require_login();
+
+require_once dirname(__FILE__) . '/ClassLoader.php';
+}}}
+
+== Test the connection ==
+
+*  In you web browser, navigate to http://yoursite.com/moodle/lib/Amfphp2/
+*  The service browser should appear and expose the ExampleService class
+*  Enter any string in "param" and click "Call method"
+*  The call should return the string you entered below
