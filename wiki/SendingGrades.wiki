@@ -86,18 +86,6 @@ private function gotDataHandler(event:Event):void {
 		_text.appendText(_amf.obj.message);
 	}
 }
-				
-private function gotDataHandler(event:Event):void {
-	// clean up listeners
-	_amf.removeEventListener(Amf.GOT_DATA, gotDataHandler);
-	_amf.removeEventListener(Amf.FAULT, faultHandler);
-	// check if grade was sent successfully
-	if(_amf.obj != false) {
-		_text.appendText("Your grade has been sent to the grade book.");
-	} else {
-		_text.appendText("There was a problem sending your grade to the grade book.");
-	}
-}
 
 private function faultHandler(event:Event):void {
 	// clean up listeners
