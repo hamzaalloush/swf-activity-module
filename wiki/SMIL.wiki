@@ -7,6 +7,12 @@ SMIL, Sequenced Multimedia Integration Language, is a W3C recommended XML markup
 
 ----
 
+== SMIL and Moodle ==
+
+Moodle 1.9's file repository system recognises SMIL files as text and conveniently allows teachers and admins to edit them in situ.
+
+----
+
 == Blog article ==
 
 I wrote an article on my blog about SMIL in relation to elearning:
