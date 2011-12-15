@@ -25,8 +25,6 @@ I wrote an article on my blog about SMIL in relation to elearning:
 
 I recommend using SMIL 2.1 as a data tree structure for XML driven Flash applications. Implementations may use as much or as little of the data provided in SMIL files to generate a particular learning interaction.
 
-  * [http://www.w3.org/2005/SMIL21/SMIL21.dtd Synchronized Multimedia Integration Language (SMIL 2.1)]
-
 ----
 
 == Examples ==
@@ -41,6 +39,6 @@ Your browser may or may not support SMIL file types. If not, your browser will a
 
 == W3C.org SMIL Documentation ==
 
-[http://www.w3.org/TR/2005/WD-SMIL2-20050201/cover.html Full specification and reference information] is available on W3C.org.
+  * [http://www.w3.org/2005/SMIL21/SMIL21.dtd Synchronized Multimedia Integration Language (SMIL 2.1)] documentation on W3C.org.
 
 [http://www.w3.org/2005/SMIL21/Language SMIL 2.1 namespace reference page] (2006/11/24).
