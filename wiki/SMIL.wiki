@@ -19,6 +19,8 @@ I wrote an article on my blog about SMIL in relation to elearning:
 
 I recommend using SMIL 2.1 as a data tree structure for XML driven Flash applications. Implementations may use as much or as little of the data provided in SMIL files to generate a particular learning interaction.
 
+  * [http://www.w3.org/2005/SMIL21/SMIL21.dtd Synchronized Multimedia Integration Language (SMIL 2.1)]
+
 ----
 
 == Examples ==
