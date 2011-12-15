@@ -11,7 +11,7 @@ SMIL, Sequenced Multimedia Integration Language, is a W3C recommended XML markup
 
 I wrote an article on my blog about SMIL in relation to elearning:
 
-  *[http://blog.matbury.com/2011/10/23/whats-smil-and-why-should-we-use-it/ What’s SMIL and why should we use it?]
+  * [http://blog.matbury.com/2011/10/23/whats-smil-and-why-should-we-use-it/ What’s SMIL and why should we use it?]
 
 ----
 
