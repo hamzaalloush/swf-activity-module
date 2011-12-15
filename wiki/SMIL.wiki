@@ -31,9 +31,9 @@ I recommend using SMIL 2.1 as a data tree structure for XML driven Flash applica
 
 Your browser may or may not support SMIL file types. If not, your browser will attempt to download the files. You can view them with any text or XML editor. [http://notepad-plus-plus.org/ Notepad++] is a good open source text and XML editor.
 
-[http://matbury.com/assets/slide_show.smil Slide show presentation]
+[http://matbury.com/assets/slide_show.smil Slide show presentation] (Triggers download in some browsers)
 
-[http://matbury.com/assets/elem_common_objects.smil Learning activity data]
+[http://matbury.com/assets/elem_common_objects.smil Learning activity data] (Triggers download in some browsers)
 
 ----
 
