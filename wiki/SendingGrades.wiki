@@ -55,7 +55,7 @@ private function sendGrade():void {
 	obj.instance = FlashVars.instance; // (int) Moodle instance ID
 	//For some reason, Moodle returns Wiki formatting warning (bug) 
 	// so it's necessary to cast obj.feedback as a string!
-	obj.feedback = String("Some text feedback for teachers and/or learners to read"); // (String) optional - 
+	obj.feedback = String("Some text feedback for teachers and/or learners to read"); // (String) optional
 	obj.feedbackformat = Math.floor(getTimer() / 1000); // (int) elapsed time in seconds
 	obj.rawgrade = 100; // (Number) grade, normally 0 - 100 but depends on grade book settings
 	obj.servicefunction = "Grades.amf_grade_update"; // (String) ClassName.method_name
