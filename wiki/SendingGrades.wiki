@@ -107,4 +107,4 @@ private function faultHandler(event:Event):void {
 
 === Grades successfully pushed but not confirmed by Flash client ===
 
-This is more than likely due to your server running PHP 5.3 or above. There are a few hundred lines of deprecated code in Moodle's core that throw deprecation warnings in PHP 5.3. There is currently no solution other than to go into Moodle's core code and correct the deprecateed functions.
+This is more than likely due to your server running PHP 5.3 or later. There are a few hundred lines of deprecated code in Moodle's core that throw deprecation warnings in PHP 5.3. There is currently no solution other than to go into Moodle's core code and correct the deprecated functions.
