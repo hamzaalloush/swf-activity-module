@@ -41,4 +41,4 @@ Your browser may or may not support SMIL file types. If not, your browser will a
 
   * [http://www.w3.org/2005/SMIL21/SMIL21.dtd Synchronized Multimedia Integration Language (SMIL 2.1)] documentation on W3C.org.
 
-[http://www.w3.org/2005/SMIL21/Language SMIL 2.1 namespace reference page] (2006/11/24).
+  * [http://www.w3.org/2005/SMIL21/Language SMIL 2.1 namespace reference page] (2006/11/24).
