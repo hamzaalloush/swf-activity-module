@@ -1,5 +1,13 @@
-#summary Important information about the SWF Activity Module.
+#summary PLEASE READ: Important information about the SWF Activity Module.
 #labels Featured
+
+= Delete the Service Browser! =
+
+The AMFPHP Flash Remoting package contains a service browser application which is useful for debugging and developing new service classes. However, it should not be uploaded to a publicly accessible server. The following directories and all their contents should be deleted:
+
+  * MOODLE/lib/amfphp/browser/
+  * MOODLE/lib/amfphp/services/amfphp/
+
 
 = Flash Security =
 
