@@ -106,6 +106,10 @@ var _byteArray:ByteArray; // stores the encoded bitmap data to send to the Snaps
 			throw new Error("Error: There was a problem. Your image was not saved.");
 			break;
 			//
+			case "NO_PERMISSION":
+			_display.text = _amf.obj.message;
+			break;
+			//
 			default:
 			throw new Error("Unknown error.");
 		}
