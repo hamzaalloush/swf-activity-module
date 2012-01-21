@@ -40,6 +40,8 @@ Please note that Moodle 1.9 is not fully compatible with PHP 5.3+
 
 == Common installation problems ==
 
+Error: "Module swf: /home/example.com/www/moodle/mod/swf/version.php was not readable"
+
 Make sure that the SWF Activity Module directory structure in Moodle is as follows:
 
   * MOODLE/mod/swf/... - NOT - MOODLE/mod/swf/swf/...
