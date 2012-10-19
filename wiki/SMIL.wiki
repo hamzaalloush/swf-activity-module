@@ -57,7 +57,7 @@ Matt Bury's Multimedia Interactive Learning Applications (MILAs) use SMIL XML fi
 		<!-- Metadata about the SMIL presentation -->
 		<meta id="meta-smil1.0-a" name="Creator" content="Matt Bury" />
 		<meta id="meta-smil1.0-b" name="Creator URL" content="http://matbury.com/" />
-		<meta id="meta-smil1.0-c" name="Creator email" content="matbury@gmail.com" />
+		<meta id="meta-smil1.0-c" name="Creator email" content="matt@...y.com" />
 		<meta id="meta-smil1.0-d" name="Publisher" content="matbury.com" />
 		<meta id="meta-smil1.0-e" name="Publisher URL" content="http://matbury.com/" />
 		<meta id="meta-smil1.0-f" name="Date" content="2011-10-13" />
