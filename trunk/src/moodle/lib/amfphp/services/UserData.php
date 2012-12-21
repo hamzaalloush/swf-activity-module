@@ -1,5 +1,6 @@
 <?php
 /** This service handles user info for SWF Activity Module
+* WARNING: THIS SERVICE SCRIPT IS EXPERIMENTAL AND NOT SECURE. DO NOT USE ON A PRODUCTION SERVER. THE INSECURE FUNCTIONS HAVE BEEN COMMENTED OUT, JUST IN CASE!
 * 
 *
 * @author Matt Bury - matbury@gmail.com
@@ -43,7 +44,7 @@ class UserData
 		*/
 		$capabilities = $this->access->get_capabilities($obj['instance'],$obj['swfid']);
 		// If there was a problem with authentication, return the error message
-		if(!empty($capabilities->error))
+     /*if(!empty($capabilities->error))
 		{
 			return $capabilities->error;
 		}
@@ -74,7 +75,7 @@ class UserData
 				$swf_return->message = 'User data not recorded.';
 				return $swf_return;
 			}
-		}
+		}*/
 		$swf_return->result = 'NO_PERMISSION';
 		$swf_return->message = 'You do not have permission to access users.';
 		return $swf_return;
