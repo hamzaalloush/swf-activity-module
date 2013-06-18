@@ -130,8 +130,9 @@ class Grades
 			// Insert grade
 			grade_update('mod/swf', $capabilities->course, 'mod', 'swf', $grade->swfid, 0, $grade, NULL);
 			
-			// Return updated grade item
-			try
+			// Return updated grade item - Bugs in Moodle cause too many issues for this section to work reliably
+      // therefore commenting it out and just returning a SUCCESS message.
+        /*try
 			{
 				$result = grade_get_grades($capabilities->course, 'mod', 'swf', $grade->swfid, $grade->userid);
 				// Only return the single grade object - simpler for Flash apps. to handle SUCCESS
@@ -145,7 +146,11 @@ class Grades
 				$swf_return->result = 'FAILED';
 				return $swf_return->message = $e->getMessage(); // probably a PHP 5.3+ deprecation warning triggered by legacy Moodle core code
 				return $swf_return;
-			}
+      }*/
+      
+      $swf_return->result = 'SUCCESS';
+      $swf_return->message = 'Your grade has been sent to the grade book.';
+      return $swf_return;
 		}
 		$swf_return->result = 'NO_PERMISSION';
 		$swf_return->message = 'You do not have permission to save grades.';
